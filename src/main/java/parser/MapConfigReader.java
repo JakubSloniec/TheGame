@@ -27,8 +27,6 @@ public class MapConfigReader {
         // Getting JSON resource representing game map.
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
-
-        ObjectMapper mapper = new ObjectMapper();
         RawMap gameMap = null;
 
         try {
