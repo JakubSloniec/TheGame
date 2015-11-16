@@ -21,6 +21,5 @@ public class Key extends AbstractItem {
 
     @Override
     public void use(IPlayer player) {
-
     }
 }

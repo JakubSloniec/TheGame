@@ -27,7 +27,7 @@ public class SimplePlayerStatistic<T extends Number> implements IPlayerStatistic
 
     @Override
     public void add(T value) {
-
+        //TODO: Think about number, how to convert this stat??
     }
 
     public static <T extends Number> IPlayerStatistic<T> createPlayerStatistic(Attribute<T> attribute) {

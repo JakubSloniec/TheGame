@@ -18,13 +18,12 @@ public abstract class AbstractAttributeItem extends AbstractItem {
         this.attributes = attributes;
     }
 
-    @Override
     public Set<ItemAttribute> getAttributes() {
         return Collections.unmodifiableSet(attributes);
     }
 
     @Override
     public void use(IPlayer player) {
-
+        player.useItem(this);
     }
 }
