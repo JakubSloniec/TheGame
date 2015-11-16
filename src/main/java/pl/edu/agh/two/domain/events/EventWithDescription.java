@@ -1,13 +1,14 @@
 package pl.edu.agh.two.domain.events;
 
+import java.util.Optional;
+
 import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.exceptions.GameConsoleNotSet;
 
-import java.util.Optional;
-
 public class EventWithDescription implements IEvent {
-    private Optional<GameConsole> gameConsole;
+    private Optional<GameConsole> gameConsole = Optional.empty();
+    
     private String eventDescription = "";
 
     public GameConsole getGameConsole() {
