@@ -11,11 +11,11 @@ public abstract class AbstractRoom implements IRoom {
 
         private final T room;
 
-        public Builder(T room) {
+        protected Builder(T room) {
             this.room = room;
         }
 
-        public Builder<T> setPreconditions(Set<IPrecondition> preconditions) {
+        public Builder<T> setPreconditions(List<IPrecondition> preconditions) {
             room.setPreconditions(preconditions);
             return this;
         }
@@ -32,7 +32,7 @@ public abstract class AbstractRoom implements IRoom {
     }
 
     private final EnumMap<Direction, IRoom> adjectiveRooms = new EnumMap<>(Direction.class);
-    private Set<IPrecondition> preconditions = Collections.emptySet();
+    private List<IPrecondition> preconditions = Collections.emptyList();
     private Optional<GameConsole> gameConsole = Optional.empty();
 
     protected AbstractRoom() {
@@ -44,11 +44,11 @@ public abstract class AbstractRoom implements IRoom {
     }
 
     @Override
-    public Set<IPrecondition> getPreconditions() {
-        return Collections.unmodifiableSet(preconditions);
+    public List<IPrecondition> getPreconditions() {
+        return Collections.unmodifiableList(preconditions);
     }
 
-    public void setPreconditions(Set<IPrecondition> preconditions) {
+    public void setPreconditions(List<IPrecondition> preconditions) {
         this.preconditions = preconditions;
     }
 

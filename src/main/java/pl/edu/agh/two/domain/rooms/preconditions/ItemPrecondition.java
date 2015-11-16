@@ -1,6 +1,6 @@
 package pl.edu.agh.two.domain.rooms.preconditions;
 
-import pl.edu.agh.two.domain.items.Item;
+import pl.edu.agh.two.domain.items.IItem;
 import pl.edu.agh.two.domain.players.IPlayer;
 
 /**
@@ -8,9 +8,9 @@ import pl.edu.agh.two.domain.players.IPlayer;
  */
 public class ItemPrecondition implements IPrecondition {
 
-    private final Item item;
+    private final IItem item;
 
-    private ItemPrecondition(Item item) {
+    private ItemPrecondition(IItem item) {
         this.item = item;
     }
 
@@ -19,7 +19,7 @@ public class ItemPrecondition implements IPrecondition {
         return player.getBackpack().hasItem(item);
     }
 
-    public static ItemPrecondition createPrecondition(Item item) {
+    public static ItemPrecondition createPrecondition(IItem item) {
         return new ItemPrecondition(item);
     }
 

@@ -1,13 +1,13 @@
 package pl.edu.agh.two.domain.events;
 
-import pl.edu.agh.two.domain.items.Item;
+import pl.edu.agh.two.domain.items.IItem;
 import pl.edu.agh.two.domain.players.IPlayer;
 
 public class PickItemEvent  extends EventWithDescription{
 
-    private final Item item;
+    private final IItem item;
 
-    public PickItemEvent(Item item) {
+    public PickItemEvent(IItem item) {
         this.item = item;
     }
 

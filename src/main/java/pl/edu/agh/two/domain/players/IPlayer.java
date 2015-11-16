@@ -4,7 +4,7 @@ import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 
 import java.util.Set;
 
-public interface IPlayer {
+public interface IPlayer<T extends Number> {
 
     public String getName();
 

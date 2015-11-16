@@ -5,7 +5,7 @@ import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 import java.util.Collections;
 import java.util.Set;
 
-public class Player implements IPlayer {
+public class Player<T extends Number> implements IPlayer<T> {
 
     private final String name;
     private final Backpack backpack;
@@ -36,5 +36,6 @@ public class Player implements IPlayer {
     public <T extends Number> IPlayerStatistic<T> getStatistic(String name) {
         return null;
     }
+
 
 }
