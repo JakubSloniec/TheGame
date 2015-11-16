@@ -13,14 +13,18 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import pl.agh.edu.two.theGame.console.GameConsole;
-import pl.edu.agh.two.theGame.model.events.Event;
-import pl.edu.agh.two.theGame.model.player.Player;
+import pl.edu.agh.two.console.GameConsole;
+import pl.edu.agh.two.domain.events.Event;
+import pl.edu.agh.two.domain.players.IPlayer;
+import pl.edu.agh.two.domain.rooms.AdjectiveFieldDoesNotExists;
+import pl.edu.agh.two.domain.rooms.BasicRoom;
+import pl.edu.agh.two.domain.rooms.Direction;
+import pl.edu.agh.two.domain.rooms.Room;
 
 @RunWith(MockitoJUnitRunner.class)
 
 public class BasicRoomTest {
-    @Mock protected Player playerMock;
+    @Mock protected IPlayer playerMock;
 
     @Test(expected = AdjectiveFieldDoesNotExists.class)
     public void missingField() throws AdjectiveFieldDoesNotExists {
@@ -54,7 +58,7 @@ public class BasicRoomTest {
         instance.addAdjectiveRoom(Direction.NORTH, northRoom);
         instance.addAdjectiveRoom(Direction.EAST, mock(Room.class));
 
-        when(northRoom.tryEnter(eq(instance), any(Player.class))).thenReturn(true);
+        when(northRoom.tryEnter(eq(instance), any(IPlayer.class))).thenReturn(true);
         assertEquals(northRoom, instance.go(Direction.NORTH, playerMock));
     }
 
@@ -65,7 +69,7 @@ public class BasicRoomTest {
         instance.addAdjectiveRoom(Direction.WEST, westRoom);
         instance.addAdjectiveRoom(Direction.EAST, mock(Room.class));
 
-        when(westRoom.tryEnter(eq(instance), any(Player.class))).thenReturn(false);
+        when(westRoom.tryEnter(eq(instance), any(IPlayer.class))).thenReturn(false);
         assertEquals(instance, instance.go(Direction.WEST, playerMock));
     }
 

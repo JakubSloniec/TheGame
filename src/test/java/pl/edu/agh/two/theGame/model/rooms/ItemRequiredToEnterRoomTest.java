@@ -14,9 +14,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import pl.agh.edu.two.theGame.console.GameConsole;
-import pl.edu.agh.two.theGame.model.items.Item;
-import pl.edu.agh.two.theGame.model.player.Player;
+import pl.edu.agh.two.console.GameConsole;
+import pl.edu.agh.two.domain.items.Item;
+import pl.edu.agh.two.domain.players.IPlayer;
+import pl.edu.agh.two.domain.rooms.ItemRequiredToEnterRoom;
+import pl.edu.agh.two.domain.rooms.Room;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -42,21 +44,21 @@ public class ItemRequiredToEnterRoomTest extends BasicRoomTest {
 
     @Test
     public void testTryEnterSuccessfully() throws Exception {
-        final Player playerMock = mock(Player.class);
+        final IPlayer playerMock = mock(IPlayer.class);
         when(playerMock.getItems()).thenReturn(Collections.singletonList(requiredItemMock));
         assertTrue(instance.tryEnter(mock(Room.class), playerMock));
     }
 
     @Test
     public void testTryEnterFailEmptyEquipment() throws Exception {
-        final Player playerMock = mock(Player.class);
+        final IPlayer playerMock = mock(IPlayer.class);
         when(playerMock.getItems()).thenReturn(Collections.emptyList());
         assertFalse(instance.tryEnter(mock(Room.class), playerMock));
     }
 
     @Test
     public void testTryEnterFail() throws Exception {
-        final Player playerMock = mock(Player.class);
+        final IPlayer playerMock = mock(IPlayer.class);
         when(playerMock.getItems()).thenReturn(Arrays.asList(mock(Item.class), mock(Item.class)));
         assertFalse(instance.tryEnter(mock(Room.class), playerMock));
     }

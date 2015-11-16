@@ -11,15 +11,17 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import pl.agh.edu.two.theGame.console.GameConsole;
-import pl.edu.agh.two.theGame.model.player.Player;
-import pl.edu.agh.two.theGame.model.player.PlayerStatistic;
-import pl.edu.agh.two.theGame.model.player.SimplePlayerStatistic;
+import pl.edu.agh.two.console.GameConsole;
+import pl.edu.agh.two.domain.players.statistics.DefaultPlayerStatistic;
+import pl.edu.agh.two.domain.players.IPlayer;
+import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
+import pl.edu.agh.two.domain.rooms.Room;
+import pl.edu.agh.two.domain.rooms.StatisticsRequiredToEnter;
 
 @RunWith(MockitoJUnitRunner.class)
 public class StatisticsRequiredToEnterTest extends BasicRoomTest {
 
-    private final static PlayerStatistic<Number> requiredStatistic = SimplePlayerStatistic.BLOOD_ALCOHOL_CONTENT;
+    private final static IPlayerStatistic<Number> requiredStatistic = DefaultPlayerStatistic.BLOOD_ALCOHOL_CONTENT;
     private final double minAlcoholContent = 0.0004;
     @Mock
     private GameConsole gameConsole;
@@ -34,19 +36,19 @@ public class StatisticsRequiredToEnterTest extends BasicRoomTest {
     public void setUp() throws Exception {
         instance = getInstance();
         instance.setGameConsole(gameConsole);
-        when(playerMock.getStatistic(SimplePlayerStatistic.BLOOD_ALCOHOL_CONTENT)).thenReturn(minAlcoholContent);
+        when(playerMock.getStatistic(DefaultPlayerStatistic.BLOOD_ALCOHOL_CONTENT)).thenReturn(minAlcoholContent);
     }
 
     @Test
     public void testTryEnterSuccessfully() throws Exception {
-        final Player playerMock = mock(Player.class);
+        final IPlayer playerMock = mock(IPlayer.class);
         when(playerMock.getStatistic(requiredStatistic)).thenReturn(minAlcoholContent * 2);
         assertTrue(instance.tryEnter(mock(Room.class), playerMock));
     }
 
     @Test
     public void testTryEnterFail() throws Exception {
-        final Player playerMock = mock(Player.class);
+        final IPlayer playerMock = mock(IPlayer.class);
         when(playerMock.getStatistic(requiredStatistic)).thenReturn(minAlcoholContent / 2);
         assertFalse(instance.tryEnter(mock(Room.class), playerMock));
     }

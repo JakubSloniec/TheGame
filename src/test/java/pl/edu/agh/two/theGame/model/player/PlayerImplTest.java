@@ -8,15 +8,17 @@ import java.util.Collection;
 import org.junit.Before;
 import org.junit.Test;
 
-import pl.edu.agh.two.theGame.model.items.Item;
+import pl.edu.agh.two.domain.items.Item;
+import pl.edu.agh.two.domain.players.statistics.DefaultPlayerStatistic;
+import pl.edu.agh.two.domain.players.Player;
 
 public class PlayerImplTest {
 
-    private PlayerImpl instance;
+    private Player instance;
 
     @Before
     public void setUp() throws Exception {
-        instance = new PlayerImpl();
+        instance = new Player();
 
     }
 
@@ -30,20 +32,20 @@ public class PlayerImplTest {
 
     @Test
     public void testGetDefaultStatistic() throws Exception {
-        for (SimplePlayerStatistic statistic : SimplePlayerStatistic.values()) {
+        for (DefaultPlayerStatistic statistic : DefaultPlayerStatistic.values()) {
             assertEquals(statistic.initialValue(), instance.getStatistic(statistic));
         }
     }
 
     @Test
     public void testUpdateStatistic() throws Exception {
-        instance.updateStatistic(SimplePlayerStatistic.ETCS_POINTS, 52);
-        assertEquals(52, instance.getStatistic(SimplePlayerStatistic.ETCS_POINTS));
+        instance.updateStatistic(DefaultPlayerStatistic.ETCS_POINTS, 52);
+        assertEquals(52, instance.getStatistic(DefaultPlayerStatistic.ETCS_POINTS));
     }
 
     @Test
     public void testUpdateAlcoholStatistic() throws Exception {
-        instance.updateStatistic(SimplePlayerStatistic.BLOOD_ALCOHOL_CONTENT, 0.002);
-        assertEquals(0.002, instance.getStatistic(SimplePlayerStatistic.BLOOD_ALCOHOL_CONTENT));
+        instance.updateStatistic(DefaultPlayerStatistic.BLOOD_ALCOHOL_CONTENT, 0.002);
+        assertEquals(0.002, instance.getStatistic(DefaultPlayerStatistic.BLOOD_ALCOHOL_CONTENT));
     }
 }
