@@ -8,9 +8,9 @@ import java.util.Random;
 public class RandomEvent extends EventWithDescription {
     private final Random random = new Random();
 
-    private final List<Event> availableEvents;
+    private final List<IEvent> availableEvents;
 
-    public RandomEvent(List<Event> availableEvents) {
+    public RandomEvent(List<IEvent> availableEvents) {
         this.availableEvents = availableEvents;
     }
 

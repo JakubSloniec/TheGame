@@ -6,7 +6,7 @@ import pl.edu.agh.two.exceptions.GameConsoleNotSet;
 
 import java.util.Optional;
 
-public class EventWithDescription implements Event {
+public class EventWithDescription implements IEvent {
     private Optional<GameConsole> gameConsole;
     private String eventDescription = "";
 

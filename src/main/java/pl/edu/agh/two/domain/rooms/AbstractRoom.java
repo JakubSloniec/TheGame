@@ -1,39 +1,62 @@
 package pl.edu.agh.two.domain.rooms;
 
 import pl.edu.agh.two.console.GameConsole;
-import pl.edu.agh.two.domain.events.Event;
-import pl.edu.agh.two.exceptions.GameConsoleNotSet;
+import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
 
-import java.util.EnumMap;
-import java.util.Optional;
+import java.util.*;
 
-public abstract class AbstractRoom implements Room {
-    private final EnumMap<Direction, Room> adjectiveRooms = new EnumMap<>(Direction.class);
+public abstract class AbstractRoom implements IRoom {
+
+    public static class Builder<T extends AbstractRoom> {
+
+        private final T room;
+
+        public Builder(T room) {
+            this.room = room;
+        }
+
+        public Builder<T> setPreconditions(Set<IPrecondition> preconditions) {
+            room.setPreconditions(preconditions);
+            return this;
+        }
+
+        public Builder<T> setGameConsole(GameConsole gameConsole) {
+            room.setGameConsole(Optional.ofNullable(gameConsole));
+            return this;
+        }
+
+        public T build() {
+            return room;
+        }
+
+    }
+
+    private final EnumMap<Direction, IRoom> adjectiveRooms = new EnumMap<>(Direction.class);
+    private Set<IPrecondition> preconditions = Collections.emptySet();
     private Optional<GameConsole> gameConsole = Optional.empty();
-    private Event event;
 
-
-    public void addAdjectiveRoom(Direction direction, Room room) {
-        adjectiveRooms.put(direction, room);
+    protected AbstractRoom() {
     }
 
-    protected GameConsole getGameConsole() {
-        return gameConsole.orElseThrow(GameConsoleNotSet::new);
+    @Override
+    public Map<Direction, IRoom> getAdjacentRooms() {
+        return Collections.unmodifiableMap(adjectiveRooms);
     }
 
-    public void setGameConsole(GameConsole gameConsole) {
-        this.gameConsole = Optional.of(gameConsole);
+    @Override
+    public Set<IPrecondition> getPreconditions() {
+        return Collections.unmodifiableSet(preconditions);
     }
 
-    protected Event getEvent() {
-        return event;
+    public void setPreconditions(Set<IPrecondition> preconditions) {
+        this.preconditions = preconditions;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    protected Optional<GameConsole> getGameConsole() {
+        return gameConsole;
     }
 
-    protected EnumMap<Direction, Room> getAdjectiveRooms() {
-        return adjectiveRooms;
+    protected void setGameConsole(Optional<GameConsole> gameConsole) {
+        this.gameConsole = gameConsole;
     }
 }

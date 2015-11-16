@@ -4,6 +4,7 @@ import pl.edu.agh.two.domain.items.Item;
 import pl.edu.agh.two.domain.players.IPlayer;
 
 public class PickItemEvent  extends EventWithDescription{
+
     private final Item item;
 
     public PickItemEvent(Item item) {

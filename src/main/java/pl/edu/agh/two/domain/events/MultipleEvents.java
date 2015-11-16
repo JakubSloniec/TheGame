@@ -9,15 +9,15 @@ import java.util.List;
  */
 public class MultipleEvents extends EventWithDescription {
 
-    private final List<Event> subEvents;
+    private final List<IEvent> subEvents;
 
-    public MultipleEvents(List<Event> subEvents) {
+    public MultipleEvents(List<IEvent> subEvents) {
         this.subEvents = subEvents;
     }
 
     public void execute(IPlayer player) {
         super.execute(player);
-        for (Event subEvent : subEvents) {
+        for (IEvent subEvent : subEvents) {
             subEvent.execute(player);
         }
     }

@@ -2,7 +2,7 @@ package pl.edu.agh.two.domain.events;
 
 import pl.edu.agh.two.domain.players.IPlayer;
 
-public interface Event {
+public interface IEvent {
 
     void execute(IPlayer player);
 

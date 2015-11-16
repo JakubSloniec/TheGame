@@ -1,4 +1,4 @@
-package pl.edu.agh.two.domain.rooms;
+package pl.edu.agh.two.exceptions;
 
 public class AdjectiveFieldDoesNotExists extends Exception {
 }
