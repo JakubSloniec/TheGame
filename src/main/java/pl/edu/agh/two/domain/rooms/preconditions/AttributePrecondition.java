@@ -19,7 +19,7 @@ public class AttributePrecondition<T extends Number & Comparable> implements IPr
 
     @Override
     public boolean test(IPlayer player) {
-        IPlayerStatistic<T> playerStatistic = player.getStatistic(attribute.getName());
+        IPlayerStatistic<T> playerStatistic = player.getStatistic(attribute);
         return minimumValue.compareTo(playerStatistic.getCurrentValue()) <= 0;
     }
 
