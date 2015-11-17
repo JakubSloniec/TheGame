@@ -9,4 +9,6 @@
     <context:component-scan base-package="pl.edu.agh.two"/>
     <context:annotation-config/>
     <bean class="pl.edu.agh.two.Test"/>
+    <bean class="pl.edu.agh.two.gui.controllers.Controller" name="Controller"/>
+    <bean class="pl.edu.agh.two.AppGUI" name="AppGUI"/>
 </beans>
