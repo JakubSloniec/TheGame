@@ -5,19 +5,10 @@ package pl.edu.agh.two.parser;
  */
 public class RawRoom {
 
-    private int id;
     private int x;
     private int y;
-    private String type;
-    private String precondition;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private String event;
+    private RawPrecondition preconditions;
 
     public int getX() {
         return x;
@@ -35,27 +26,27 @@ public class RawRoom {
         this.y = y;
     }
 
-    public String getType() {
-        return type;
+    public String getEvent() {
+        return event;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setEvent(String event) {
+        this.event = event;
     }
 
-    public String getPrecondition() {
-        return precondition;
+    public RawPrecondition getPreconditions() {
+        return preconditions;
     }
 
-    public void setPrecondition(String precondition) {
-        this.precondition = precondition;
+    public void setPreconditions(RawPrecondition preconditions) {
+        this.preconditions = preconditions;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("COORDS: " + "(" + getX() + ", " + getY() + ")");
-        sb.append(" TYPE: " + getType());
-        sb.append(" PRECONDITION: " + getPrecondition());
+        sb.append(" EVENT: " + getEvent());
+        sb.append(" PRECONDITION: " + getPreconditions());
         sb.append("\n");
         return sb.toString();
     }
