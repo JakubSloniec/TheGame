@@ -4,6 +4,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -18,8 +20,11 @@ import pl.edu.agh.two.gui.controllers.Controller;
 @Component
 public class AppGUI {
 
+	private static Logger logger = LoggerFactory.getLogger(AppGUI.class);
+
 	private static Controller controller;
 
+	// for autowired bean to work in static context ( main() )
 	@Autowired
 	public AppGUI(Controller controller) {
 		AppGUI.controller = controller;
@@ -36,8 +41,8 @@ public class AppGUI {
 						| IllegalAccessException e1) {
 					e1.printStackTrace();
 				}
-
-				// Controller controller = new Controller();
+				logger.info(new Object() {
+				}.getClass().getEnclosingMethod().getName() + ": Starting main frame.");
 				controller.init();
 			}
 		};
