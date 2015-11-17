@@ -21,7 +21,7 @@ public class RootFrame extends JFrame {
 
 	public RootFrame() {
 		setTitle("IET Game");
-
+		setResizable(false);
 		// Image icon = null;
 		// try {
 		// icon =
@@ -71,7 +71,7 @@ public class RootFrame extends JFrame {
 
 		// int dividerRightLocation =
 		// Integer.parseInt(PropertyManager.getProperty("window.divider.right.location"));
-		int dividerRightLocation = 350;
+		int dividerRightLocation = 205;
 		// boolean dividerRightEnabled =
 		// Boolean.parseBoolean(PropertyManager.getProperty("window.divider.right.enabled"));
 		boolean dividerRightEnabled = false;
@@ -83,7 +83,7 @@ public class RootFrame extends JFrame {
 
 		// int dividerCenterLocation =
 		// Integer.parseInt(PropertyManager.getProperty("window.divider.center.location"));
-		int dividerCenterLocation = 600;
+		int dividerCenterLocation = 750;
 		// boolean dividerCenterEnabled =
 		// Boolean.parseBoolean(PropertyManager.getProperty("window.divider.center.enabled"));
 		boolean dividerCenterEnabled = false;
