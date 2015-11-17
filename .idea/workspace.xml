@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="090c6c37-bff7-459e-bd8e-5cd002c85951" name="Default" comment="" />
+    <list default="true" id="090c6c37-bff7-459e-bd8e-5cd002c85951" name="Default" comment="">
+      <change type="MOVED" beforePath="C:\Users\sg0219906\.babun\cygwin\home\SG0219906\studia\two\TheGame\src\main\java\parser\MapConfigReader.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/MapConfigReader.java" />
+      <change type="MOVED" beforePath="C:\Users\sg0219906\.babun\cygwin\home\SG0219906\studia\two\TheGame\src\main\java\parser\RawMap.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawMap.java" />
+      <change type="MOVED" beforePath="C:\Users\sg0219906\.babun\cygwin\home\SG0219906\studia\two\TheGame\src\main\java\parser\RawRoom.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawRoom.java" />
+      <change type="MOVED" beforePath="C:\Users\sg0219906\.babun\cygwin\home\SG0219906\studia\two\TheGame\src\test\java\parser\MapConfigReaderTest.java" afterPath="$PROJECT_DIR$/src/test/java/pl/edu/agh/two/parser/MapConfigReaderTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_6_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_6_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_6_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_6_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_6_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TheGame.iml" afterPath="$PROJECT_DIR$/TheGame.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/gamemap1.json" afterPath="$PROJECT_DIR$/src/main/resources/gamemap1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gamemap1.json" afterPath="$PROJECT_DIR$/target/classes/gamemap1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/gamemap2.json" afterPath="$PROJECT_DIR$/src/main/resources/gamemap2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gamemap2.json" afterPath="$PROJECT_DIR$/target/classes/gamemap2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Console.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -38,17 +60,17 @@
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+              <caret line="56" column="16" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="MapConfigReader.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/parser/MapConfigReader.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/MapConfigReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.86513156">
-              <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.18914473">
+              <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,7 +79,7 @@
         </entry>
       </file>
       <file leaf-file-name="MapConfigReaderTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/parser/MapConfigReaderTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/agh/two/parser/MapConfigReaderTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
@@ -77,54 +99,54 @@
         </entry>
       </file>
       <file leaf-file-name="RawMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/parser/RawMap.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawMap.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
-                <element signature="e#223#224#0" expanded="true" />
-                <element signature="e#250#251#0" expanded="true" />
-                <element signature="e#287#288#0" expanded="true" />
-                <element signature="e#319#320#0" expanded="true" />
-                <element signature="e#350#351#0" expanded="true" />
-                <element signature="e#380#381#0" expanded="true" />
-                <element signature="e#423#424#0" expanded="true" />
-                <element signature="e#461#462#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#528#529#0" expanded="true" />
-                <element signature="e#577#578#0" expanded="true" />
-                <element signature="e#611#612#0" expanded="true" />
+                <element signature="e#238#239#0" expanded="true" />
+                <element signature="e#265#266#0" expanded="true" />
+                <element signature="e#302#303#0" expanded="true" />
+                <element signature="e#334#335#0" expanded="true" />
+                <element signature="e#365#366#0" expanded="true" />
+                <element signature="e#395#396#0" expanded="true" />
+                <element signature="e#438#439#0" expanded="true" />
+                <element signature="e#476#477#0" expanded="true" />
+                <element signature="e#515#516#0" expanded="true" />
+                <element signature="e#543#544#0" expanded="true" />
+                <element signature="e#592#593#0" expanded="true" />
+                <element signature="e#626#627#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="RawRoom.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/parser/RawRoom.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawRoom.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
               <folding>
-                <element signature="e#234#235#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-                <element signature="e#292#293#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="e#369#370#0" expanded="true" />
-                <element signature="e#400#401#0" expanded="true" />
-                <element signature="e#426#427#0" expanded="true" />
-                <element signature="e#451#452#0" expanded="true" />
-                <element signature="e#475#476#0" expanded="true" />
-                <element signature="e#506#507#0" expanded="true" />
-                <element signature="e#532#533#0" expanded="true" />
-                <element signature="e#563#564#0" expanded="true" />
-                <element signature="e#590#591#0" expanded="true" />
-                <element signature="e#630#631#0" expanded="true" />
-                <element signature="e#662#663#0" expanded="true" />
-                <element signature="e#701#702#0" expanded="true" />
-                <element signature="e#736#737#0" expanded="true" />
-                <element signature="e#792#793#0" expanded="true" />
-                <element signature="e#840#841#0" expanded="true" />
+                <element signature="e#249#250#0" expanded="true" />
+                <element signature="e#274#275#0" expanded="true" />
+                <element signature="e#307#308#0" expanded="true" />
+                <element signature="e#335#336#0" expanded="true" />
+                <element signature="e#360#361#0" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
+                <element signature="e#415#416#0" expanded="true" />
+                <element signature="e#441#442#0" expanded="true" />
+                <element signature="e#466#467#0" expanded="true" />
+                <element signature="e#490#491#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
+                <element signature="e#547#548#0" expanded="true" />
+                <element signature="e#578#579#0" expanded="true" />
+                <element signature="e#605#606#0" expanded="true" />
+                <element signature="e#645#646#0" expanded="true" />
+                <element signature="e#677#678#0" expanded="true" />
+                <element signature="e#716#717#0" expanded="true" />
+                <element signature="e#751#752#0" expanded="true" />
+                <element signature="e#807#808#0" expanded="true" />
+                <element signature="e#855#856#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,6 +189,7 @@
         <option value="$PROJECT_DIR$/src/test/java/parser/MapConfigReaderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/parser/RawRoom.java" />
         <option value="$PROJECT_DIR$/src/main/java/parser/MapConfigReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/MapConfigReader.java" />
       </list>
     </option>
   </component>
@@ -190,8 +213,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="20" />
+    <option name="y" value="20" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -259,10 +282,6 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -308,7 +327,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="parser" />
+              <option name="myItemId" value="two" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="two" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -697,7 +746,7 @@
       <workItem from="1447143797920" duration="669000" />
       <workItem from="1447151982259" duration="5305000" />
       <workItem from="1447255587908" duration="360000" />
-      <workItem from="1447744124972" duration="40000" />
+      <workItem from="1447744124972" duration="989000" />
     </task>
     <task id="LOCAL-00001" summary="Creating project skeleton for Console and Map Parser">
       <created>1447144033412</created>
@@ -721,11 +770,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6374000" />
+    <option name="totallyTimeSpent" value="7323000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="20" y="20" width="1382" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -736,7 +785,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -795,7 +844,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/MapConfigReader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/MapConfigReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -805,7 +854,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/parser/MapConfigReaderTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/agh/two/parser/MapConfigReaderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
@@ -821,52 +870,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/RawMap.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#350#351#0" expanded="true" />
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/RawRoom.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawRoom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
           <folding>
-            <element signature="e#234#235#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#677#678#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -895,7 +944,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/MapConfigReader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/MapConfigReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -905,7 +954,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/parser/MapConfigReaderTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/agh/two/parser/MapConfigReaderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
@@ -921,52 +970,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/RawMap.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#350#351#0" expanded="true" />
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/RawRoom.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawRoom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
           <folding>
-            <element signature="e#234#235#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#677#678#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -998,7 +1047,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+          <caret line="56" column="16" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1006,7 +1055,7 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1027,7 +1076,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/parser/MapConfigReaderTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/agh/two/parser/MapConfigReaderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
@@ -1035,60 +1084,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/RawRoom.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawRoom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
           <folding>
-            <element signature="e#234#235#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#677#678#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/RawMap.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/RawMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#350#351#0" expanded="true" />
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/MapConfigReader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/two/parser/MapConfigReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86513156">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.18914473">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

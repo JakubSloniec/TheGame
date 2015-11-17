@@ -1,4 +1,4 @@
-package parser;
+package pl.edu.agh.two.parser;
 
 import java.util.List;
 
