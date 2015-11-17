@@ -1,0 +1,19 @@
+{
+  "itemName": "Piwo",
+  "itemIcon": "maybePathToIconFileForGui",
+  "usage": "INSTANT",
+  "attributes": [
+    {
+      "attrName": "energy",
+      "change": "1"
+    },
+    {
+      "attrName": "creativity",
+      "change": "3"
+    },
+    {
+      "attrName": "promile",
+      "change": "0.5"
+    }
+  ]
+}

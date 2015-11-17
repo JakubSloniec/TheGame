@@ -1,4 +1,4 @@
-package pl.edu.agh.two.parser;
+package pl.edu.agh.two.parser.map;
 
 /**
  * Created by Michal Mrowczyk on 11/17/2015.

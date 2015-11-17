@@ -1,4 +1,4 @@
-package pl.edu.agh.two.parser;
+package pl.edu.agh.two.parser.map;
 
 import java.util.List;
 
@@ -8,7 +8,9 @@ import java.util.List;
 public class RawPrecondition {
 
     private List<RawAttribute> attributes;
-    private List<RawItem> items;
+
+    // I am not sure if the list of items will be ultimately a list of String's, but leaving it for now
+    private List<String> items;
 
     public List<RawAttribute> getAttributes() {
         return attributes;
@@ -18,11 +20,11 @@ public class RawPrecondition {
         this.attributes = attributes;
     }
 
-    public List<RawItem> getItems() {
+    public List<String> getItems() {
         return items;
     }
 
-    public void setItems(List<RawItem> items) {
+    public void setItems(List<String> items) {
         this.items = items;
     }
 }
