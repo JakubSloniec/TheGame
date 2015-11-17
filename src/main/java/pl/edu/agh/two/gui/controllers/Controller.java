@@ -21,9 +21,6 @@ public class Controller {
 		rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
 	}
 
-	/**
-	 * default action called when enter button or enter key is pushed
-	 */
 	public void clickEnter() {
 		String input = getInputText();
 
@@ -36,23 +33,14 @@ public class Controller {
 		appendInConsole(output);
 	}
 
-	/**
-	 * placeholder for map display method
-	 */
 	public void displayMap() {
 
 	}
 
-	/**
-	 * placeholder for bag display method
-	 */
 	public void displayBag() {
 
 	}
 
-	/**
-	 * placeholder for stats display method
-	 */
 	public void displayStats() {
 
 	}
