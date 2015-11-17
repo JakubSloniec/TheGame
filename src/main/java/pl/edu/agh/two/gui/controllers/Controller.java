@@ -1,5 +1,7 @@
 package pl.edu.agh.two.gui.controllers;
 
+import javax.swing.JTable;
+
 import org.springframework.stereotype.Component;
 
 import pl.edu.agh.two.gui.views.RootFrame;
@@ -19,6 +21,7 @@ public class Controller {
 		rootFrame.setVisible(true);
 
 		rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
+		displayMap();
 	}
 
 	public void clickEnter() {
@@ -34,7 +37,17 @@ public class Controller {
 	}
 
 	public void displayMap() {
+		String[] columnNames = { "", "", "", "", "", "", "", "", "", "" };
+		Object[][] data = { { "X", "X", "X", "", "", "", "X", "", "X", "f" },
+				{ "X", "", "X", "", "", "", "X", "", "X", "" }, { "s", "", "", "", "X", "", "X", "", "X", "" },
+				{ "X", "X", "X", "", "X", "", "X", "", "X", "" }, { "", "", "X", "", "X", "X", "X", "", "X", "" },
+				{ "", "", "X", "", "X", "", "", "", "X", "" }, { "", "X", "X", "", "", "", "X", "", "X", "" },
+				{ "", "", "", "", "", "", "X", "", "X", "" }, { "", "X", "", "X", "X", "", "X", "", "X", "" },
+				{ "", "X", "", "X", "X", "", "X", "", "", "" } };
 
+		JTable table = new JTable(data, columnNames);
+		table.setTableHeader(null);
+		rootFrame.getMapPanel().setTable(table);
 	}
 
 	public void displayBag() {

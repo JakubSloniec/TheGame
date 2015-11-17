@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /**
  * @author Jakub Sloniec
@@ -12,12 +13,13 @@ import javax.swing.JScrollPane;
  */
 @SuppressWarnings("serial")
 public class MapPanel extends JPanel {
+	private JScrollPane scrollPane;
 
 	public MapPanel() {
 		setBounds(new Rectangle(0, 0, 280, 280));
 		setLayout(new BorderLayout(0, 0));
 
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		add(scrollPane);
 
 		// Image map = null;
@@ -30,6 +32,10 @@ public class MapPanel extends JPanel {
 		// JLabel label = new JLabel(new ImageIcon(map));
 		//
 		// scrollPane.setViewportView(label);
+	}
+
+	public void setTable(JTable table) {
+		scrollPane.setViewportView(table);
 	}
 
 }
