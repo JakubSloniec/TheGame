@@ -22,9 +22,6 @@ public class CardPanel extends JPanel {
 
 	public CardPanel() {
 		setLayout(new BorderLayout(0, 0));
-
-		// JLabel lblInputpanel = new JLabel("CardPanel");
-		// add(lblInputpanel, BorderLayout.CENTER);
 		init();
 	}
 

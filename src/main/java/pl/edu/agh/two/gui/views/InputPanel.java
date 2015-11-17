@@ -29,8 +29,6 @@ public class InputPanel extends JPanel {
 
 		textFieldInput = new JTextField();
 		add(textFieldInput, BorderLayout.CENTER);
-		// textFieldInput.setColumns(10);
-
 	}
 
 	public String getInput() {

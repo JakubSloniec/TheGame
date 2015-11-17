@@ -2,7 +2,6 @@ package pl.edu.agh.two.gui.views;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -14,10 +13,6 @@ public class QuestPanel extends JPanel {
 
 	public QuestPanel() {
 		setLayout(new BorderLayout(0, 0));
-
-		JLabel lblQuests = new JLabel("Quests");
-		add(lblQuests, BorderLayout.CENTER);
-
 	}
 
 }

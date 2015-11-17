@@ -2,7 +2,6 @@ package pl.edu.agh.two.gui.views;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -14,10 +13,6 @@ public class StatsPanel extends JPanel {
 
 	public StatsPanel() {
 		setLayout(new BorderLayout(0, 0));
-
-		JLabel lblStats = new JLabel("Stats");
-		add(lblStats, BorderLayout.CENTER);
-
 	}
 
 }
