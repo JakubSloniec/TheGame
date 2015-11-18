@@ -14,14 +14,14 @@ import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
 
 public class Quiz extends EventWithDescription implements IPrecondition {
     private final List<Question> questions;
-    private final IQuestionFormatter questionFormatter;
+    private final IAnswerFormatter questionFormatter;
     private final Optional<IEvent> onFail;
     private final Optional<IEvent> onSuccess;
     private int correctAnswers;
     private int requiredCorrectAnswers;
     private boolean quizPassed;
 
-    public Quiz(List<Question> questions, IQuestionFormatter questionFormatter, int requiredCorrectAnswers, Optional<IEvent> onSuccess, Optional<IEvent> onFail) {
+    public Quiz(List<Question> questions, IAnswerFormatter questionFormatter, int requiredCorrectAnswers, Optional<IEvent> onSuccess, Optional<IEvent> onFail) {
         this.questions = questions;
         this.questionFormatter = questionFormatter;
         this.onSuccess = onSuccess;
@@ -30,11 +30,11 @@ public class Quiz extends EventWithDescription implements IPrecondition {
     }
 
     public Quiz(List<Question> questions, int requiredCorrectAnswers, Optional<IEvent> onSuccess, Optional<IEvent> onFail) {
-        this(questions, new BasicQuestionFormatter(), requiredCorrectAnswers, onSuccess, onFail);
+        this(questions, new BasicAnswerFormatter(), requiredCorrectAnswers, onSuccess, onFail);
     }
 
     public Quiz(List<Question> questions, int requiredCorrectAnswers) {
-        this(questions, new BasicQuestionFormatter(), requiredCorrectAnswers, Optional.empty(), Optional.empty());
+        this(questions, new BasicAnswerFormatter(), requiredCorrectAnswers, Optional.empty(), Optional.empty());
     }
 
     @Override
