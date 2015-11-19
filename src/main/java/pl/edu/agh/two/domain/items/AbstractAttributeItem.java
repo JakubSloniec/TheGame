@@ -1,14 +1,13 @@
 package pl.edu.agh.two.domain.items;
 
-import pl.edu.agh.two.domain.attributes.ItemAttribute;
-import pl.edu.agh.two.domain.players.IPlayer;
-
 import java.util.Collections;
 import java.util.Set;
 
-/**
- * Created by ps_krzysztof on 2015-11-16.
- */
+import pl.edu.agh.two.domain.attributes.ItemAttribute;
+import pl.edu.agh.two.domain.players.IPlayer;
+import pl.edu.agh.two.exceptions.ContextRequireException;
+import pl.edu.agh.two.exceptions.ItemNotInBackpackException;
+
 public abstract class AbstractAttributeItem extends AbstractItem {
 
     private final Set<ItemAttribute> attributes;
@@ -23,7 +22,10 @@ public abstract class AbstractAttributeItem extends AbstractItem {
     }
 
     @Override
-    public void use(IPlayer player) {
-        player.useItem(this);
+    public void use(IPlayer player) throws ItemNotInBackpackException, ContextRequireException {
+        player.getBackpack().removeItem(this);
+        this.getAttributes().forEach((itemAttribute) -> {
+            player.getStatistic(itemAttribute.getAttribute()).add(itemAttribute.getChangeValue());
+        });
     }
 }
