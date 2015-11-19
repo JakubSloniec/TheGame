@@ -1,11 +1,13 @@
 package pl.edu.agh.two.gui.views;
 
 import java.awt.BorderLayout;
-import java.awt.Rectangle;
+import java.awt.Color;
+import java.awt.Component;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.border.MatteBorder;
+
+import net.miginfocom.swing.MigLayout;
 
 /**
  * @author Jakub Sloniec
@@ -13,29 +15,64 @@ import javax.swing.JTable;
  */
 @SuppressWarnings("serial")
 public class MapPanel extends JPanel {
-	private JScrollPane scrollPane;
+	private JPanel map;
+
+	private int cellSize = 30;
 
 	public MapPanel() {
-		setBounds(new Rectangle(0, 0, 280, 280));
-		setLayout(new BorderLayout(0, 0));
 
-		scrollPane = new JScrollPane();
-		add(scrollPane);
+		map = new JPanel();
+		map.setLayout(new MigLayout("", "[][]", "[][]"));
+		map.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 
-		// Image map = null;
-		// try {
-		// map =
-		// ImageIO.read(getClass().getClassLoader().getResourceAsStream("map.gif"));
-		// } catch (IOException e) {
-		// e.printStackTrace();
-		// }
-		// JLabel label = new JLabel(new ImageIcon(map));
-		//
-		// scrollPane.setViewportView(label);
+		addMapCell(getEmptyPanel(), 0, 0);
+		addMapCell(getWallPanel(), 0, 1);
+		addMapCell(getEmptyPanel(), 0, 2);
+		addMapCell(getWallPanel(), 0, 3);
+		addMapCell(getWallPanel(), 1, 0);
+		addMapCell(getWallPanel(), 1, 1);
+		addMapCell(getPlayerPanel(), 1, 2);
+		addMapCell(getWallPanel(), 1, 3);
+		addMapCell(getEmptyPanel(), 2, 0);
+		addMapCell(getEmptyPanel(), 2, 1);
+		addMapCell(getEmptyPanel(), 2, 2);
+		addMapCell(getWallPanel(), 2, 3);
+		addMapCell(getWallPanel(), 3, 0);
+		addMapCell(getWallPanel(), 3, 1);
+		addMapCell(getEmptyPanel(), 3, 2);
+		addMapCell(getWallPanel(), 3, 3);
+
+		add(map, BorderLayout.CENTER);
 	}
 
-	public void setTable(JTable table) {
-		scrollPane.setViewportView(table);
+	public void addMapCell(Component component, int column, int row) {
+		map.add(component, "cell " + column + " " + row);
+	}
+
+	public JPanel getWallPanel() {
+		JPanel panel = new JPanel();
+
+		panel.setBackground(Color.BLACK);
+		panel.setBounds(0, 0, cellSize, cellSize);
+
+		return panel;
+	}
+
+	public JPanel getPlayerPanel() {
+		JPanel panel = new JPanel();
+
+		panel.setBackground(Color.YELLOW);
+		panel.setBounds(0, 0, cellSize, cellSize);
+
+		return panel;
+	}
+
+	public JPanel getEmptyPanel() {
+		JPanel panel = new JPanel();
+
+		panel.setBounds(0, 0, cellSize, cellSize);
+
+		return panel;
 	}
 
 }
