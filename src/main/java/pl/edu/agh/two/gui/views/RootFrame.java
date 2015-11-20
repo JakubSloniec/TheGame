@@ -65,7 +65,7 @@ public class RootFrame extends JFrame {
 
 		// int dividerRightLocation =
 		// Integer.parseInt(PropertyManager.getProperty("window.divider.right.location"));
-		int dividerRightLocation = 205;
+		int dividerRightLocation = 260;
 		// boolean dividerRightEnabled =
 		// Boolean.parseBoolean(PropertyManager.getProperty("window.divider.right.enabled"));
 		boolean dividerRightEnabled = false;
@@ -77,7 +77,7 @@ public class RootFrame extends JFrame {
 
 		// int dividerCenterLocation =
 		// Integer.parseInt(PropertyManager.getProperty("window.divider.center.location"));
-		int dividerCenterLocation = 750;
+		int dividerCenterLocation = 730;
 		// boolean dividerCenterEnabled =
 		// Boolean.parseBoolean(PropertyManager.getProperty("window.divider.center.enabled"));
 		boolean dividerCenterEnabled = false;

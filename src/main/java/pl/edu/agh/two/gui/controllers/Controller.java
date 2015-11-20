@@ -2,6 +2,7 @@ package pl.edu.agh.two.gui.controllers;
 
 import org.springframework.stereotype.Component;
 
+import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.gui.views.RootFrame;
 
 /**
@@ -19,7 +20,7 @@ public class Controller {
 		rootFrame.setVisible(true);
 
 		rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
-		displayMap();
+		// displayMap();
 	}
 
 	public void clickEnter() {
@@ -34,8 +35,8 @@ public class Controller {
 		appendInConsole(output);
 	}
 
-	public void displayMap() {
-
+	public void displayMap(Map map) {
+		rootFrame.getMapPanel().paint(map);
 	}
 
 	public void displayBag() {
