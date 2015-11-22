@@ -13,6 +13,6 @@ public interface IPlayer{
 
     public Set<IPlayerStatistic> getStatistics();
 
-    public <T extends Number> IPlayerStatistic<T> getStatistic(Attribute<T> attribute);
+    public IPlayerStatistic getStatistic(Attribute attribute);
 
 }

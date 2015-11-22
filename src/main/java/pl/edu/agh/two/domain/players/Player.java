@@ -34,7 +34,7 @@ public class Player implements IPlayer {
     }
 
     @Override
-    public <T extends Number> IPlayerStatistic<T> getStatistic(Attribute<T> attribute) {
+    public IPlayerStatistic getStatistic(Attribute attribute) {
         return null;
     }
 

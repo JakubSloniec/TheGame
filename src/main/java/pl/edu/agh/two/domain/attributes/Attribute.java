@@ -5,14 +5,14 @@ import java.util.Optional;
 /**
  * Created by ps_krzysztof on 2015-11-16.
  */
-public class Attribute<T extends Number> {
+public class Attribute {
 
     private final String name;
-    private final T minimumValue;
-    private final T maximumValue;
-    private final Optional<T> initialValue;
+    private final Double minimumValue;
+    private final Double maximumValue;
+    private final Optional<Double> initialValue;
 
-    private Attribute(String name, T minimumValue, T maximumValue, Optional<T> initialValue) {
+    protected Attribute(String name, Double minimumValue, Double maximumValue, Optional<Double> initialValue) {
         this.name = name;
         this.minimumValue = minimumValue;
         this.maximumValue = maximumValue;
@@ -23,24 +23,24 @@ public class Attribute<T extends Number> {
         return name;
     }
 
-    public T getMinimumValue() {
+    public Double getMinimumValue() {
         return minimumValue;
     }
 
-    public T getMaximumValue() {
+    public Double getMaximumValue() {
         return maximumValue;
     }
 
-    public Optional<T> getInitialValue() {
+    public Optional<Double> getInitialValue() {
         return initialValue;
     }
 
-    public static <T extends Number> Attribute<T> createAttribute(String name) {
-        return new Attribute<>(name, null, null, null);
+    public static Attribute createAttribute(String name) {
+        return new Attribute(name, null, null, null);
     }
 
-    public static <T extends Number> Attribute<T> createAttributeWithRange(String name, T minimum, T maximum, Optional<T> initialValue) {
-        return new Attribute<T>(name, minimum, maximum, initialValue);
+    public static Attribute createAttributeWithRange(String name, Double minimum, Double maximum, Optional<Double> initialValue) {
+        return new Attribute(name, minimum, maximum, initialValue);
     }
 
     @Override

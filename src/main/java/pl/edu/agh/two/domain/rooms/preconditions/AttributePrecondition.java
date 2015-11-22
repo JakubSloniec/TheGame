@@ -7,25 +7,24 @@ import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 /**
  * Created by ps_krzysztof on 2015-11-16.
  */
-public class AttributePrecondition<T extends Number & Comparable> implements IPrecondition {
+public class AttributePrecondition implements IPrecondition {
 
-    private final Attribute<T> attribute;
-    private final T minimumValue;
+    private final Attribute attribute;
+    private final Double minimumValue;
 
-    private AttributePrecondition(Attribute<T> attribute, T minimumValue) {
+    private AttributePrecondition(Attribute attribute, Double minimumValue) {
         this.minimumValue = minimumValue;
         this.attribute = attribute;
     }
 
     @Override
     public boolean test(IPlayer player) {
-        IPlayerStatistic<T> playerStatistic = player.getStatistic(attribute);
+        IPlayerStatistic playerStatistic = player.getStatistic(attribute);
         return minimumValue.compareTo(playerStatistic.getCurrentValue()) <= 0;
     }
 
-    public static <T extends Number & Comparable> AttributePrecondition<T> createPrecondition(Attribute<T> attribute, T minimumValue) {
+    public static AttributePrecondition createPrecondition(Attribute attribute, Double minimumValue) {
         return new AttributePrecondition(attribute, minimumValue);
     }
-
 
 }
