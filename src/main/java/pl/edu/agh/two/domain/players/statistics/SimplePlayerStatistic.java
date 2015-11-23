@@ -5,36 +5,36 @@ import pl.edu.agh.two.domain.attributes.Attribute;
 /**
  * Created by ps_krzysztof on 2015-11-16.
  */
-public class SimplePlayerStatistic<T extends Number> implements IPlayerStatistic<T> {
+public class SimplePlayerStatistic implements IPlayerStatistic {
 
-    private final Attribute<T> attribute;
-    private T currentValue;
+    private final Attribute attribute;
+    private Double currentValue;
 
-    public SimplePlayerStatistic(Attribute<T> attribute, T currentValue) {
+    public SimplePlayerStatistic(Attribute attribute, Double currentValue) {
         this.attribute = attribute;
         this.currentValue = currentValue;
     }
 
     @Override
-    public Attribute<T> getAttribute() {
+    public Attribute getAttribute() {
         return attribute;
     }
 
     @Override
-    public T getCurrentValue() {
+    public Double getCurrentValue() {
         return currentValue;
     }
 
     @Override
-    public void add(T value) {
-        //TODO: Think about number, how to convert this stat??
+    public void add(Double value) {
+        currentValue+=value;
     }
 
-    public static <T extends Number> IPlayerStatistic<T> createPlayerStatistic(Attribute<T> attribute) {
-        return new SimplePlayerStatistic<>(attribute, attribute.getInitialValue().get());
+    public static IPlayerStatistic createPlayerStatistic(Attribute attribute) {
+        return new SimplePlayerStatistic(attribute, attribute.getInitialValue().get());
     }
 
-    public static <T extends Number> IPlayerStatistic<T> createPlayerStatisticWithInitialValue(Attribute<T> attribute, T initialValue) {
-        return new SimplePlayerStatistic<>(attribute, initialValue);
+    public static IPlayerStatistic createPlayerStatisticWithInitialValue(Attribute attribute, Double initialValue) {
+        return new SimplePlayerStatistic(attribute, initialValue);
     }
 }

@@ -9,4 +9,6 @@ public class ApplicationConstants {
     public static final String YEAR_OF_STUDY = "Rok studiów";
     public static final String SEMESTER_OF_STUDY = "Semestr studiów";
 
+    public static final String[] DEFAULT_STATISTICS = {AVERAGE, YEAR_OF_STUDY, SEMESTER_OF_STUDY};
+
 }

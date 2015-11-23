@@ -1,9 +1,10 @@
 package pl.edu.agh.two.domain.players;
 
-import pl.edu.agh.two.domain.items.IItem;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import pl.edu.agh.two.domain.items.IItem;
+import pl.edu.agh.two.exceptions.ItemNotInBackpackException;
 
 /**
  * Created by ps_krzysztof on 2015-11-16.
@@ -28,11 +29,13 @@ public class Backpack {
         return items.containsKey(item);
     }
 
-    public void removeItem(IItem item) {
+    public void removeItem(IItem item) throws ItemNotInBackpackException {
         if(items.get(item) > 0) {
             decrementItemAmount(item);
-        } else {
+        } else if (items.containsKey(item)){
             items.remove(item);
+        } else {
+            throw new ItemNotInBackpackException(item   );
         }
     }
 

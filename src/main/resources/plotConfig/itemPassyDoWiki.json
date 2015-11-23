@@ -1,0 +1,11 @@
+{
+  "itemName": "PassyDoWiki",
+  "itemIcon": "maybePathToIconFileForGui",
+  "usage": "CONST",
+  "attributes": [
+    {
+      "attrName": "creativity",
+      "change": "5"
+    }
+  ]
+}

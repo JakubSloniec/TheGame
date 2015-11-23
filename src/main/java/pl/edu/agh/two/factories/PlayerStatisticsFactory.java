@@ -13,19 +13,19 @@ import java.util.Set;
  */
 public class PlayerStatisticsFactory {
 
-    public static <T extends Number> Set<IPlayerStatistic<T>> createDefaultPlayerStatistics() {
-        return new HashSet<IPlayerStatistic<T>>() {{
-            add(createPlayerStatistic(ApplicationConstants.AVERAGE));
-            add(createPlayerStatistic(ApplicationConstants.YEAR_OF_STUDY));
-            add(createPlayerStatistic(ApplicationConstants.SEMESTER_OF_STUDY));
+    public static Set<IPlayerStatistic> createDefaultPlayerStatistics() {
+        return new HashSet<IPlayerStatistic>() {{
+            for (String statistic : ApplicationConstants.DEFAULT_STATISTICS) {
+                add(createPlayerStatistic(statistic));
+            }
         }};
     }
 
-    public static <T extends Number> IPlayerStatistic<T> createPlayerStatistic(String name) {
+    public static IPlayerStatistic createPlayerStatistic(String name) {
         return SimplePlayerStatistic.createPlayerStatistic(Attribute.createAttribute(name));
     }
 
-    public static <T extends Number> IPlayerStatistic<T> createPlayerStatistic(String name, T initialValue) {
+    public static IPlayerStatistic createPlayerStatistic(String name, Double initialValue) {
         return SimplePlayerStatistic.createPlayerStatisticWithInitialValue(Attribute.createAttribute(name), initialValue);
     }
 
