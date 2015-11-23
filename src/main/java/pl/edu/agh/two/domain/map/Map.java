@@ -15,7 +15,7 @@ public class Map {
     private final IRoom[][] map;
     private IRoom currentRoom;
 
-    private Map(int mapSize) {
+    public Map(int mapSize) {
         this.map = new IRoom[mapSize][mapSize];
     }
 
