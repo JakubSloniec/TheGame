@@ -1,11 +1,14 @@
 package pl.edu.agh.two.gui.views;
 
-import java.awt.BorderLayout;
-import java.awt.Rectangle;
+import java.awt.Color;
+import java.awt.Component;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.border.MatteBorder;
+
+import net.miginfocom.swing.MigLayout;
+import pl.edu.agh.two.domain.map.Map;
+import pl.edu.agh.two.domain.rooms.IRoom;
 
 /**
  * @author Jakub Sloniec
@@ -13,29 +16,89 @@ import javax.swing.JTable;
  */
 @SuppressWarnings("serial")
 public class MapPanel extends JPanel {
-	private JScrollPane scrollPane;
+	private JPanel mapPanel;
+
+	private int cellSize = 20;
 
 	public MapPanel() {
-		setBounds(new Rectangle(0, 0, 280, 280));
-		setLayout(new BorderLayout(0, 0));
-
-		scrollPane = new JScrollPane();
-		add(scrollPane);
-
-		// Image map = null;
-		// try {
-		// map =
-		// ImageIO.read(getClass().getClassLoader().getResourceAsStream("map.gif"));
-		// } catch (IOException e) {
-		// e.printStackTrace();
-		// }
-		// JLabel label = new JLabel(new ImageIcon(map));
-		//
-		// scrollPane.setViewportView(label);
+		mockMap();
 	}
 
-	public void setTable(JTable table) {
-		scrollPane.setViewportView(table);
+	public void mockMap() {
+		mapPanel = new JPanel();
+		mapPanel.setLayout(new MigLayout("", "", ""));
+		mapPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+
+		for (int column = 0; column < 10; column++) {
+			for (int row = 0; row < 10; row++) {
+				if (row == 5 && column == 3) {
+					setPlayer(column, row);
+				} else if (row % 5 == 0) {
+					setEmpty(column, row);
+				} else if (column % 2 == 0) {
+					setWall(column, row);
+				} else {
+					setEmpty(column, row);
+				}
+			}
+		}
+		add(mapPanel);
 	}
 
+	public void paint(Map map) {
+		mapPanel = new JPanel();
+		mapPanel.setLayout(new MigLayout("", "", ""));
+		mapPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+
+		for (IRoom[] rooms : map.getMap()) {
+			for (IRoom room : rooms) {
+				// get coords of the room
+			}
+		}
+
+		add(mapPanel);
+
+	}
+
+	private void addMapCell(Component component, int column, int row) {
+		mapPanel.add(component, "cell " + column + " " + row + ", width :" + cellSize + ":, height :" + cellSize + ":");
+	}
+
+	private JPanel getWallPanel() {
+		JPanel panel = new JPanel();
+
+		panel.setBackground(Color.BLACK);
+		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+
+		return panel;
+	}
+
+	private JPanel getPlayerPanel() {
+		JPanel panel = new JPanel();
+
+		panel.setBackground(Color.RED);
+		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+
+		return panel;
+	}
+
+	private JPanel getEmptyPanel() {
+		JPanel panel = new JPanel();
+
+		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+
+		return panel;
+	}
+
+	public void setPlayer(int column, int row) {
+		addMapCell(getPlayerPanel(), column, row);
+	}
+
+	public void setWall(int column, int row) {
+		addMapCell(getWallPanel(), column, row);
+	}
+
+	public void setEmpty(int column, int row) {
+		addMapCell(getEmptyPanel(), column, row);
+	}
 }
