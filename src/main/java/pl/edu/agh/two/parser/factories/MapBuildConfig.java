@@ -4,15 +4,13 @@ import pl.edu.agh.two.domain.events.IEvent;
 
 import java.util.HashMap;
 
-public class BuildConfig {
+public class MapBuildConfig {
 
     private String mapFileName;
     private HashMap<String,IEventsFactory> eventParsers;
 
-    public BuildConfig() {
+    public MapBuildConfig() {
         eventParsers=new HashMap<String,IEventsFactory>();
-        //place for adding factories for new types of events
-        eventParsers.put("quiz",new QuizEventsFactory());
     }
 
     public String getMapFileName() {
