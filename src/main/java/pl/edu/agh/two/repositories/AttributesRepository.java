@@ -17,11 +17,11 @@ public class AttributesRepository {
     static {
         repository = new HashMap<>();
         repository.put(ApplicationConstants.AVERAGE, createNewAttribute(ApplicationConstants.AVERAGE, 2.0, 5.0, Optional.empty()));
-        repository.put(ApplicationConstants.YEAR_OF_STUDY, createNewAttribute(ApplicationConstants.YEAR_OF_STUDY, 1, 5, Optional.of(1)));
-        repository.put(ApplicationConstants.SEMESTER_OF_STUDY, createNewAttribute(ApplicationConstants.SEMESTER_OF_STUDY, 1, 1, Optional.of(1)));
+        repository.put(ApplicationConstants.YEAR_OF_STUDY, createNewAttribute(ApplicationConstants.YEAR_OF_STUDY, 1d, 5d, Optional.of(1d)));
+        repository.put(ApplicationConstants.SEMESTER_OF_STUDY, createNewAttribute(ApplicationConstants.SEMESTER_OF_STUDY, 1d, 1d, Optional.of(1d)));
     }
 
-    public static <T extends Number> Attribute<T> getAttribute(String name, T minimum, T maximum, T initialValue) {
+    public static Attribute getAttribute(String name, Double minimum, Double maximum, Double initialValue) {
         Optional<Attribute> attributeOptional = getOptionalAttribute(name);
         if (attributeOptional.isPresent()) {
             return attributeOptional.get();
@@ -30,8 +30,8 @@ public class AttributesRepository {
         }
     }
 
-    private static <T extends Number> Attribute<T> createNewAttribute(String name, T minimum, T maximum, Optional<T> initialValue) {
-        Attribute<T> attribute = Attribute.createAttributeWithRange(name, minimum, maximum, initialValue);
+    private static Attribute createNewAttribute(String name, Double minimum, Double maximum, Optional<Double> initialValue) {
+        Attribute attribute = Attribute.createAttributeWithRange(name, minimum, maximum, initialValue);
         repository.put(name, attribute);
         return attribute;
     }

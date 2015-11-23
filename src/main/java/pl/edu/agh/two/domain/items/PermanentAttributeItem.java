@@ -1,12 +1,9 @@
 package pl.edu.agh.two.domain.items;
 
-import pl.edu.agh.two.domain.attributes.ItemAttribute;
-
 import java.util.Set;
 
-/**
- * Created by ps_krzysztof on 2015-11-16.
- */
+import pl.edu.agh.two.domain.attributes.ItemAttribute;
+
 public class PermanentAttributeItem extends AbstractAttributeItem {
 
     public static class Builder extends AbstractItem.Builder<PermanentAttributeItem> {

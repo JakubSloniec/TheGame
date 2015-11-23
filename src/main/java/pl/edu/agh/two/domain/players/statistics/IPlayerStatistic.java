@@ -2,12 +2,12 @@ package pl.edu.agh.two.domain.players.statistics;
 
 import pl.edu.agh.two.domain.attributes.Attribute;
 
-public interface IPlayerStatistic<T extends Number> {
+public interface IPlayerStatistic {
 
-    public Attribute<T> getAttribute();
+    public Attribute getAttribute();
 
-    public T getCurrentValue();
+    public Double getCurrentValue();
 
-    public void add(T value);
+    public void add(Double value);
 
 }
