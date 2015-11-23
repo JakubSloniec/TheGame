@@ -25,14 +25,15 @@ public class Controller {
 
 	public void clickEnter() {
 		String input = getInputText();
-
 		clearInputField();
 
+		appendInConsole(">" + input + "\n");
+
 		// Some proccessing to be done here
+
 		String output = "Response in console for input: " + input;
 
-		appendInConsole(">" + input + "\n");
-		appendInConsole(output);
+		appendInConsole(output + "\n");
 	}
 
 	public void displayMap(Map map) {
