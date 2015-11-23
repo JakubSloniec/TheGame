@@ -1,4 +1,5 @@
 {
+  "name": "quiz1",
   "introduction": "Some info about the story and the context. Eg. First WDI test.",
   "questions": [
     {
