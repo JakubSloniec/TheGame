@@ -54,7 +54,7 @@ public class MapBuilder {
                 throw new NoSuchEventException();
             }
             product.addRoom(rawRoom.getX(),rawRoom.getY(),
-                    RoomsFactory.createRoom(event, rawRoom.getX(),rawRoom.getY(), Optional.<List<IPrecondition>>empty(), Optional.<GameConsole>empty()));
+                    RoomsFactory.createEventRoom(event, rawRoom.getX(), rawRoom.getY(), Optional.<List<IPrecondition>>empty(), Optional.<GameConsole>empty()));
         }
         return this;
     }
