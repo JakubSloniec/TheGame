@@ -1,11 +1,11 @@
 package pl.edu.agh.two.repositories;
 
-import pl.edu.agh.two.configuration.ApplicationConstants;
-import pl.edu.agh.two.domain.attributes.Attribute;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+
+import pl.edu.agh.two.configuration.ApplicationConstants;
+import pl.edu.agh.two.domain.attributes.Attribute;
 
 /**
  * Created by ps_krzysztof on 2015-11-16.
@@ -30,6 +30,9 @@ public class AttributesRepository {
         }
     }
 
+    public static Attribute getAttribute(String name) {
+        return getAttribute(name, Double.MIN_VALUE, Double.MAX_VALUE, 0d);
+    }
     private static Attribute createNewAttribute(String name, Double minimum, Double maximum, Optional<Double> initialValue) {
         Attribute attribute = Attribute.createAttributeWithRange(name, minimum, maximum, initialValue);
         repository.put(name, attribute);
