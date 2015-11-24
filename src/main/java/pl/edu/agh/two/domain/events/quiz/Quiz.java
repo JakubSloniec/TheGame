@@ -40,24 +40,24 @@ public class Quiz extends EventWithDescription implements IPrecondition {
     @Override
     public void execute(IPlayer player) {
         correctAnswers = 0;
-        questions.forEach(this::takeQuestion);
+        questions.forEach(this::ask);
         quizPassed = correctAnswers >= requiredCorrectAnswers;
         (quizPassed ? onSuccess : onFail).ifPresent(event -> event.execute(player));
     }
 
-    private void takeQuestion(Question question) {
+    private void ask(Question question) {
         getGameConsole().println(question.getQuestionText());
-        Map<Character, Answer> currentQuestionAnswers = new HashMap<>(question.getAnswers().size());
-        char nextChar = 'a';
+        Map<Integer, Answer> currentQuestionAnswers = new HashMap<>(question.getAnswers().size());
+        int answerNumber = 0;
         for (Answer answer : question.getAnswers()) {
-            getGameConsole().println(questionFormatter.formatQuestion(nextChar, answer.getText()));
-            currentQuestionAnswers.put(nextChar, answer);
-            nextChar++;
+            getGameConsole().println(questionFormatter.formatQuestion(answerNumber, answer.getText()));
+            currentQuestionAnswers.put(answerNumber, answer);
+            answerNumber++;
         }
         final String userInput = getGameConsole().readLine();
         final List<Answer> userAnswers = Arrays.stream(userInput.split(","))
                 .map(String::trim)
-                .map(answer -> answer.charAt(0))
+                .map(questionFormatter::inputTextToAnswerNumber)
                 .map(currentQuestionAnswers::get)
                 .collect(Collectors.toList());
 
