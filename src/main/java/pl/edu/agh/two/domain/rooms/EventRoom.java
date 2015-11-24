@@ -10,15 +10,16 @@ public class EventRoom extends AbstractRoom {
 
     public static class Builder extends AbstractRoom.Builder<EventRoom> {
 
-        public Builder(IEvent event) {
-            super(new EventRoom(event));
+        public Builder(IEvent event, Coordinates coordinates) {
+            super(new EventRoom(event, coordinates));
         }
 
     }
 
     private final IEvent event;
 
-    private EventRoom(IEvent event) {
+    private EventRoom(IEvent event, Coordinates coordinates) {
+        super(coordinates);
         this.event = event;
     }
 
