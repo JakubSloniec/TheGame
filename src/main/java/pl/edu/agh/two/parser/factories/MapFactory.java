@@ -17,8 +17,8 @@ public class MapFactory {
 
         //place for adding new files
         return builder
-                .parseEventFile("quiz","plotConfig/quizLev1.json")
-                .getMapFromFile("plotConfig/mapLev1.json")
+                .parseEventFile("quiz","plotConfig/events/quiz/quizLev1.json")
+                .getMapFromFile("plotConfig/maps/mapLev1.json")
                 .build();
 
 
