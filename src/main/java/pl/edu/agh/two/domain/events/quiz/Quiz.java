@@ -75,6 +75,10 @@ public class Quiz extends EventWithDescription {
         this.answerFormtter = answerFormtter;
     }
 
+    /**
+     * I recommend to use com.google.common.collect.RangeSet as keys. 
+     * @param pointsToEvents
+     */
     public void setPointsToEvents(Map<Set<Integer>, IEvent> pointsToEvents) {
         this.pointsToEvents = pointsToEvents;
     }
