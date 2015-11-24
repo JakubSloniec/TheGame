@@ -1,9 +1,9 @@
-package pl.edu.agh.two.parser.quiz;
+package pl.edu.agh.two.parser.events.quiz;
 
 import java.util.List;
 
 /**
- * Created by SG0219906 on 11/17/2015.
+ * Created by Michal Mrowczyk on 11/17/2015.
  */
 public class RawEndText {
     private List<Integer> forNotes;

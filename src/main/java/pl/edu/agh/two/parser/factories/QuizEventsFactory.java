@@ -2,14 +2,13 @@ package pl.edu.agh.two.parser.factories;
 
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.events.quiz.Answer;
-import pl.edu.agh.two.domain.events.quiz.BasicAnswerFormatter;
 import pl.edu.agh.two.domain.events.quiz.Question;
 import pl.edu.agh.two.domain.events.quiz.Quiz;
 import pl.edu.agh.two.parser.ConfigReader;
-import pl.edu.agh.two.parser.quiz.RawAnswer;
-import pl.edu.agh.two.parser.quiz.RawEndText;
-import pl.edu.agh.two.parser.quiz.RawQuestion;
-import pl.edu.agh.two.parser.quiz.RawQuiz;
+import pl.edu.agh.two.parser.events.quiz.RawAnswer;
+import pl.edu.agh.two.parser.events.quiz.RawEndText;
+import pl.edu.agh.two.parser.events.quiz.RawQuestion;
+import pl.edu.agh.two.parser.events.quiz.RawQuiz;
 
 import java.util.*;
 
