@@ -1,8 +1,16 @@
 package pl.edu.agh.two.parser.factories;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.events.quiz.Answer;
-import pl.edu.agh.two.domain.events.quiz.BasicAnswerFormatter;
 import pl.edu.agh.two.domain.events.quiz.Question;
 import pl.edu.agh.two.domain.events.quiz.Quiz;
 import pl.edu.agh.two.parser.ConfigReader;
@@ -10,8 +18,6 @@ import pl.edu.agh.two.parser.quiz.RawAnswer;
 import pl.edu.agh.two.parser.quiz.RawEndText;
 import pl.edu.agh.two.parser.quiz.RawQuestion;
 import pl.edu.agh.two.parser.quiz.RawQuiz;
-
-import java.util.*;
 
 /**
  * Created by oem on 2015-11-22.
@@ -38,7 +44,7 @@ public class QuizEventsFactory implements IEventsFactory {
             for(RawAnswer rawAnswer:rawQuestion.getAnswers()) {
                 answerSet.add(new Answer(rawAnswer.getAnswer(),
                         //way of how score is turn into an answer
-                        rawAnswer.getPoints() > 0? true:false));
+                        rawAnswer.getPoints()));
             }
             questions.addLast(new Question(questionText,answerSet));
         }
@@ -54,7 +60,7 @@ public class QuizEventsFactory implements IEventsFactory {
         Collections.sort(rawEndTexts.get(1).getForNotes());
         int lowestScore=rawEndTexts.get(1).getForNotes().get(0);
 
-        Quiz quiz=new Quiz(questions,lowestScore);
+        Quiz quiz=new Quiz(questions);
         retVal.put(rawQuiz.getName(),quiz);
         return retVal;
     }
