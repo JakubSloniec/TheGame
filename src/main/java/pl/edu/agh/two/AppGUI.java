@@ -1,5 +1,6 @@
 package pl.edu.agh.two;
 
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -43,7 +44,10 @@ public class AppGUI {
 				}
 				logger.info(new Object() {
 				}.getClass().getEnclosingMethod().getName() + ": Starting main frame.");
-				controller.init();
+
+				String playerName = JOptionPane.showInputDialog("Please input player name: ");
+
+				controller.init(playerName);
 			}
 		};
 		SwingUtilities.invokeLater(doStart);

@@ -3,10 +3,12 @@ package pl.edu.agh.two.gui.controllers;
 import java.util.Set;
 
 import org.springframework.stereotype.Component;
+
 import pl.edu.agh.two.domain.map.Map;
-import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.domain.players.Backpack;
+import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
+import pl.edu.agh.two.factories.PlayersFactory;
 import pl.edu.agh.two.gui.views.RootFrame;
 import pl.edu.agh.two.parser.factories.MapFactory;
 
@@ -18,23 +20,28 @@ import pl.edu.agh.two.parser.factories.MapFactory;
 @Component
 public class Controller {
 
-    private Map map;
-    private IPlayer player;
+	private Map map;
+	private IPlayer player;
 	private RootFrame rootFrame;
 
-	public void init() {
+	public void init(String playerName) {
 		rootFrame = new RootFrame();
 		rootFrame.setVisible(true);
 
 		rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
 
-        initMap();
+		initMap();
+		initPlayer(playerName);
 	}
 
-    private void initMap() {
-        map = MapFactory.getMap();
-        displayMap(map);
-    }
+	private void initPlayer(String playerName) {
+		player = PlayersFactory.createDefaultPlayer(playerName);
+	}
+
+	private void initMap() {
+		map = MapFactory.getMap();
+		displayMap(map);
+	}
 
 	public void clickEnter() {
 		String input = getInputText();
