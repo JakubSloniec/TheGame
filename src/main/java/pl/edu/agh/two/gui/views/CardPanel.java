@@ -16,9 +16,9 @@ public class CardPanel extends JPanel {
 	private static final String TAB_STATS = "Stats";
 	private static final String TAB_QUEST = "Quests";
 
-	private JPanel inventoryPanel;
-	private JPanel statsPanel;
-	private JPanel questPanel;
+	private InventoryPanel inventoryPanel;
+	private StatsPanel statsPanel;
+	private QuestPanel questPanel;
 
 	public CardPanel() {
 		setLayout(new BorderLayout(0, 0));
@@ -38,6 +38,18 @@ public class CardPanel extends JPanel {
 		tabbedPane.addTab(TAB_QUEST, questPanel);
 
 		add(tabbedPane);
+	}
+
+	public InventoryPanel getInventoryPanel() {
+		return inventoryPanel;
+	}
+
+	public StatsPanel getStatsPanel() {
+		return statsPanel;
+	}
+
+	public QuestPanel getQuestPanel() {
+		return questPanel;
 	}
 
 }

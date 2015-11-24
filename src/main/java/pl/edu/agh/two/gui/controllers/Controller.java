@@ -1,8 +1,12 @@
 package pl.edu.agh.two.gui.controllers;
 
+import java.util.Set;
+
 import org.springframework.stereotype.Component;
 
 import pl.edu.agh.two.domain.map.Map;
+import pl.edu.agh.two.domain.players.Backpack;
+import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 import pl.edu.agh.two.gui.views.RootFrame;
 
 /**
@@ -40,12 +44,12 @@ public class Controller {
 		rootFrame.getMapPanel().paint(map);
 	}
 
-	public void displayBag() {
-
+	public void displayBag(Backpack backpack) {
+		rootFrame.getCardPanel().getInventoryPanel().paint(backpack);
 	}
 
-	public void displayStats() {
-
+	public void displayStats(Set<IPlayerStatistic> statistics) {
+		rootFrame.getCardPanel().getStatsPanel().paint(statistics);
 	}
 
 	public void clearInputField() {
