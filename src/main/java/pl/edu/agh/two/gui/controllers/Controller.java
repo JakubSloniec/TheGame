@@ -36,6 +36,7 @@ public class Controller {
 
 	private void initPlayer(String playerName) {
 		player = PlayersFactory.createDefaultPlayer(playerName);
+		appendInConsole("Your name is " + playerName + ". Hello!");
 	}
 
 	private void initMap() {
@@ -47,13 +48,14 @@ public class Controller {
 		String input = getInputText();
 		clearInputField();
 
-		appendInConsole(">" + input + "\n");
+		appendInConsole(">" + input);
 
 		// Some proccessing to be done here
+		String output = "Response in console for input: " + input; // or here,
+																	// it's mock
+																	// BTW
 
-		String output = "Response in console for input: " + input;
-
-		appendInConsole(output + "\n");
+		appendInConsole(output);
 	}
 
 	public void displayMap(Map map) {
@@ -77,6 +79,6 @@ public class Controller {
 	}
 
 	public void appendInConsole(String text) {
-		rootFrame.getConsolePanel().appendText(text);
+		rootFrame.getConsolePanel().appendText(text + "\n");
 	}
 }

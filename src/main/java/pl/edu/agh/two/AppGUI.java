@@ -45,7 +45,9 @@ public class AppGUI {
 				logger.info(new Object() {
 				}.getClass().getEnclosingMethod().getName() + ": Starting main frame.");
 
-				String playerName = JOptionPane.showInputDialog("Please input player name: ");
+				String playerName = JOptionPane.showInputDialog("Please enter your name: ");
+
+				logger.debug("Player name is " + playerName);
 
 				controller.init(playerName);
 			}
