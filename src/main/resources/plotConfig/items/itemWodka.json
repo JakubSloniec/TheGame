@@ -1,0 +1,19 @@
+{
+  "itemName": "Wodka",
+  "itemIcon": "maybePathToIconFileForGui",
+  "usage": "INSTANT",
+  "attributes": [
+    {
+      "attrName": "energy",
+      "change": "-2"
+    },
+    {
+      "attrName": "creativity",
+      "change": "6"
+    },
+    {
+      "attrName": "promile",
+      "change": "2.5"
+    }
+  ]
+}

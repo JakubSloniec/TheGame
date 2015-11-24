@@ -3,13 +3,13 @@ package pl.edu.agh.two.parser.factories;
 import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.map.Map;
+import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
 import pl.edu.agh.two.factories.RoomsFactory;
 import pl.edu.agh.two.parser.ConfigReader;
 import pl.edu.agh.two.parser.exceptions.DuplicateEventNamesException;
 import pl.edu.agh.two.parser.exceptions.NoSuchEventException;
 import pl.edu.agh.two.parser.map.RawMap;
 import pl.edu.agh.two.parser.map.RawRoom;
-import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
 
 import java.util.HashMap;
 import java.util.List;
@@ -54,7 +54,7 @@ public class MapBuilder {
                 throw new NoSuchEventException();
             }
             product.addRoom(rawRoom.getX(),rawRoom.getY(),
-                    RoomsFactory.createRoom(event, Optional.<List<IPrecondition>>empty(), Optional.<GameConsole>empty()));
+                    RoomsFactory.createEventRoom(event, rawRoom.getX(), rawRoom.getY(), Optional.<List<IPrecondition>>empty(), Optional.<GameConsole>empty()));
         }
         return this;
     }

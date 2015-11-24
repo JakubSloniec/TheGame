@@ -9,12 +9,15 @@ public class EmptyRoom extends AbstractRoom {
 
     public static class Builder extends AbstractRoom.Builder<EmptyRoom> {
 
-        public Builder() {
-            super(new EmptyRoom());
+        public Builder(Coordinates coordinates) {
+            super(new EmptyRoom(coordinates));
         }
 
     }
 
+    public EmptyRoom(Coordinates coordinates) {
+        super(coordinates);
+    }
 
     @Override
     public void enterRoom(IPlayer player) {

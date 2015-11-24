@@ -10,6 +10,18 @@ public class RawRoom {
     private String event;
     private RawPrecondition preconditions;
 
+    public boolean isStart()
+    {
+        return start;
+    }
+
+    public void setStart(boolean start)
+    {
+        this.start = start;
+    }
+
+    private boolean start;
+
     public int getX() {
         return x;
     }
@@ -47,6 +59,7 @@ public class RawRoom {
         sb.append("COORDS: " + "(" + getX() + ", " + getY() + ")");
         sb.append(" EVENT: " + getEvent());
         sb.append(" PRECONDITION: " + getPreconditions());
+        sb.append(" StartPoint: " + isStart());
         sb.append("\n");
         return sb.toString();
     }

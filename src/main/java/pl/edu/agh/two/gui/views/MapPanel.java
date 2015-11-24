@@ -8,7 +8,10 @@ import javax.swing.border.MatteBorder;
 
 import net.miginfocom.swing.MigLayout;
 import pl.edu.agh.two.domain.map.Map;
+import pl.edu.agh.two.domain.rooms.Coordinates;
+import pl.edu.agh.two.domain.rooms.EmptyRoom;
 import pl.edu.agh.two.domain.rooms.IRoom;
+import pl.edu.agh.two.domain.rooms.Wall;
 
 /**
  * @author Jakub Sloniec
@@ -21,9 +24,10 @@ public class MapPanel extends JPanel {
 	private int cellSize = 20;
 
 	public MapPanel() {
-		mockMap();
+
 	}
 
+	@Deprecated
 	public void mockMap() {
 		mapPanel = new JPanel();
 		mapPanel.setLayout(new MigLayout("", "", ""));
@@ -32,13 +36,13 @@ public class MapPanel extends JPanel {
 		for (int column = 0; column < 10; column++) {
 			for (int row = 0; row < 10; row++) {
 				if (row == 5 && column == 3) {
-					setPlayer(column, row);
+					// setPlayer(column, row);
 				} else if (row % 5 == 0) {
-					setEmpty(column, row);
+					// setEmpty(column, row);
 				} else if (column % 2 == 0) {
-					setWall(column, row);
+					// setWall(column, row);
 				} else {
-					setEmpty(column, row);
+					// setEmpty(column, row);
 				}
 			}
 		}
@@ -47,17 +51,32 @@ public class MapPanel extends JPanel {
 
 	public void paint(Map map) {
 		mapPanel = new JPanel();
-		mapPanel.setLayout(new MigLayout("", "", ""));
+		mapPanel.setLayout(new MigLayout("debug", "", ""));
 		mapPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+
+		Coordinates currentCoords = map.getCurrentRoom().getCoordinates();
+		setPlayer(currentCoords);
 
 		for (IRoom[] rooms : map.getMap()) {
 			for (IRoom room : rooms) {
-				// get coords of the room
+				if (!currentCoords.equals(room.getCoordinates())) {
+					addRoomToMap(room);
+				}
 			}
 		}
 
 		add(mapPanel);
 
+	}
+
+	private void addRoomToMap(IRoom room) {
+		Coordinates coords = room.getCoordinates();
+
+		if (room instanceof Wall) {
+			setWall(coords);
+		} else if (room instanceof EmptyRoom) {
+			setEmpty(coords);
+		}
 	}
 
 	private void addMapCell(Component component, int column, int row) {
@@ -90,15 +109,24 @@ public class MapPanel extends JPanel {
 		return panel;
 	}
 
-	public void setPlayer(int column, int row) {
+	public void setPlayer(Coordinates coords) {
+		int column = coords.getX();
+		int row = coords.getY();
+
 		addMapCell(getPlayerPanel(), column, row);
 	}
 
-	public void setWall(int column, int row) {
+	public void setWall(Coordinates coords) {
+		int column = coords.getX();
+		int row = coords.getY();
+
 		addMapCell(getWallPanel(), column, row);
 	}
 
-	public void setEmpty(int column, int row) {
+	public void setEmpty(Coordinates coords) {
+		int column = coords.getX();
+		int row = coords.getY();
+
 		addMapCell(getEmptyPanel(), column, row);
 	}
 }

@@ -1,0 +1,91 @@
+{
+  "name": "quiz_lvl1",
+  "introduction": "First quiz test.",
+  "questions": [
+    {
+      "question": "Ile cykli Hamiltona posiada graf pełny o N wierzchołkach?",
+      "answers": [
+        {
+          "answer": "N",
+          "points": 0
+        },
+        {
+          "answer": "1",
+          "points": 0
+        },
+        {
+          "answer": "N^2",
+          "points": 0
+        },
+        {
+          "answer": "N!",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "question": "Semantyka języka programowania opisuje:",
+      "answers": [
+        {
+          "answer": "Znaczenie instrukcji w języku",
+          "points": 2
+        },
+        {
+          "answer": "Formalnie poprawne programy",
+          "points": 0
+        },
+        {
+          "answer": "Budowę instrukcji w języku",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "question": "Która z następujących metod parsingu może przetworzyć najszerszą klasę gramatyk?",
+      "answers": [
+        {
+          "answer": "parser SLR",
+          "points": 0
+        },
+        {
+          "answer": "zstępujący parser rekurencyjny bez nawracania",
+          "points": 0
+        },
+        {
+          "answer": "parser LL(1)",
+          "points": 0
+        },
+        {
+          "answer": "parser CYK",
+          "points": 2
+        }
+      ]
+    }
+  ],
+  "endTexts": [
+    {
+      "forNotes": [
+        2
+      ],
+      "textToDisplay": "Very bad.."
+    },
+    {
+      "forNotes": [
+        3,
+        4
+      ],
+      "textToDisplay": "Nice"
+    },
+    {
+      "forNotes": [
+        5
+      ],
+      "textToDisplay": "Very nice. ",
+      "awards": [
+        {
+          "itemName": "PassyDoWiki"
+        }
+          ]
+        }
+      ]
+    }

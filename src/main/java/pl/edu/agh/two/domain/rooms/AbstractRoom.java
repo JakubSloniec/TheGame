@@ -31,11 +31,18 @@ public abstract class AbstractRoom implements IRoom {
 
     }
 
+    private final Coordinates coordinates;
     private final EnumMap<Direction, IRoom> adjectiveRooms = new EnumMap<>(Direction.class);
     private List<IPrecondition> preconditions = Collections.emptyList();
     private Optional<GameConsole> gameConsole = Optional.empty();
 
-    protected AbstractRoom() {
+    protected AbstractRoom(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    @Override
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
 
     @Override
