@@ -6,7 +6,7 @@ public class BasicAnswerFormatter implements IAnswerFormatter {
 
     @Override
     public String formatQuestion(int answerNumber, String text) {
-        return "\t" + ('a' + answerNumber) + ")" + text;
+        return "\t" + Character.toString((char) ('a' + answerNumber)) + ") " + text;
     }
 
     @Override
