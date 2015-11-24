@@ -1,0 +1,19 @@
+{
+  "itemName": "Wino",
+  "itemIcon": "maybePathToIconFileForGui",
+  "usage": "INSTANT",
+  "attributes": [
+    {
+      "attrName": "energy",
+      "change": "2"
+    },
+    {
+      "attrName": "creativity",
+      "change": "4"
+    },
+    {
+      "attrName": "promile",
+      "change": "1.5"
+    }
+  ]
+}
