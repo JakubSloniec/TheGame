@@ -17,6 +17,9 @@ public abstract class AbstractItem implements IItem {
             item.setIconName(iconName);
             return this;
         }
+        public T build() {
+            return item;
+        }
 
     }
 

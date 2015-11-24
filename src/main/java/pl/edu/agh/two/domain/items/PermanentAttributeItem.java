@@ -8,7 +8,7 @@ public class PermanentAttributeItem extends AbstractAttributeItem {
 
     public static class Builder extends AbstractItem.Builder<PermanentAttributeItem> {
 
-        protected Builder(String name, Set<ItemAttribute> attributes) {
+        public Builder(String name, Set<ItemAttribute> attributes) {
             super(new PermanentAttributeItem(name, attributes));
         }
 
