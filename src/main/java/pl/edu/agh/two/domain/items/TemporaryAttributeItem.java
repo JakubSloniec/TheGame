@@ -11,7 +11,7 @@ public class TemporaryAttributeItem extends AbstractAttributeItem {
 
     public static class Builder extends AbstractItem.Builder<TemporaryAttributeItem> {
 
-        protected Builder(String name, Set<ItemAttribute> attributes) {
+        public Builder(String name, Set<ItemAttribute> attributes) {
             super(new TemporaryAttributeItem(name, attributes));
         }
 

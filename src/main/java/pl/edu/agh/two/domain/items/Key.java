@@ -9,7 +9,7 @@ public class Key extends AbstractItem {
 
     public static class Builder extends AbstractItem.Builder<Key> {
 
-        protected Builder(String name) {
+        public Builder(String name) {
             super(new Key(name));
         }
 
