@@ -56,11 +56,10 @@ public class Quiz extends EventWithDescription {
 
         if (allUserAnswersCorrect && points > 0) {
             onCorrectAnswer();
-            return points;
         } else {
             onIncorrectAnswer();
-            return 0;
         }
+        return points;
     }
 
     protected void onIncorrectAnswer() {
@@ -76,7 +75,7 @@ public class Quiz extends EventWithDescription {
     }
 
     /**
-     * I recommend to use com.google.common.collect.RangeSet as keys. 
+     * I recommend to use com.google.common.collect.RangeSet as keys.
      * @param pointsToEvents
      */
     public void setPointsToEvents(Map<Set<Integer>, IEvent> pointsToEvents) {
