@@ -13,7 +13,7 @@ import pl.edu.agh.two.domain.players.IPlayer;
 
 public class Quiz extends EventWithDescription {
     private final List<Question> questions;
-    private IAnswerFormatter questionFormatter = new BasicAnswerFormatter();
+    private IAnswerFormatter answerFormtter = new BasicAnswerFormatter();
     private Map<Set<Integer>, IEvent> pointsToEvents = new HashMap<>();
 
     public Quiz(List<Question> questions) {
@@ -40,14 +40,14 @@ public class Quiz extends EventWithDescription {
         Map<Integer, Answer> currentQuestionAnswers = new HashMap<>(question.getAnswers().size());
         int answerNumber = 0;
         for (Answer answer : question.getAnswers()) {
-            getGameConsole().println(questionFormatter.formatQuestion(answerNumber, answer.getText()));
+            getGameConsole().println(answerFormtter.formatQuestion(answerNumber, answer.getText()));
             currentQuestionAnswers.put(answerNumber, answer);
             answerNumber++;
         }
         final String userInput = getGameConsole().readLine();
         final List<Answer> userAnswers = Arrays.stream(userInput.split(","))
                 .map(String::trim)
-                .map(questionFormatter::inputTextToAnswerNumber)
+                .map(answerFormtter::inputTextToAnswerNumber)
                 .map(currentQuestionAnswers::get)
                 .collect(Collectors.toList());
 
@@ -71,8 +71,8 @@ public class Quiz extends EventWithDescription {
         getGameConsole().println("Correct!");
     }
 
-    public void setQuestionFormatter(IAnswerFormatter questionFormatter) {
-        this.questionFormatter = questionFormatter;
+    public void setAnswerFormtter(IAnswerFormatter answerFormtter) {
+        this.answerFormtter = answerFormtter;
     }
 
     public void setPointsToEvents(Map<Set<Integer>, IEvent> pointsToEvents) {
