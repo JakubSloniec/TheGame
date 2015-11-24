@@ -1,34 +1,63 @@
 {
-  "name": "quiz1",
-  "introduction": "Some info about the story and the context. Eg. First WDI test.",
+  "name": "quiz_lvl1",
+  "introduction": "First quiz test.",
   "questions": [
     {
-      "question": "Instance of question eg 2+2= ? ",
+      "question": "Ile cykli Hamiltona posiada graf pełny o N wierzchołkach?",
       "answers": [
         {
-          "answer": "4",
-          "points": 1
-        },
-        {
-          "answer": "5",
+          "answer": "N",
           "points": 0
         },
         {
-          "answer": "What if it isn't decimal numeral system? ",
-          "points": 2
+          "answer": "1",
+          "points": 0
+        },
+        {
+          "answer": "N^2",
+          "points": 0
+        },
+        {
+          "answer": "N!",
+          "points": 3
         }
       ]
     },
     {
-      "question": "Another question",
+      "question": "Semantyka języka programowania opisuje:",
       "answers": [
         {
-          "answer": "Correct answer",
-          "points": 1
+          "answer": "Znaczenie instrukcji w języku",
+          "points": 2
         },
         {
-          "answer": "Bad answer",
+          "answer": "Formalnie poprawne programy",
           "points": 0
+        },
+        {
+          "answer": "Budowę instrukcji w języku",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "question": "Która z następujących metod parsingu może przetworzyć najszerszą klasę gramatyk?",
+      "answers": [
+        {
+          "answer": "parser SLR",
+          "points": 0
+        },
+        {
+          "answer": "zstępujący parser rekurencyjny bez nawracania",
+          "points": 0
+        },
+        {
+          "answer": "parser LL(1)",
+          "points": 0
+        },
+        {
+          "answer": "parser CYK",
+          "points": 2
         }
       ]
     }
