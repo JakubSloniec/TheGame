@@ -9,6 +9,7 @@ import javax.swing.border.MatteBorder;
 import net.miginfocom.swing.MigLayout;
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.rooms.Coordinates;
+import pl.edu.agh.two.domain.rooms.EmptyRoom;
 import pl.edu.agh.two.domain.rooms.IRoom;
 import pl.edu.agh.two.domain.rooms.Wall;
 
@@ -51,6 +52,7 @@ public class MapPanel extends JPanel {
 		mapPanel = new JPanel();
 		mapPanel.setLayout(new MigLayout("", "", ""));
 		mapPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+
 		Coordinates currentCoords = map.getCurrentRoom().getCoordinates();
 		for (IRoom[] rooms : map.getMap()) {
 			for (IRoom room : rooms) {
@@ -65,11 +67,14 @@ public class MapPanel extends JPanel {
 	}
 
 	private void addRoomToMap(IRoom room) {
-		
+
 		Coordinates coords = room.getCoordinates();
-		if(room instanceof Wall){
+		if (room instanceof Wall) {
 			setWall(coords.getX(), coords.getY());
-		} else if (room instanceof )
+		} else if (room instanceof EmptyRoom) {
+			setEmpty(coords.getX(), coords.getY());
+
+		}
 	}
 
 	private void addMapCell(Component component, int column, int row) {
