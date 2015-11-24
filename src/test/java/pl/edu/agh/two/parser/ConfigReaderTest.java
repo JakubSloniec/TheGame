@@ -34,21 +34,29 @@ public class ConfigReaderTest {
 
         System.out.println("MAP:");
         ConfigReader<RawMap> mapConfigReader = new ConfigReader<>(RawMap.class);
-        RawMap mapLev1 = mapConfigReader.readConfig("plotConfig/mapLev1.json");
+        RawMap mapLev1 = mapConfigReader.readConfig("plotConfig/maps/mapLev1.json");
         mapConfigReader.prettyPrint(mapLev1);
 
         System.out.println("QUIZ:");
         ConfigReader<RawQuiz> quizConfigReader = new ConfigReader<>(RawQuiz.class);
-        RawQuiz quizLev1 = quizConfigReader.readConfig("plotConfig/quizLev1.json");
+        RawQuiz quizLev1 = quizConfigReader.readConfig("plotConfig/events/quiz/quizLev1.json");
         quizConfigReader.prettyPrint(quizLev1);
 
-        System.out.println("PIWO:");
+        System.out.println("WODKA:");
         ConfigReader<RawItem> rawItemReader = new ConfigReader<>(RawItem.class);
-        RawItem piwoItem = rawItemReader.readConfig("plotConfig/itemPiwo.json");
+        RawItem piwoItem = rawItemReader.readConfig("plotConfig/items/itemPiwo.json");
         rawItemReader.prettyPrint(piwoItem);
 
+        System.out.println("PIWO:");
+        RawItem wodkaItem = rawItemReader.readConfig("plotConfig/items/itemWodka.json");
+        rawItemReader.prettyPrint(wodkaItem);
+
+        System.out.println("StudentAghEduPl:");
+        RawItem studentItem = rawItemReader.readConfig("plotConfig/items/itemStudentAghEduPl.json");
+        rawItemReader.prettyPrint(studentItem);
+
         System.out.println("PASSY DO WIKI:");
-        RawItem passyDoWikiItem = rawItemReader.readConfig("plotConfig/itemPassyDoWiki.json");
+        RawItem passyDoWikiItem = rawItemReader.readConfig("plotConfig/items/itemPassyDoWiki.json");
         rawItemReader.prettyPrint(passyDoWikiItem);
     }
 }

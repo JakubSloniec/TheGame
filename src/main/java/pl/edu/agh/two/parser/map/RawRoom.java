@@ -9,6 +9,16 @@ public class RawRoom {
     private int y;
     private String event;
     private RawPrecondition preconditions;
+    private boolean start;
+    private boolean end;
+
+    public boolean isEnd() {
+        return end;
+    }
+
+    public void setEnd(boolean end) {
+        this.end = end;
+    }
 
     public boolean isStart()
     {
@@ -19,8 +29,6 @@ public class RawRoom {
     {
         this.start = start;
     }
-
-    private boolean start;
 
     public int getX() {
         return x;
