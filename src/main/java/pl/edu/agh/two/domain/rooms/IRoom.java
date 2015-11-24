@@ -9,6 +9,8 @@ import java.util.Optional;
 
 public interface IRoom {
 
+    public Coordinates getCoordinates();
+
     public Map<Direction, IRoom> getAdjacentRooms();
 
     public List<IPrecondition> getPreconditions();

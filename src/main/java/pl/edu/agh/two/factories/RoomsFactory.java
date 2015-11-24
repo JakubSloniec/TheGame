@@ -2,6 +2,7 @@ package pl.edu.agh.two.factories;
 
 import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.events.IEvent;
+import pl.edu.agh.two.domain.rooms.Coordinates;
 import pl.edu.agh.two.domain.rooms.EventRoom;
 import pl.edu.agh.two.domain.rooms.IRoom;
 import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
@@ -15,8 +16,8 @@ import java.util.function.Consumer;
  */
 public class RoomsFactory {
 
-    public static IRoom createRoom(IEvent event, Optional<List<IPrecondition>> preconditionsOptional, Optional<GameConsole> gameConsoleOptional) {
-        EventRoom.Builder eventRoomBuilder = new EventRoom.Builder(event);
+    public static IRoom createRoom(IEvent event, int x, int y, Optional<List<IPrecondition>> preconditionsOptional, Optional<GameConsole> gameConsoleOptional) {
+        EventRoom.Builder eventRoomBuilder = new EventRoom.Builder(event, new Coordinates(x, y));
         setValueIfOptionalPresent(preconditionsOptional, eventRoomBuilder::setPreconditions);
         setValueIfOptionalPresent(gameConsoleOptional, eventRoomBuilder::setGameConsole);
         return eventRoomBuilder.build();
