@@ -3,7 +3,7 @@
   "introduction": "First quiz test.",
   "questions": [
     {
-      "question": "Ile cykli Hamiltona posiada graf pełny o N wierzchołkach?",
+      "question": "Ile cykli Hamiltona posiada graf pelny o N wierzcholkach?",
       "answers": [
         {
           "answer": "N",
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "question": "Semantyka języka programowania opisuje:",
+      "question": "Semantyka jezyka programowania opisuje:",
       "answers": [
         {
           "answer": "Znaczenie instrukcji w języku",
@@ -35,20 +35,20 @@
           "points": 0
         },
         {
-          "answer": "Budowę instrukcji w języku",
+          "answer": "Budowe instrukcji w języku",
           "points": 0
         }
       ]
     },
     {
-      "question": "Która z następujących metod parsingu może przetworzyć najszerszą klasę gramatyk?",
+      "question": "Ktora z nastepujacych metod parsingu może przetworzyc najszersza klase gramatyk?",
       "answers": [
         {
           "answer": "parser SLR",
           "points": 0
         },
         {
-          "answer": "zstępujący parser rekurencyjny bez nawracania",
+          "answer": "zstepujący parser rekurencyjny bez nawracania",
           "points": 0
         },
         {

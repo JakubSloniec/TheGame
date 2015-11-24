@@ -1,0 +1,95 @@
+{
+  "name": "quiz_lvl2",
+  "introduction": "Second quiz test.",
+  "questions": [
+    {
+      "question": "Pascal to jezyk: ",
+      "answers": [
+        {
+          "answer": "aplikatywny",
+          "points": 0
+        },
+        {
+          "answer": "deklaratywny",
+          "points": 0
+        },
+        {
+          "answer": "imperatywny",
+          "points": 2
+        },
+        {
+          "answer": "zadna z powyzszych",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "question": "Ile wartosci mozna zakodować na N bitach?",
+      "answers": [
+        {
+          "answer": "N!",
+          "points": 0
+        },
+        {
+          "answer": "2^(N-1)",
+          "points": 0
+        },
+        {
+          "answer": "N^2",
+          "points": 0
+        },
+        {
+          "answer": "2^N",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "question": "Co decyduje o zakresie liczb zmiennoprzecinkowych?",
+      "answers": [
+        {
+          "answer": "tylko cecha",
+          "points": 1
+        },
+        {
+          "answer": "tylko mantysa",
+          "points": 0
+        },
+        {
+          "answer": "mantysa i cecha",
+          "points": 0
+        },
+        {
+          "answer": "zadne z powyzszych",
+          "points": 0
+        }
+      ]
+    }
+  ],
+  "endTexts": [
+    {
+      "forNotes": [
+        2
+      ],
+      "textToDisplay": "Very bad.."
+    },
+    {
+      "forNotes": [
+        3,
+        4
+      ],
+      "textToDisplay": "Nice"
+    },
+    {
+      "forNotes": [
+        5
+      ],
+      "textToDisplay": "Very nice. ",
+      "awards": [
+        {
+          "itemName": "Wino"
+        }
+      ]
+    }
+  ]
+}
