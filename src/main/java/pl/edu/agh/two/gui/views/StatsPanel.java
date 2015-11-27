@@ -18,7 +18,10 @@ import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 @SuppressWarnings("serial")
 public class StatsPanel extends JPanel {
 
-	private static final Integer HEIGHT = 20;
+	private static final int HEIGHT = 20;
+	private static final int STAT_NAME_COLUMN = 1;
+	private static final int STAT_VAL_COLUMN = 2;
+	
 	private JPanel statList;
 
 	public StatsPanel() {
@@ -67,9 +70,9 @@ public class StatsPanel extends JPanel {
 
 	private int checkWidth(int column) {
 		switch (column) {
-		case 1:
+		case STAT_NAME_COLUMN:
 			return 200;
-		case 2:
+		case STAT_VAL_COLUMN:
 			return 40;
 
 		default:
