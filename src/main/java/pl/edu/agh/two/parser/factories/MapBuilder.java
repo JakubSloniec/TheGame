@@ -46,12 +46,18 @@ public class MapBuilder {
         ConfigReader<RawMap> mapConfigReader=new ConfigReader<>(RawMap.class);
 
         RawMap rawMap=mapConfigReader.readConfig(mapFileName);
-        product=new Map(rawMap.getRows());
+        product=new Map(10);
         List<RawRoom> rawRooms=rawMap.getRooms();
         for(RawRoom rawRoom: rawRooms) {
-            IEvent event=events.get(rawRoom.getEvent());
-            if(event==null) {
-                throw new NoSuchEventException();
+            String eventName=rawRoom.getEvent();
+            IEvent event;
+            if(eventName.equals("EMPTY")) {
+                event = null;
+            } else {
+                event = events.get(rawRoom.getEvent());
+                if (event == null) {
+                    throw new NoSuchEventException();
+                }
             }
             product.addRoom(rawRoom.getX(),rawRoom.getY(),
                     RoomsFactory.createEventRoom(event, rawRoom.getX(), rawRoom.getY(), Optional.<List<IPrecondition>>empty(), Optional.<GameConsole>empty()));
@@ -61,13 +67,12 @@ public class MapBuilder {
 
     //for files with single event
     public MapBuilder parseEventFile(String eventType,String eventFileName) {
-        java.util.Map<String,IEvent> fetchedEvents=config.getEventFactory(eventType).getEventFromFile(eventFileName);
-        for(String eventName:fetchedEvents.keySet()) {
-            if(events.containsKey(eventName)) {
-                throw new DuplicateEventNamesException();
-            }
+        IEvent fetchedEvent=config.getEventFactory(eventType).getEventFromFile(eventFileName);
+        String eventName=eventFileName.substring(eventFileName.lastIndexOf("/")+1).replaceAll("\\.json$","");
+        if(events.containsKey(eventName)) {
+            throw new DuplicateEventNamesException();
         }
-        events.putAll(fetchedEvents);
+        events.put(eventName,fetchedEvent);
         return this;
     }
 

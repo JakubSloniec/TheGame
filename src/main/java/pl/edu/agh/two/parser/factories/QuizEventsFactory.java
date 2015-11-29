@@ -24,7 +24,7 @@ public class QuizEventsFactory implements IEventsFactory {
     }
 
     @Override
-    public Map<String, IEvent> getEventFromFile(String eventFileName) {
+    public IEvent getEventFromFile(String eventFileName) {
 
         ConfigReader<RawQuiz> configReader= new ConfigReader<>(RawQuiz.class);
         Map<String,IEvent> retVal=new HashMap<String,IEvent>();
@@ -55,7 +55,7 @@ public class QuizEventsFactory implements IEventsFactory {
 
         Quiz quiz=new Quiz(questions,lowestScore);
         retVal.put(rawQuiz.getName(),quiz);
-        return retVal;
+        return quiz;
     }
 
         //for sorting EndTextComparators by lowest score
