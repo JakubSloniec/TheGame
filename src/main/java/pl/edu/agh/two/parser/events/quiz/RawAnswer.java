@@ -1,7 +1,7 @@
-package pl.edu.agh.two.parser.quiz;
+package pl.edu.agh.two.parser.events.quiz;
 
 /**
- * Created by SG0219906 on 11/17/2015.
+ * Created by Michal Mrowczyk on 11/17/2015.
  */
 public class RawAnswer {
     private String answer;

@@ -4,71 +4,62 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import pl.edu.agh.two.domain.events.EventWithDescription;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.players.IPlayer;
-import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
 
-public class Quiz extends EventWithDescription implements IPrecondition {
+public class Quiz extends EventWithDescription {
     private final List<Question> questions;
-    private final IAnswerFormatter questionFormatter;
-    private final Optional<IEvent> onFail;
-    private final Optional<IEvent> onSuccess;
-    private int correctAnswers;
-    private int requiredCorrectAnswers;
-    private boolean quizPassed;
+    private IAnswerFormatter answerFormtter = new BasicAnswerFormatter();
+    private Map<Set<Integer>, IEvent> pointsToEvents = new HashMap<>();
 
-    public Quiz(List<Question> questions, IAnswerFormatter questionFormatter, int requiredCorrectAnswers, Optional<IEvent> onSuccess, Optional<IEvent> onFail) {
+    public Quiz(List<Question> questions) {
         this.questions = questions;
-        this.questionFormatter = questionFormatter;
-        this.onSuccess = onSuccess;
-        this.onFail = onFail;
-        this.requiredCorrectAnswers = requiredCorrectAnswers;
-    }
-
-    public Quiz(List<Question> questions, int requiredCorrectAnswers, Optional<IEvent> onSuccess, Optional<IEvent> onFail) {
-        this(questions, new BasicAnswerFormatter(), requiredCorrectAnswers, onSuccess, onFail);
-    }
-
-    public Quiz(List<Question> questions, int requiredCorrectAnswers) {
-        this(questions, new BasicAnswerFormatter(), requiredCorrectAnswers, Optional.empty(), Optional.empty());
     }
 
     @Override
     public void execute(IPlayer player) {
-        correctAnswers = 0;
-        questions.forEach(this::takeQuestion);
-        quizPassed = correctAnswers >= requiredCorrectAnswers;
-        (quizPassed ? onSuccess : onFail).ifPresent(event -> event.execute(player));
+        executeQuiz(player);
     }
 
-    private void takeQuestion(Question question) {
+    protected int executeQuiz(IPlayer player) {
+        int points = questions.stream().mapToInt(this::ask).sum();
+        pointsToEvents.forEach((pointsSet, event) -> {
+            if (pointsSet.contains(points)) {
+                event.execute(player);
+            }
+        });
+        return points;
+    }
+
+    private int ask(Question question) {
         getGameConsole().println(question.getQuestionText());
-        Map<Character, Answer> currentQuestionAnswers = new HashMap<>(question.getAnswers().size());
-        char nextChar = 'a';
+        Map<Integer, Answer> currentQuestionAnswers = new HashMap<>(question.getAnswers().size());
+        int answerNumber = 0;
         for (Answer answer : question.getAnswers()) {
-            getGameConsole().println(questionFormatter.formatQuestion(nextChar, answer.getText()));
-            currentQuestionAnswers.put(nextChar, answer);
-            nextChar++;
+            getGameConsole().println(answerFormtter.formatQuestion(answerNumber, answer.getText()));
+            currentQuestionAnswers.put(answerNumber, answer);
+            answerNumber++;
         }
         final String userInput = getGameConsole().readLine();
         final List<Answer> userAnswers = Arrays.stream(userInput.split(","))
                 .map(String::trim)
-                .map(answer -> answer.charAt(0))
+                .map(answerFormtter::inputTextToAnswerNumber)
                 .map(currentQuestionAnswers::get)
                 .collect(Collectors.toList());
 
-        final boolean allUserAnswersCorrect = userAnswers.stream().allMatch(Answer::isCorrect);
-        final boolean allCorrectAnswersTyped = question.getAnswers().stream().filter(Answer::isCorrect).allMatch(userAnswers::contains);
+        final boolean allUserAnswersCorrect = userAnswers.stream().map(Answer::getPoints).allMatch(points -> points > 0);
+        int points = userAnswers.stream().mapToInt(Answer::getPoints).sum();
 
-        if (allCorrectAnswersTyped && allUserAnswersCorrect) {
+        if (allUserAnswersCorrect && points > 0) {
             onCorrectAnswer();
         } else {
             onIncorrectAnswer();
         }
+        return points;
     }
 
     protected void onIncorrectAnswer() {
@@ -76,13 +67,19 @@ public class Quiz extends EventWithDescription implements IPrecondition {
     }
 
     protected void onCorrectAnswer() {
-        correctAnswers++;
         getGameConsole().println("Correct!");
     }
 
-    @Override
-    public boolean test(IPlayer player) {
-        this.execute(player);
-        return quizPassed;
+    public void setAnswerFormtter(IAnswerFormatter answerFormtter) {
+        this.answerFormtter = answerFormtter;
     }
+
+    /**
+     * I recommend to use com.google.common.collect.RangeSet as keys.
+     * @param pointsToEvents
+     */
+    public void setPointsToEvents(Map<Set<Integer>, IEvent> pointsToEvents) {
+        this.pointsToEvents = pointsToEvents;
+    }
+
 }

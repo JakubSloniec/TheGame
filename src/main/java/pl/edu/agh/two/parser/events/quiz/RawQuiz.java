@@ -1,4 +1,4 @@
-package pl.edu.agh.two.parser.quiz;
+package pl.edu.agh.two.parser.events.quiz;
 
 import java.util.List;
 
