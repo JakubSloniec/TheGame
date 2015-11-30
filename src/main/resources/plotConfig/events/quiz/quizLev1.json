@@ -1,5 +1,4 @@
 {
-  "name": "quiz_lvl1",
   "introduction": "First quiz test.",
   "questions": [
     {
@@ -83,7 +82,7 @@
       "textToDisplay": "Very nice. ",
       "awards": [
         {
-          "itemName": "PassyDoWiki"
+          "itemName": "Passy Do Wiki"
         }
           ]
         }

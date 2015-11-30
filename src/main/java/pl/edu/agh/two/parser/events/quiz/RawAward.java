@@ -1,4 +1,4 @@
-package pl.edu.agh.two.parser.quiz;
+package pl.edu.agh.two.parser.events.quiz;
 
 /**
  * Created by Michal Mrowczyk on 11/17/2015.

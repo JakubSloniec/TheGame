@@ -1,17 +1,17 @@
 package pl.edu.agh.two.domain.events.quiz;
 
-import java.util.Set;
+import java.util.Collection;
 
 public class Question {
-    private final Set<Answer> answers;
+    private final Collection<Answer> answers;
     private final String questionText;
 
-    public Question(String questionText, Set<Answer> answers) {
+    public Question(String questionText, Collection<Answer> answers) {
         this.questionText = questionText;
         this.answers = answers;
     }
 
-    public Set<Answer> getAnswers() {
+    public Collection<Answer> getAnswers() {
         return answers;
     }
 

@@ -3,6 +3,9 @@ package pl.edu.agh.two.parser.factories;
 import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.map.Map;
+import pl.edu.agh.two.domain.rooms.Coordinates;
+import pl.edu.agh.two.domain.rooms.IRoom;
+import pl.edu.agh.two.domain.rooms.Wall;
 import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
 import pl.edu.agh.two.factories.RoomsFactory;
 import pl.edu.agh.two.parser.ConfigReader;
@@ -46,40 +49,47 @@ public class MapBuilder {
         ConfigReader<RawMap> mapConfigReader=new ConfigReader<>(RawMap.class);
 
         RawMap rawMap=mapConfigReader.readConfig(mapFileName);
-        product=new Map(rawMap.getRows());
+        product=new Map(10);
+        //checking where we didn't put a room
+        boolean checkingBoard[][]=new boolean[10][10];
+
         List<RawRoom> rawRooms=rawMap.getRooms();
         for(RawRoom rawRoom: rawRooms) {
-            IEvent event=events.get(rawRoom.getEvent());
-            if(event==null) {
-                throw new NoSuchEventException();
+            String eventName=rawRoom.getEvent();
+            IEvent event;
+            if(eventName.equals("EMPTY")) {
+                event = null;
+            } else {
+                event = events.get(rawRoom.getEvent());
+                if (event == null) {
+                    throw new NoSuchEventException();
+                }
             }
-            product.addRoom(rawRoom.getX(),rawRoom.getY(),
-                    RoomsFactory.createEventRoom(event, rawRoom.getX(), rawRoom.getY(), Optional.<List<IPrecondition>>empty(), Optional.<GameConsole>empty()));
+            IRoom room=RoomsFactory.createEventRoom(event, rawRoom.getX(), rawRoom.getY(), Optional.<List<IPrecondition>>empty(), Optional.<GameConsole>empty());
+            if(rawRoom.isStart())
+                product.setCurrentRoom(room);
+            product.addRoom(rawRoom.getX(),rawRoom.getY(),room
+                    );
+            checkingBoard[rawRoom.getX()][rawRoom.getY()]=true;
+        }
+        //if the room wasn't put, put a wall
+        for(int i=0;i<10;i++) {
+            for(int j=0;j<10;j++) {
+                if(checkingBoard[i][j]==false)
+                    product.addRoom(i,j,new Wall(new Coordinates(i,j)));
+            }
         }
         return this;
     }
 
     //for files with single event
     public MapBuilder parseEventFile(String eventType,String eventFileName) {
-        java.util.Map<String,IEvent> fetchedEvents=config.getEventFactory(eventType).getEventFromFile(eventFileName);
-        for(String eventName:fetchedEvents.keySet()) {
-            if(events.containsKey(eventName)) {
-                throw new DuplicateEventNamesException();
-            }
+        IEvent fetchedEvent=config.getEventFactory(eventType).getEventFromFile(eventFileName);
+        String eventName=eventFileName.substring(eventFileName.lastIndexOf("/")+1).replaceAll("\\.json$","");
+        if(events.containsKey(eventName)) {
+            throw new DuplicateEventNamesException();
         }
-        events.putAll(fetchedEvents);
-        return this;
-    }
-
-    //for files with multiple events
-    public MapBuilder parseEventsFile(String eventType,String eventFileName) {
-        java.util.Map<String,IEvent> fetchedEvents=config.getEventFactory(eventType).getEventsFromFile(eventFileName);
-        for(String eventName:fetchedEvents.keySet()) {
-            if(events.containsKey(eventName)) {
-                throw new DuplicateEventNamesException();
-            }
-        }
-        events.putAll(fetchedEvents);
+        events.put(eventName, fetchedEvent);
         return this;
     }
 
