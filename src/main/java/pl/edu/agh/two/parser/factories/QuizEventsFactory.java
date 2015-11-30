@@ -9,15 +9,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.collect.RangeSet;
+
+import pl.edu.agh.two.domain.events.EventWithDescription;
 import pl.edu.agh.two.domain.events.IEvent;
+import pl.edu.agh.two.domain.events.PickItemEvent;
 import pl.edu.agh.two.domain.events.quiz.Answer;
 import pl.edu.agh.two.domain.events.quiz.Question;
 import pl.edu.agh.two.domain.events.quiz.Quiz;
+import pl.edu.agh.two.domain.items.IItem;
 import pl.edu.agh.two.parser.ConfigReader;
 import pl.edu.agh.two.parser.events.quiz.RawAnswer;
 import pl.edu.agh.two.parser.events.quiz.RawEndText;
 import pl.edu.agh.two.parser.events.quiz.RawQuestion;
 import pl.edu.agh.two.parser.events.quiz.RawQuiz;
+import pl.edu.agh.two.parser.exceptions.NoSuchItemTypeException;
+import pl.edu.agh.two.repositories.ItemsRepository;
 
 /**
  * Created by oem on 2015-11-22.
@@ -44,32 +51,36 @@ public class QuizEventsFactory implements IEventsFactory {
         }
         //list of questions created
 
-        //XXX there is a problem in turning answers into quiz model
-        //(multiple end texts and results in jsons, only one boolean in model)
-        //temporary (UGLY) fix - lowest score from the second "for notes"
-        // form the bottom is sufficient to pass
-        //the least number of good questions to pass
         List<RawEndText> rawEndTexts= rawQuiz.getEndTexts();
-        rawEndTexts.sort(new EndTextComparator());
-        Collections.sort(rawEndTexts.get(1).getForNotes());
-        int lowestScore=rawEndTexts.get(1).getForNotes().get(0);
-
         Quiz quiz=new Quiz(questions);
-        retVal.put(rawQuiz.getName(),quiz);
+        Map<Set<Integer>,IEvent> resultMap=new HashMap<>();
+
+        for(RawEndText endText:rawEndTexts) {
+            Set<Integer> resultSet=new HashSet<Integer>();
+            for(int result:endText.getForNotes()) {
+                resultSet.add(result);
+            }
+
+            IEvent awardEvent;
+            //deciding whether the event is an item pick event, or text event
+            if(endText.getAwards()==null) {
+                EventWithDescription awardDescriptionEvent=new EventWithDescription();
+                awardDescriptionEvent.setEventDescription(endText.getTextToDisplay());
+                awardEvent=awardDescriptionEvent;
+            } else {
+                //pick up item
+                //item creation
+                IItem item=ItemsRepository.getItem(endText.getAwards().get(0).getItemName());
+                if(item==null) {
+                    throw new NoSuchItemTypeException();
+                }
+                awardEvent=new PickItemEvent(item);
+            }
+            resultMap.put(resultSet,awardEvent);
+        }
+
+        quiz.setPointsToEvents(resultMap);
         return quiz;
     }
 
-        //for sorting EndTextComparators by lowest score
-    private static class EndTextComparator implements Comparator<RawEndText> {
-
-        @Override
-        public int compare(RawEndText o1, RawEndText o2) {
-            List<Integer> l1=o1.getForNotes();
-            List<Integer> l2=o2.getForNotes();
-            Collections.sort(l1);
-            Collections.sort(l2);
-            return (l1.get(0)>l2.get(0))?1:
-                    (l1.get(0)==l2.get(0)?0:-1);
-        }
-    }
 }
