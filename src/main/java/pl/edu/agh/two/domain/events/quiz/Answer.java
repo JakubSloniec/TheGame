@@ -2,15 +2,15 @@ package pl.edu.agh.two.domain.events.quiz;
 
 public class Answer {
     private final String text;
-    private final boolean isCorrect;
+    private final int points;
 
-    public Answer(String text, boolean isCorrect) {
+    public Answer(String text, int points) {
         this.text = text;
-        this.isCorrect = isCorrect;
+        this.points = points;
     }
 
-    public boolean isCorrect() {
-        return isCorrect;
+    public int getPoints() {
+        return points;
     }
 
     public String getText() {
