@@ -36,7 +36,7 @@ public class InventoryPanel extends JPanel {
 	public InventoryPanel() {
 		setLayout(new BorderLayout(0, 0));
 		itemList = createItemPanel();
-		mock();
+	//	mock();
 	}
 
 	private void mock() {
