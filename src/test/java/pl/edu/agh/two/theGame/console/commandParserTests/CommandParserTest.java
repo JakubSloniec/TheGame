@@ -1,8 +1,8 @@
 package pl.edu.agh.two.theGame.console.commandParserTests;
 
-import pl.edu.agh.two.theGame.console.command.Command;
-import pl.edu.agh.two.theGame.console.command.CommandParser;
-import pl.edu.agh.two.theGame.console.exception.ParseException;
+import pl.edu.agh.two.parser.command.Command;
+import pl.edu.agh.two.parser.command.CommandParser;
+import pl.edu.agh.two.parser.exceptions.ParseException;
 
 public class CommandParserTest {
     public static void main(String[] args) {

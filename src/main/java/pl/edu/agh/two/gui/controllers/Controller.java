@@ -1,17 +1,19 @@
 package pl.edu.agh.two.gui.controllers;
 
-import java.util.Set;
-
 import org.springframework.stereotype.Component;
-
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.players.Backpack;
 import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
+import pl.edu.agh.two.domain.rooms.Direction;
 import pl.edu.agh.two.factories.PlayersFactory;
 import pl.edu.agh.two.gui.views.RootFrame;
 import pl.edu.agh.two.parser.factories.ItemsInitializer;
 import pl.edu.agh.two.parser.factories.MapFactory;
+import pl.edu.agh.two.parser.command.Command;
+import pl.edu.agh.two.parser.command.CommandParser;
+
+import java.util.Set;
 
 /**
  * @author Jakub Sloniec
@@ -25,11 +27,15 @@ public class Controller {
 	private IPlayer player;
 	private RootFrame rootFrame;
 
+	private CommandParser commandParser;
+
 	public void init(String playerName) {
 		rootFrame = new RootFrame();
 		rootFrame.setVisible(true);
 
 		rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
+
+		commandParser = new CommandParser();
 
 		initItems();
 		initMap();
@@ -43,6 +49,8 @@ public class Controller {
 	private void initPlayer(String playerName) {
 		player = PlayersFactory.createDefaultPlayer(playerName);
 		appendInConsole("Your name is " + playerName + ". Hello!");
+		// TODO: room description required
+		appendInConsole(map.getCurrentRoom().toString());
 	}
 
 	private void initMap() {
@@ -56,12 +64,38 @@ public class Controller {
 
 		appendInConsole(">" + input);
 
-		// Some proccessing to be done here
-		String output = "Response in console for input: " + input; // or here,
-																	// it's mock
-																	// BTW
+		try {
+			Command command = commandParser.parse(input);
+			switch(command.getAction()) {
+				case ANSWER:
+					break;
+				case GO:
+					Direction direction = commandParser.parseDirection(command.getRest());
+					map.go(direction, player);
+					displayMap(map);
+					break;
+				case HELP:
+					appendInConsole(commandParser.getHelpString());
+					break;
+				case PICK:
+					break;
+				case REPEAT:
+					// TODO: room description required
+					appendInConsole(map.getCurrentRoom().toString());
+					break;
+				case USE:
+					break;
+			}
+		// TODO: create basic exception from which other exceptions will extend
+		} catch(Exception e) {
+			appendInConsole(e.getMessage());
+		}
 
-		appendInConsole(output);
+		// Some proccessing to be done here
+//		String output = "Response in console for input: " + input; // or here,
+		// it's mock
+		// BTW
+
 	}
 
 	public void displayMap(Map map) {

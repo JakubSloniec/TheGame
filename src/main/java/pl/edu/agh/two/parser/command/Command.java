@@ -1,4 +1,4 @@
-package pl.edu.agh.two.theGame.console.command;
+package pl.edu.agh.two.parser.command;
 
 public class Command {
     private Action action;
@@ -19,16 +19,18 @@ public class Command {
 
     public static Action parseAction(String action) {
         switch(action.toLowerCase().trim()) {
-            case "go":
-                return Action.GO;
-            case "pick":
-                return Action.PICK;
             case "answer":
                 return Action.ANSWER;
-            case "repeat":
-                return Action.REPEAT;
+            case "go":
+                return Action.GO;
             case "help":
                 return Action.HELP;
+            case "pick":
+                return Action.PICK;
+            case "repeat":
+                return Action.REPEAT;
+            case "use":
+                return Action.USE;
             default:
                 return Action.NONE;
         }

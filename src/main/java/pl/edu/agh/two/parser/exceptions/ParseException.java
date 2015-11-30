@@ -1,4 +1,4 @@
-package pl.edu.agh.two.theGame.console.exception;
+package pl.edu.agh.two.parser.exceptions;
 
 public class ParseException extends Exception {
     public ParseException(String message) {
