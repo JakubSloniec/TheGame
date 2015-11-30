@@ -12,12 +12,6 @@ import java.util.Map;
  */
 public class EventsWithDescriptionFactory implements IEventsFactory {
 
-    //obsolete
-    @Override
-    public Map<String, IEvent> getEventsFromFile(String eventFileName) {
-        return null;
-    }
-
     @Override
     public IEvent getEventFromFile(String eventFileName) {
         ConfigReader<RawTextEvent> configReader=new ConfigReader<>(RawTextEvent.class);

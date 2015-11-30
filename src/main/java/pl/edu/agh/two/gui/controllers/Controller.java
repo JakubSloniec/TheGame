@@ -10,6 +10,7 @@ import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 import pl.edu.agh.two.factories.PlayersFactory;
 import pl.edu.agh.two.gui.views.RootFrame;
+import pl.edu.agh.two.parser.factories.ItemsInitializer;
 import pl.edu.agh.two.parser.factories.MapFactory;
 
 /**
@@ -30,8 +31,13 @@ public class Controller {
 
 		rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
 
+		initItems();
 		initMap();
 		initPlayer(playerName);
+	}
+
+	private void initItems() {
+		ItemsInitializer.initializeItems();
 	}
 
 	private void initPlayer(String playerName) {

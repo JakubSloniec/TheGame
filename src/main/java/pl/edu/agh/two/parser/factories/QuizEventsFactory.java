@@ -18,12 +18,6 @@ import java.util.*;
 public class QuizEventsFactory implements IEventsFactory {
 
     @Override
-    public Map<String, IEvent> getEventsFromFile(String eventFileName) {
-        //TODO
-        return null;
-    }
-
-    @Override
     public IEvent getEventFromFile(String eventFileName) {
 
         ConfigReader<RawQuiz> configReader= new ConfigReader<>(RawQuiz.class);

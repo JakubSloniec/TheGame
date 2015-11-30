@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public interface IEventsFactory {
     //obsolete due to change of the event description inside json standard
-    Map<String,IEvent> getEventsFromFile(String eventFileName);
+    //Map<String,IEvent> getEventsFromFile(String eventFileName);
 
     IEvent getEventFromFile(String eventFileName);
 
