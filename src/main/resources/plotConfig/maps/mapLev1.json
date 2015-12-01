@@ -63,7 +63,7 @@
     },
     {
       "x": 5,
-      "y": 1,
+      "y": 2,
       "preconditions": {
         "attributes": [
           {
@@ -75,7 +75,7 @@
     },
     {
       "x": 6,
-      "y": 1,
+      "y": 2,
       "preconditions": {
         "attributes": [
           {
@@ -87,19 +87,7 @@
     },
     {
       "x": 7,
-      "y": 1,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
-      "x": 8,
-      "y": 1,
+      "y": 2,
       "preconditions": {
         "attributes": [
           {
