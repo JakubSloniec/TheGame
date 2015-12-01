@@ -12,7 +12,7 @@ import java.util.Properties;
 public class PropertyManager {
 
 	private static Properties properties = new Properties();
-	private static String propFileName = "config.properties";
+	private static String propFileName = "gui/config.properties";
 
 	private static InputStream inputStream;
 
