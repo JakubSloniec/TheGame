@@ -73,6 +73,7 @@ public class Controller {
 					Direction direction = commandParser.parseDirection(command.getRest());
 					map.go(direction, player);
 					displayMap(map);
+					appendInConsole(map.getCurrentRoom().toString());
 					break;
 				case HELP:
 					appendInConsole(commandParser.getHelpString());
