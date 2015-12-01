@@ -51,7 +51,7 @@ public class MapPanel extends JPanel {
 
 	public void paint(Map map) {
 		mapPanel = new JPanel();
-		mapPanel.setLayout(new MigLayout("debug", "", ""));
+		mapPanel.setLayout(new MigLayout("", "", ""));
 		mapPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 
 		Coordinates currentCoords = map.getCurrentRoom().getCoordinates();

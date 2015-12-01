@@ -39,6 +39,7 @@ public class Controller {
 
 		initItems();
 		initMap();
+		displayMap(map);
 		initPlayer(playerName);
 		displayStats(player.getStatistics());
 		displayBag(player.getBackpack());
@@ -57,7 +58,6 @@ public class Controller {
 
 	private void initMap() {
 		map = MapFactory.getMap();
-		displayMap(map);
 	}
 
 	public void clickEnter() {
@@ -101,6 +101,7 @@ public class Controller {
 		// BTW
 		displayStats(player.getStatistics());
 		displayBag(player.getBackpack());
+		displayMap(map);
 	}
 
 	public void displayMap(Map map) {
