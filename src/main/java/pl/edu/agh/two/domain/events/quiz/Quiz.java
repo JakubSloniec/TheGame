@@ -21,7 +21,7 @@ public class Quiz extends EventWithDescription {
     }
 
     @Override
-    public void execute(IPlayer player) {
+    public void executeLogic(IPlayer player) {
         executeQuiz(player);
     }
 

@@ -15,7 +15,8 @@ public class MultipleEvents extends EventWithDescription {
         this.subEvents = subEvents;
     }
 
-    public void execute(IPlayer player) {
+    @Override
+    public void executeLogic(IPlayer player) {
         super.execute(player);
         for (IEvent subEvent : subEvents) {
             subEvent.execute(player);

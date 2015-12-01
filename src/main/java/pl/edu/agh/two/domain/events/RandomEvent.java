@@ -15,7 +15,7 @@ public class RandomEvent extends EventWithDescription {
     }
 
     @Override
-    public void execute(IPlayer player) {
+    public void executeLogic(IPlayer player) {
         super.execute(player);
         availableEvents.get(random.nextInt(availableEvents.size()))
                 .execute(player);

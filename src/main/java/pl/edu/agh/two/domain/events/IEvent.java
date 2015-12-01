@@ -6,4 +6,6 @@ public interface IEvent {
 
     void execute(IPlayer player);
 
+    boolean isFinished();
+
 }

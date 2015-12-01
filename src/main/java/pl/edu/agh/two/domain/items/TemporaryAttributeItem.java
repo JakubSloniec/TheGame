@@ -27,7 +27,7 @@ public class TemporaryAttributeItem extends AbstractAttributeItem {
         if (usageContext == null) {
             throw new ContextRequireException(this);
         }
-        usageContext.registerOnFizishListener(() -> getAttributes()
+        usageContext.registerOnFinishListener(() -> getAttributes()
                         .forEach(itemAttribute ->
                                         player.getStatistic(itemAttribute.getAttribute())
                                                 .add(itemAttribute.getOpositeOfChangeValue())

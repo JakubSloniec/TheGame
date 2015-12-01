@@ -7,6 +7,8 @@ import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.exceptions.GameConsoleNotSet;
 
 public class EventWithDescription implements IEvent {
+    private boolean finished = false;
+
     private Optional<GameConsole> gameConsole = Optional.empty();
 
     private String eventDescription = "";
@@ -27,7 +29,22 @@ public class EventWithDescription implements IEvent {
         this.eventDescription = eventDescription;
     }
 
-    public void execute(IPlayer player) {
+    protected void executeLogic(IPlayer player){
         getGameConsole().display(getEventDescription());
+    }
+
+    protected void cleanUp(){
+        finished = true;
+    }
+
+    @Override
+    public void execute(IPlayer player) {
+        executeLogic(player);
+        cleanUp();
+    }
+
+    @Override
+    public boolean isFinished() {
+        return finished;
     }
 }

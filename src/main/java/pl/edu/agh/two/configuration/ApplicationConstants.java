@@ -5,9 +5,9 @@ package pl.edu.agh.two.configuration;
  */
 public class ApplicationConstants {
 
-    public static final String AVERAGE = "Średnia";
-    public static final String YEAR_OF_STUDY = "Rok studiów";
-    public static final String SEMESTER_OF_STUDY = "Semestr studiów";
+    public static final String AVERAGE = "Average";
+    public static final String YEAR_OF_STUDY = "Year of studies";
+    public static final String SEMESTER_OF_STUDY = "Semester";
 
     public static final String[] DEFAULT_STATISTICS = {YEAR_OF_STUDY, SEMESTER_OF_STUDY};
 
