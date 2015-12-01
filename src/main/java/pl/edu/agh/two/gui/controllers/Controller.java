@@ -1,6 +1,9 @@
 package pl.edu.agh.two.gui.controllers;
 
+import java.util.Set;
+
 import org.springframework.stereotype.Component;
+
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.players.Backpack;
 import pl.edu.agh.two.domain.players.IPlayer;
@@ -8,12 +11,10 @@ import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 import pl.edu.agh.two.domain.rooms.Direction;
 import pl.edu.agh.two.factories.PlayersFactory;
 import pl.edu.agh.two.gui.views.RootFrame;
-import pl.edu.agh.two.parser.factories.ItemsInitializer;
-import pl.edu.agh.two.parser.factories.MapFactory;
 import pl.edu.agh.two.parser.command.Command;
 import pl.edu.agh.two.parser.command.CommandParser;
-
-import java.util.Set;
+import pl.edu.agh.two.parser.factories.ItemsInitializer;
+import pl.edu.agh.two.parser.factories.MapFactory;
 
 /**
  * @author Jakub Sloniec
@@ -39,7 +40,10 @@ public class Controller {
 
 		initItems();
 		initMap();
+		displayMap(map);
 		initPlayer(playerName);
+		displayStats(player.getStatistics());
+		displayBag(player.getBackpack());
 	}
 
 	private void initItems() {
@@ -55,7 +59,6 @@ public class Controller {
 
 	private void initMap() {
 		map = MapFactory.getMap();
-		displayMap(map);
 	}
 
 	public void clickEnter() {
@@ -87,16 +90,20 @@ public class Controller {
 				case USE:
 					break;
 			}
-		// TODO: create basic exception from which other exceptions will extend
-		} catch(Exception e) {
+			// TODO: create basic exception from which other exceptions will
+			// extend
+		} catch (Exception e) {
 			appendInConsole(e.getMessage());
 		}
 
 		// Some proccessing to be done here
-//		String output = "Response in console for input: " + input; // or here,
+		// String output = "Response in console for input: " + input; // or
+		// here,
 		// it's mock
 		// BTW
-
+		displayStats(player.getStatistics());
+		displayBag(player.getBackpack());
+		displayMap(map);
 	}
 
 	public void displayMap(Map map) {

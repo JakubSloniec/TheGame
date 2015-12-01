@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import pl.edu.agh.two.utils.PropertyManager;
+
 /**
  * @author Jakub Sloniec
  * @since 17 lis 2015
@@ -12,9 +14,9 @@ import javax.swing.JTabbedPane;
 @SuppressWarnings("serial")
 public class CardPanel extends JPanel {
 
-	private static final String TAB_INVENTORY = "Inv";
-	private static final String TAB_STATS = "Stats";
-	private static final String TAB_QUEST = "Quests";
+	// private static final String TAB_INVENTORY = "Inventory";
+	// private static final String TAB_STATS = "Statistics";
+	// private static final String TAB_QUEST = "Quests";
 
 	private InventoryPanel inventoryPanel;
 	private StatsPanel statsPanel;
@@ -29,13 +31,13 @@ public class CardPanel extends JPanel {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
 		inventoryPanel = new InventoryPanel();
-		tabbedPane.addTab(TAB_INVENTORY, inventoryPanel);
+		tabbedPane.addTab(PropertyManager.getProperty("window.tabs.inventory"), inventoryPanel);
 
 		statsPanel = new StatsPanel();
-		tabbedPane.addTab(TAB_STATS, statsPanel);
+		tabbedPane.addTab(PropertyManager.getProperty("window.tabs.statistics"), statsPanel);
 
-		questPanel = new QuestPanel();
-		tabbedPane.addTab(TAB_QUEST, questPanel);
+		// questPanel = new QuestPanel();
+		// tabbedPane.addTab(TAB_QUEST, questPanel);
 
 		add(tabbedPane);
 	}

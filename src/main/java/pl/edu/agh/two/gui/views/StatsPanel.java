@@ -2,6 +2,7 @@ package pl.edu.agh.two.gui.views;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.swing.JLabel;
@@ -10,6 +11,7 @@ import javax.swing.border.MatteBorder;
 
 import net.miginfocom.swing.MigLayout;
 import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
+import pl.edu.agh.two.factories.PlayerStatisticsFactory;
 
 /**
  * @author Jakub Sloniec
@@ -26,6 +28,17 @@ public class StatsPanel extends JPanel {
 
 	public StatsPanel() {
 		statList = createStatPanel();
+		//mock();
+	}
+
+	private void mock() {
+		Set<IPlayerStatistic> stats = new HashSet<>();
+		stats.add(PlayerStatisticsFactory.createPlayerStatistic("stat 1", 15.));
+		stats.add(PlayerStatisticsFactory.createPlayerStatistic("stat 2", 1.));
+		stats.add(PlayerStatisticsFactory.createPlayerStatistic("stat 3", 15.5));
+		stats.add(PlayerStatisticsFactory.createPlayerStatistic("stat 4", 0.));
+		stats.add(PlayerStatisticsFactory.createPlayerStatistic("stat 5", 9.0));
+		paint(stats);
 	}
 
 	private JPanel createStatPanel() {
@@ -35,6 +48,7 @@ public class StatsPanel extends JPanel {
 	}
 
 	public void paint(Set<IPlayerStatistic> statistics) {
+		remove(statList);
 		statList = createStatPanel();
 		int row = 0;
 		for (IPlayerStatistic stat : statistics) {
