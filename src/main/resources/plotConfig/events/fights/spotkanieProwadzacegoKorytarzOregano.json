@@ -1,0 +1,31 @@
+{
+  "introduction": "Szef wszystkich szefów, mi?o?nik skr?tki kategori 7+ i komputerów PC over IP z których nikt nie korzysta bo nie dzia?aj?, spotyka Cie na korytarzu. Pocz?tkowo go nie poznajesz, nigdy nie by?e? na jego wyk?adzie",
+  "enemy": {
+    "HP": 2,
+    "attributes": {"creativity": 1}
+  },
+  "actions": [
+    {
+      "question": "Dlaczego nie widzialem  Pana na wykladzie? ",
+      "answers": [
+        {
+          "answer": "Przepraszam, bardzo ?le si? czu?em.. ",
+          "points": 2,
+          "reaction": "No dobrze, zdarza sie, mam nadzieje ze nast?pnym razem b?dzie pan na wyk?adzie"
+        },
+        {
+          "answer": "Musia?em pracowa?",
+          "points": 0,
+          "reaction": "Profesor patrzy na Ciebie przenikliwym, ch?odnym wzrokiem. To chyba nie by?a dobra odpowied?. \n - Przez takich jak Pan, nasza katedra ma 400 tysiecy d?ugów. To s? studia stacjonarne! Tu sie chodzi na wyklady'\n"
+        },
+        {
+          "answer": "Zaspa?em, ale nast?pnym razem na pewno b?de.",
+          "points": 1,
+          "reaction": "Dobrze, tylko ?eby mi to by?o ostatni raz"
+        }
+      ]
+    }
+  ],
+  "textIfWin": "Prowadzacy odchodzi zadowolony. :)  ",
+  "textIfLose": "Prowadz?cy odchodzi zdenerwowany. Juz wiesz ze egzamin nie b?dzie nale?a? do prostych..."
+}
