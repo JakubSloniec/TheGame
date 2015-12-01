@@ -4,6 +4,7 @@ import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.rooms.Coordinates;
+import pl.edu.agh.two.domain.rooms.Direction;
 import pl.edu.agh.two.domain.rooms.IRoom;
 import pl.edu.agh.two.domain.rooms.Wall;
 import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
@@ -79,6 +80,34 @@ public class MapBuilder {
                     product.addRoom(i,j,new Wall(new Coordinates(i,j)));
             }
         }
+
+        IRoom rooms[][]=product.getMap();
+        for(int i=1;i<9;i++) {
+            for(int j=1;j<9;j++) {
+                IRoom room=rooms[i][j];
+                if(j==0)
+                    room.addAdjectiveRoom(Direction.NORTH,null);
+                else
+                    room.addAdjectiveRoom(Direction.NORTH,rooms[i][j-1]);
+                if(j==9)
+                    room.addAdjectiveRoom(Direction.SOUTH,null);
+                else
+                    room.addAdjectiveRoom(Direction.SOUTH,rooms[i][j+1]);
+                if(i==0)
+                    room.addAdjectiveRoom(Direction.WEST,null);
+                else
+                    room.addAdjectiveRoom(Direction.WEST,rooms[i-1][j]);
+                if(i==9)
+                    room.addAdjectiveRoom(Direction.EAST,null);
+                else
+                    room.addAdjectiveRoom(Direction.EAST,rooms[i+1][j]);
+            }
+        }
+        //for(int i=0;i<10;i++) {
+          //  IRoom room=rooms[0][i];
+            //room.addAdjectiveRoom(Direction.NORTH,null);
+
+        //}
         return this;
     }
 

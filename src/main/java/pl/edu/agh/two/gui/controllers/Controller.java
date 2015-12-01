@@ -33,6 +33,7 @@ public class Controller {
 	public void init(String playerName) {
 		rootFrame = new RootFrame();
 		rootFrame.setVisible(true);
+
 		rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
 
 		commandParser = new CommandParser();
@@ -68,25 +69,26 @@ public class Controller {
 
 		try {
 			Command command = commandParser.parse(input);
-			switch (command.getAction()) {
-			case ANSWER:
-				break;
-			case GO:
-				Direction direction = commandParser.parseDirection(command.getRest());
-				map.go(direction, player);
-				displayMap(map);
-				break;
-			case HELP:
-				appendInConsole(commandParser.getHelpString());
-				break;
-			case PICK:
-				break;
-			case REPEAT:
-				// TODO: room description required
-				appendInConsole(map.getCurrentRoom().toString());
-				break;
-			case USE:
-				break;
+			switch(command.getAction()) {
+				case ANSWER:
+					break;
+				case GO:
+					Direction direction = commandParser.parseDirection(command.getRest());
+					map.go(direction, player);
+					displayMap(map);
+					appendInConsole(map.getCurrentRoom().toString());
+					break;
+				case HELP:
+					appendInConsole(commandParser.getHelpString());
+					break;
+				case PICK:
+					break;
+				case REPEAT:
+					// TODO: room description required
+					appendInConsole(map.getCurrentRoom().toString());
+					break;
+				case USE:
+					break;
 			}
 			// TODO: create basic exception from which other exceptions will
 			// extend
