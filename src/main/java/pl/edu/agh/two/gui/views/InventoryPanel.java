@@ -42,7 +42,7 @@ public class InventoryPanel extends JPanel {
 	private void mock() {
 		Backpack bp = Backpack.createBackpack();
 		Map<String, Double> beerAttributes = new HashMap<String, Double>();
-		beerAttributes.put("si³a", (double) 10);
+		beerAttributes.put("sila", (double) 10);
 		beerAttributes.put("moc", (double) 15);
 		IItem item = ItemsFactory.createPernamentItem("Piwo", Optional.of(beerAttributes), Optional.empty());
 		bp.addItem(item);
@@ -87,7 +87,7 @@ public class InventoryPanel extends JPanel {
 	}
 
 	private String generateTooltip(AbstractAttributeItem item, Integer amount) {
-		String tooltip = "<html><style>background-color:white;</style>Ten przedmiot zmienia twoje statystyki! <br/>";
+		String tooltip = "<html><style>background-color:white;</style>Attribute modifiers from this item: <br/>";
 		Set<ItemAttribute> attributes = item.getAttributes();
 		for (ItemAttribute itemAttribute : attributes) {
 			Double changeValue = itemAttribute.getChangeValue();
