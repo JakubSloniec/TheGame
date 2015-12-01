@@ -36,7 +36,7 @@ public class InventoryPanel extends JPanel {
 	public InventoryPanel() {
 		setLayout(new BorderLayout(0, 0));
 		itemList = createItemPanel();
-	//	mock();
+		//mock();
 	}
 
 	private void mock() {
@@ -87,7 +87,7 @@ public class InventoryPanel extends JPanel {
 	}
 
 	private String generateTooltip(AbstractAttributeItem item, Integer amount) {
-		String tooltip = "<html>Ten przedmiot zmienia twoje statystyki! <br/>";
+		String tooltip = "<html><style>background-color:white;</style>Ten przedmiot zmienia twoje statystyki! <br/>";
 		Set<ItemAttribute> attributes = item.getAttributes();
 		for (ItemAttribute itemAttribute : attributes) {
 			Double changeValue = itemAttribute.getChangeValue();

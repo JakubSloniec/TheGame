@@ -32,7 +32,6 @@ public class Controller {
 	public void init(String playerName) {
 		rootFrame = new RootFrame();
 		rootFrame.setVisible(true);
-
 		rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
 
 		commandParser = new CommandParser();
@@ -40,6 +39,8 @@ public class Controller {
 		initItems();
 		initMap();
 		initPlayer(playerName);
+		displayStats(player.getStatistics());
+		displayBag(player.getBackpack());
 	}
 
 	private void initItems() {
@@ -95,7 +96,8 @@ public class Controller {
 //		String output = "Response in console for input: " + input; // or here,
 		// it's mock
 		// BTW
-
+		displayStats(player.getStatistics());
+		displayBag(player.getBackpack());
 	}
 
 	public void displayMap(Map map) {
