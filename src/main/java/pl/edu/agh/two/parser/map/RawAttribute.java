@@ -6,6 +6,7 @@ package pl.edu.agh.two.parser.map;
 public class RawAttribute {
 
     private int energia;
+    private int creativity;
 
     public int getEnergia() {
         return energia;
@@ -15,4 +16,7 @@ public class RawAttribute {
         this.energia = energia;
     }
 
+    public int getCreativity() { return creativity; }
+
+    public void setCreativity(int creativity) { this.creativity = creativity; }
 }
