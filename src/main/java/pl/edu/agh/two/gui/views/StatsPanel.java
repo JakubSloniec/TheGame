@@ -23,12 +23,12 @@ public class StatsPanel extends JPanel {
 	private static final int HEIGHT = 20;
 	private static final int STAT_NAME_COLUMN = 1;
 	private static final int STAT_VAL_COLUMN = 2;
-	
+
 	private JPanel statList;
 
 	public StatsPanel() {
 		statList = createStatPanel();
-		//mock();
+		// mock();
 	}
 
 	private void mock() {
@@ -60,6 +60,8 @@ public class StatsPanel extends JPanel {
 		}
 
 		add(statList);
+		validate();
+		repaint();
 	}
 
 	private Component getStatValueCell(Double name) {
@@ -79,7 +81,8 @@ public class StatsPanel extends JPanel {
 	}
 
 	private void addCell(Component component, int column, int row) {
-		statList.add(component, "cell " + column + " " + row + ", width :" + checkWidth(column) + ":, height :" + HEIGHT + ":");
+		statList.add(component,
+				"cell " + column + " " + row + ", width :" + checkWidth(column) + ":, height :" + HEIGHT + ":");
 	}
 
 	private int checkWidth(int column) {

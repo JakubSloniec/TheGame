@@ -69,26 +69,27 @@ public class Controller {
 
 		try {
 			Command command = commandParser.parse(input);
-			switch(command.getAction()) {
-				case ANSWER:
-					break;
-				case GO:
-					Direction direction = commandParser.parseDirection(command.getRest());
-					map.go(direction, player);
-					displayMap(map);
-					appendInConsole(map.getCurrentRoom().toString());
-					break;
-				case HELP:
-					appendInConsole(commandParser.getHelpString());
-					break;
-				case PICK:
-					break;
-				case REPEAT:
-					// TODO: room description required
-					appendInConsole(map.getCurrentRoom().toString());
-					break;
-				case USE:
-					break;
+			switch (command.getAction()) {
+			case ANSWER:
+				break;
+			case GO:
+				Direction direction = commandParser.parseDirection(command.getRest());
+				map.go(direction, player);
+				displayMap(map);
+				appendInConsole("X: " + map.getCurrentRoom().getCoordinates().getX() + ", Y: "
+						+ map.getCurrentRoom().getCoordinates().getY());
+				break;
+			case HELP:
+				appendInConsole(commandParser.getHelpString());
+				break;
+			case PICK:
+				break;
+			case REPEAT:
+				// TODO: room description required
+				appendInConsole(map.getCurrentRoom().toString());
+				break;
+			case USE:
+				break;
 			}
 			// TODO: create basic exception from which other exceptions will
 			// extend
@@ -104,6 +105,8 @@ public class Controller {
 		displayStats(player.getStatistics());
 		displayBag(player.getBackpack());
 		displayMap(map);
+		rootFrame.validate();
+		rootFrame.repaint();
 	}
 
 	public void displayMap(Map map) {

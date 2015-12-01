@@ -36,19 +36,19 @@ public class InventoryPanel extends JPanel {
 	public InventoryPanel() {
 		setLayout(new BorderLayout(0, 0));
 		itemList = createItemPanel();
-		//mock();
+		// mock();
 	}
 
 	private void mock() {
 		Backpack bp = Backpack.createBackpack();
 		Map<String, Double> beerAttributes = new HashMap<String, Double>();
-		beerAttributes.put("sila", (double) 10);
+		beerAttributes.put("si�a", (double) 10);
 		beerAttributes.put("moc", (double) 15);
 		IItem item = ItemsFactory.createPernamentItem("Piwo", Optional.of(beerAttributes), Optional.empty());
 		bp.addItem(item);
 		bp.addItem(item);
 		bp.addItem(item);
-		
+
 		paint(bp);
 	}
 
@@ -59,6 +59,7 @@ public class InventoryPanel extends JPanel {
 	}
 
 	public void paint(Backpack backpack) {
+		remove(itemList);
 		itemList = createItemPanel();
 		Map<IItem, Integer> items = backpack.getItems();
 		int row = 1;
@@ -70,20 +71,22 @@ public class InventoryPanel extends JPanel {
 			JPanel amountPanel = getItemAmountPanel(amount);
 
 			if (item instanceof AbstractAttributeItem) {
-				String tooltipText = generateTooltip((AbstractAttributeItem)item, amount);
+				String tooltipText = generateTooltip((AbstractAttributeItem) item, amount);
 				iconPanel.setToolTipText(tooltipText);
 				namePanel.setToolTipText(tooltipText);
 				amountPanel.setToolTipText(tooltipText);
 			}
-			
+
 			addCell(iconPanel, ICON_COLUMN, row);
 			addCell(namePanel, ITEM_COLUMN, row);
 			addCell(amountPanel, AMOUNT_COLUMN, row);
-			
+
 			row = row + 1;
 		}
 
 		add(itemList);
+		validate();
+		repaint();
 	}
 
 	private String generateTooltip(AbstractAttributeItem item, Integer amount) {
@@ -96,9 +99,9 @@ public class InventoryPanel extends JPanel {
 			} else {
 				tooltip = tooltip + "<br/>+ ";
 			}
-			tooltip = tooltip + amount*changeValue + " " + itemAttribute.getAttribute().getName();
+			tooltip = tooltip + amount * changeValue + " " + itemAttribute.getAttribute().getName();
 		}
-		
+
 		return tooltip + "</html>";
 	}
 
@@ -128,7 +131,8 @@ public class InventoryPanel extends JPanel {
 	}
 
 	private void addCell(Component component, int column, int row) {
-		itemList.add(component, "cell " + column + " " + row + ", width :" + checkWidth(column) + ":, height :" + height + ":");
+		itemList.add(component,
+				"cell " + column + " " + row + ", width :" + checkWidth(column) + ":, height :" + height + ":");
 	}
 
 	private int checkWidth(int column) {

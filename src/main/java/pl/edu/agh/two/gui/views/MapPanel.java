@@ -50,6 +50,10 @@ public class MapPanel extends JPanel {
 	}
 
 	public void paint(Map map) {
+		if (mapPanel != null) {
+			remove(mapPanel);
+		}
+
 		mapPanel = new JPanel();
 		mapPanel.setLayout(new MigLayout("", "", ""));
 		mapPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -66,7 +70,8 @@ public class MapPanel extends JPanel {
 		}
 
 		add(mapPanel);
-
+		validate();
+		repaint();
 	}
 
 	private void addRoomToMap(IRoom room) {
