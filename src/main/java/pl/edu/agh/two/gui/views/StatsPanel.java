@@ -48,6 +48,7 @@ public class StatsPanel extends JPanel {
 	}
 
 	public void paint(Set<IPlayerStatistic> statistics) {
+		remove(statList);
 		statList = createStatPanel();
 		int row = 0;
 		for (IPlayerStatistic stat : statistics) {
