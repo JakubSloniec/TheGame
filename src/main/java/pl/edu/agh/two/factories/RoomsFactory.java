@@ -1,13 +1,17 @@
 package pl.edu.agh.two.factories;
 
-import pl.edu.agh.two.console.GameConsole;
-import pl.edu.agh.two.domain.events.IEvent;
-import pl.edu.agh.two.domain.rooms.*;
-import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+
+import pl.edu.agh.two.console.GameConsole;
+import pl.edu.agh.two.domain.events.IEvent;
+import pl.edu.agh.two.domain.rooms.Coordinates;
+import pl.edu.agh.two.domain.rooms.EmptyRoom;
+import pl.edu.agh.two.domain.rooms.EventRoom;
+import pl.edu.agh.two.domain.rooms.IRoom;
+import pl.edu.agh.two.domain.rooms.Wall;
+import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
 
 /**
  * Created by ps_krzysztof on 2015-11-16.

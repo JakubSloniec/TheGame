@@ -1,11 +1,11 @@
 package pl.edu.agh.two.domain.map;
 
+import java.util.Optional;
+
 import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.domain.rooms.Direction;
 import pl.edu.agh.two.domain.rooms.IRoom;
 import pl.edu.agh.two.exceptions.RoomDoesNotExistException;
-
-import java.util.Optional;
 
 /**
  * Created by ps_krzysztof on 2015-11-16.
@@ -38,7 +38,11 @@ public class Map {
     public boolean go(Direction direction, IPlayer player) throws RoomDoesNotExistException {
         Optional<IRoom> nextRoom = getCurrentRoom().getAdjacentRoom(direction);
         if(nextRoom.isPresent()) {
-            return nextRoom.get().tryEnter(player);
+            if (nextRoom.get().tryEnter(player)) {
+                setCurrentRoom(nextRoom.get());
+                return true;
+            }
+            return false;
         }
         throw new RoomDoesNotExistException();
     }
