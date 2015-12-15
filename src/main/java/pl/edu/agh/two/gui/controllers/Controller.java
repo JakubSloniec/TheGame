@@ -76,8 +76,7 @@ public class Controller {
 				Direction direction = commandParser.parseDirection(command.getRest());
 				map.go(direction, player);
 				displayMap(map);
-				appendInConsole("X: " + map.getCurrentRoom().getCoordinates().getX() + ", Y: "
-						+ map.getCurrentRoom().getCoordinates().getY());
+				map.getCurrentRoom().executeEvent(player);
 				break;
 			case HELP:
 				appendInConsole(commandParser.getHelpString());
