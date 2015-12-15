@@ -1,15 +1,16 @@
 package pl.edu.agh.two.parser.factories;
 
-import pl.edu.agh.two.domain.map.Map;
-
 import java.io.File;
+
+import pl.edu.agh.two.console.GameConsole;
+import pl.edu.agh.two.domain.map.Map;
 
 /**
  * Created by oem on 2015-11-23.
  */
 public class MapFactory {
 
-    public static Map getMap() {
+    public static Map getMap(GameConsole gameConsole) {
         MapBuildConfig config=new MapBuildConfig();
 
         //place for adding factories for new types of events
@@ -23,17 +24,17 @@ public class MapFactory {
 
         File quizEventsFolder=new File(classLoader.getResource("plotConfig/events/quiz").getFile());
         for(String fileName:quizEventsFolder.list()) {
-            builder=builder.parseEventFile("quiz","plotConfig/events/quiz/"+fileName);
+            builder = builder.parseEventFile("quiz", "plotConfig/events/quiz/" + fileName, gameConsole);
         }
 
         File pickItemEventsFolder=new File(classLoader.getResource("plotConfig/events/getters").getFile());
         for(String fileName:pickItemEventsFolder.list()) {
-            builder=builder.parseEventFile("pickItem","plotConfig/events/getters/"+fileName);
+            builder = builder.parseEventFile("pickItem", "plotConfig/events/getters/" + fileName, gameConsole);
         }
 
         File textEventsFolder=new File(classLoader.getResource("plotConfig/events/text").getFile());
         for(String fileName:textEventsFolder.list()) {
-            builder=builder.parseEventFile("text","plotConfig/events/text/"+fileName);
+            builder = builder.parseEventFile("text", "plotConfig/events/text/" + fileName, gameConsole);
         }
 
         //place for adding new files

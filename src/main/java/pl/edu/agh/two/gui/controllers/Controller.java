@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
+import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.players.Backpack;
 import pl.edu.agh.two.domain.players.IPlayer;
@@ -58,7 +59,7 @@ public class Controller {
 	}
 
 	private void initMap() {
-		map = MapFactory.getMap();
+		map = MapFactory.getMap(getGameConsole());
 	}
 
 	public void clickEnter() {
@@ -130,5 +131,24 @@ public class Controller {
 
 	public void appendInConsole(String text) {
 		rootFrame.getConsolePanel().appendText(text + "\n");
+	}
+
+	public GameConsole getGameConsole() {
+		return new GameConsole() {
+			@Override
+			public void println(String string) {
+				appendInConsole(string);
+			}
+
+			@Override
+			public String readLine() {
+				while (true) {
+					String inputText = getInputText();
+					if (inputText != null && inputText != "") {
+						return inputText;
+					}
+				}
+			}
+		};
 	}
 }

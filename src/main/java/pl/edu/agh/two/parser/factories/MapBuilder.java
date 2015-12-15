@@ -1,6 +1,11 @@
 package pl.edu.agh.two.parser.factories;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+
 import pl.edu.agh.two.console.GameConsole;
+import pl.edu.agh.two.domain.events.EventWithDescription;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.rooms.Coordinates;
@@ -14,10 +19,6 @@ import pl.edu.agh.two.parser.exceptions.DuplicateEventNamesException;
 import pl.edu.agh.two.parser.exceptions.NoSuchEventException;
 import pl.edu.agh.two.parser.map.RawMap;
 import pl.edu.agh.two.parser.map.RawRoom;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by oem on 2015-11-18.
@@ -112,12 +113,17 @@ public class MapBuilder {
     }
 
     //for files with single event
-    public MapBuilder parseEventFile(String eventType,String eventFileName) {
+    public MapBuilder parseEventFile(String eventType, String eventFileName, GameConsole gameConsole) {
         IEvent fetchedEvent=config.getEventFactory(eventType).getEventFromFile(eventFileName);
         String eventName=eventFileName.substring(eventFileName.lastIndexOf("/")+1).replaceAll("\\.json$","");
         if(events.containsKey(eventName)) {
             throw new DuplicateEventNamesException();
         }
+        events.forEach((name, event) -> {
+            if (event instanceof EventWithDescription) { //todo: move somwhere
+                ((EventWithDescription) event).setGameConsole(gameConsole);
+            }
+        });
         events.put(eventName, fetchedEvent);
         return this;
     }
