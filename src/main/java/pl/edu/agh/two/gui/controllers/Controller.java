@@ -146,6 +146,7 @@ public class Controller {
 
 	public void appendInConsole(String text) {
 		rootFrame.getConsolePanel().appendText(text + "\n");
+		rootFrame.getConsolePanel().scrollToBottom();
 	}
 
 	public GameConsole getGameConsole() {

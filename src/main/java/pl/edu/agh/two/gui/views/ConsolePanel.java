@@ -36,4 +36,8 @@ public class ConsolePanel extends JPanel {
 		this.console.append(text);
 	}
 
+	public void scrollToBottom() {
+		console.setCaretPosition(console.getDocument().getLength());
+	}
+
 }
