@@ -30,11 +30,11 @@ public class CardPanel extends JPanel {
 	private void init() {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
-		inventoryPanel = new InventoryPanel();
-		tabbedPane.addTab(PropertyManager.getProperty("window.tabs.inventory"), inventoryPanel);
-
 		statsPanel = new StatsPanel();
 		tabbedPane.addTab(PropertyManager.getProperty("window.tabs.statistics"), statsPanel);
+
+		inventoryPanel = new InventoryPanel();
+		tabbedPane.addTab(PropertyManager.getProperty("window.tabs.inventory"), inventoryPanel);
 
 		// questPanel = new QuestPanel();
 		// tabbedPane.addTab(TAB_QUEST, questPanel);

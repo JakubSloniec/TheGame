@@ -86,12 +86,7 @@ public class Controller {
 					try {
 						Direction direction = commandParser.parseDirection(command.getRest());
 						map.go(direction, player);
-
-						displayMap(map);
-
-						map.getCurrentRoom().
-
-								executeEvent(player);
+						map.getCurrentRoom().executeEvent(player);
 					} catch (Exception e) {
 						appendInConsole(e.getMessage());
 					} finally {
