@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.events.EventWithDescription;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.events.PickItemEvent;
@@ -27,8 +28,14 @@ import pl.edu.agh.two.repositories.ItemsRepository;
  */
 public class QuizEventsFactory implements IEventsFactory {
 
+    private final GameConsole gameConsole;
+
+    public QuizEventsFactory(GameConsole gameConsole) {
+        this.gameConsole = gameConsole;
+    }
+
     @Override
-    public IEvent getEventFromFile(String eventFileName) {
+    public IEvent getEventFromFile(String eventFileName, GameConsole gameConsole) {
 
         ConfigReader<RawQuiz> configReader= new ConfigReader<>(RawQuiz.class);
         Map<String,IEvent> retVal=new HashMap<String,IEvent>();
@@ -62,6 +69,7 @@ public class QuizEventsFactory implements IEventsFactory {
             if(endText.getAwards()==null) {
                 EventWithDescription awardDescriptionEvent=new EventWithDescription();
                 awardDescriptionEvent.setEventDescription(endText.getTextToDisplay());
+                awardDescriptionEvent.setGameConsole(this.gameConsole);
                 awardEvent=awardDescriptionEvent;
             } else {
                 //pick up item
@@ -70,12 +78,15 @@ public class QuizEventsFactory implements IEventsFactory {
                 if(item==null) {
                     throw new NoSuchItemTypeException();
                 }
-                awardEvent=new PickItemEvent(item);
+                PickItemEvent pickItemEvent = new PickItemEvent(item);
+                awardEvent = pickItemEvent;
+                pickItemEvent.setGameConsole(this.gameConsole);
             }
             resultMap.put(resultSet,awardEvent);
         }
 
         quiz.setPointsToEvents(resultMap);
+        quiz.setGameConsole(gameConsole);
         return quiz;
     }
 

@@ -8,6 +8,9 @@ public class PickItemEvent  extends EventWithDescription{
     private final IItem item;
 
     public PickItemEvent(IItem item) {
+        if (item == null) {
+            throw new IllegalArgumentException("Item cannot be null");
+        }
         this.item = item;
     }
 

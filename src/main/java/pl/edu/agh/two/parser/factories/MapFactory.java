@@ -14,7 +14,7 @@ public class MapFactory {
         MapBuildConfig config=new MapBuildConfig();
 
         //place for adding factories for new types of events
-        config.setEventFactory("quiz",new QuizEventsFactory());
+        config.setEventFactory("quiz", new QuizEventsFactory(gameConsole));
         config.setEventFactory("pickItem",new GetItemEventsFactory());
         config.setEventFactory("text",new EventsWithDescriptionFactory());
 

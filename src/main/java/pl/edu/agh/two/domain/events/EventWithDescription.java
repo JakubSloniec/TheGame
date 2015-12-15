@@ -8,10 +8,11 @@ import pl.edu.agh.two.exceptions.GameConsoleNotSet;
 
 public class EventWithDescription implements IEvent {
     private boolean finished = false;
-
     private Optional<GameConsole> gameConsole = Optional.empty();
-
     private String eventDescription = "";
+
+    public EventWithDescription() {
+    }
 
     public GameConsole getGameConsole() {
         return gameConsole.orElseThrow(GameConsoleNotSet::new);

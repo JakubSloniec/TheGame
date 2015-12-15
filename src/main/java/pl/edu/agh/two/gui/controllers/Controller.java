@@ -87,8 +87,9 @@ public class Controller {
 						Direction direction = commandParser.parseDirection(command.getRest());
 						map.go(direction, player);
 						map.getCurrentRoom().executeEvent(player);
-					} catch (Exception e) {
+					} catch (Throwable e) {
 						appendInConsole(e.getMessage());
+						e.printStackTrace();
 					} finally {
 						eventInProgress.set(false);
 					}
