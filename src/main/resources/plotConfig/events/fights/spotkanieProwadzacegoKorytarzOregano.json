@@ -1,5 +1,5 @@
 {
-  "introduction": "Szef wszystkich szefow mi?o?nik skr?tki kategori 7+ i komputerow PC over IP z ktorych nikt nie korzysta bo nie dzia?aj?, spotyka Cie na korytarzu. Pocz?tkowo go nie poznajesz, nigdy nie by?e? na jego wyk?adzie",
+  "introduction": "Szef wszystkich szefow milosnik skretki kategori 7+ i komputerow PC over IP z ktorych nikt nie korzysta bo nie dzialaja, spotyka Cie na korytarzu. Poczatkowo go nie poznajesz, nigdy nie byles? na jego wykladzie",
   "enemy": {
     "hp": 2,
     "attributes": [
@@ -8,26 +8,26 @@
   },
   "actions": [
     {
-      "question": "Dlaczego nie widzialem  Pana na wykladzie? ",
+      "question": "Dlaczego nie widzialem Pana na wykladzie? ",
       "answers": [
         {
-          "answer": "Przepraszam, bardzo ?le si? czu?em.. ",
+          "answer": "Przepraszam, bardzo zle sie czulem.. ",
           "points": 2,
-          "reaction": "No dobrze, zdarza sie, mam nadzieje ze nast?pnym razem b?dzie pan na wyk?adzie"
+          "reaction": "No dobrze, zdarza sie, mam nadzieje ze nastepnym razem bedzie pan na wykladzie"
         },
         {
-          "answer": "Musia?em pracowa?",
+          "answer": "Musialem pracowac",
           "points": 0,
-          "reaction": "Profesor patrzy na Ciebie przenikliwym, ch?odnym wzrokiem. To chyba nie by?a dobra odpowied?. \n - Przez takich jak Pan, nasza katedra ma 400 tysiecy d?ugow. To s? studia stacjonarne! Tu sie chodzi na wyklady'\n"
+          "reaction": "Profesor patrzy na Ciebie przenikliwym, chlodnym wzrokiem. To chyba nie byla dobra odpowiedz. \n - Przez takich jak Pan, nasza katedra ma 400 tysiecy dlugow. To sa studia stacjonarne! Tu sie chodzi na wyklady'\n"
         },
         {
-          "answer": "Zaspa?em, ale nast?pnym razem na pewno b?de.",
+          "answer": "Zaspalem, ale nastepnym razem na pewno bede.",
           "points": 1,
-          "reaction": "Dobrze, tylko ?eby mi to by?o ostatni raz"
+          "reaction": "Dobrze, tylko zeby mi to bylo ostatni raz"
         }
       ]
     }
   ],
   "textIfWin": "Prowadzacy odchodzi zadowolony. :)  ",
-  "textIfLose": "Prowadz?cy odchodzi zdenerwowany. Juz wiesz ze egzamin nie b?dzie nale?a? do prostych..."
+  "textIfLose": "Prowadzacy odchodzi zdenerwowany. Juz wiesz ze egzamin nie bedzie nalezal do prostych..."
 }
