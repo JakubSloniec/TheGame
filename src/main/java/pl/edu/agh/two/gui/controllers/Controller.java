@@ -144,7 +144,7 @@ public class Controller {
 			public String readLine() {
 				while (true) {
 					String inputText = getInputText();
-					if (inputText != null && inputText != "") {
+					if (inputText != null && !inputText.equals("")) {
 						return inputText;
 					}
 				}
