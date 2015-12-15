@@ -1,6 +1,5 @@
 package pl.edu.agh.two.domain.events.quiz;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +9,7 @@ import java.util.stream.Collectors;
 import pl.edu.agh.two.domain.events.EventWithDescription;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.players.IPlayer;
+import pl.edu.agh.two.exceptions.UnmatchableAnswer;
 
 public class Quiz extends EventWithDescription {
     private final List<Question> questions;
@@ -44,13 +44,14 @@ public class Quiz extends EventWithDescription {
             currentQuestionAnswers.put(answerNumber, answer);
             answerNumber++;
         }
-        final String userInput = getGameConsole().readLine();
-        final List<Answer> userAnswers = Arrays.stream(userInput.split(","))
-                .map(String::trim)
-                .map(answerFormtter::inputTextToAnswerNumber)
+        final List<Answer> userAnswers = answerFormtter.readAnswer(getGameConsole()).stream()
                 .map(currentQuestionAnswers::get)
+                .filter(answer -> answer != null)
                 .collect(Collectors.toList());
 
+        if (userAnswers.isEmpty()) {
+            throw new UnmatchableAnswer();
+        }
         final boolean allUserAnswersCorrect = userAnswers.stream().map(Answer::getPoints).allMatch(points -> points > 0);
         int points = userAnswers.stream().mapToInt(Answer::getPoints).sum();
 
@@ -76,6 +77,7 @@ public class Quiz extends EventWithDescription {
 
     /**
      * I recommend to use com.google.common.collect.RangeSet as keys.
+     *
      * @param pointsToEvents
      */
     public void setPointsToEvents(Map<Set<Integer>, IEvent> pointsToEvents) {
