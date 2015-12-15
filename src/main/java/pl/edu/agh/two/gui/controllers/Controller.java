@@ -1,6 +1,9 @@
 package pl.edu.agh.two.gui.controllers;
 
 import java.util.Set;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.springframework.stereotype.Component;
 
@@ -25,10 +28,11 @@ import pl.edu.agh.two.parser.factories.MapFactory;
 @Component
 public class Controller {
 
+	AtomicBoolean eventInProgress = new AtomicBoolean(false);
+	BlockingQueue<String> eventMessages = new ArrayBlockingQueue<String>(10);
 	private Map map;
 	private IPlayer player;
 	private RootFrame rootFrame;
-
 	private CommandParser commandParser;
 
 	public void init(String playerName) {
@@ -65,19 +69,35 @@ public class Controller {
 	public void clickEnter() {
 		String input = getInputText();
 		clearInputField();
-
 		appendInConsole(">" + input);
 
+		if (eventInProgress.get()) {
+			eventMessages.add(input);
+			return;
+		}
 		try {
 			Command command = commandParser.parse(input);
 			switch (command.getAction()) {
 			case ANSWER:
 				break;
 			case GO:
-				Direction direction = commandParser.parseDirection(command.getRest());
-				map.go(direction, player);
-				displayMap(map);
-				map.getCurrentRoom().executeEvent(player);
+				eventInProgress.set(true);
+				new Thread(() -> {
+					try {
+						Direction direction = commandParser.parseDirection(command.getRest());
+						map.go(direction, player);
+
+						displayMap(map);
+
+						map.getCurrentRoom().
+
+								executeEvent(player);
+					} catch (Exception e) {
+						appendInConsole(e.getMessage());
+					} finally {
+						eventInProgress.set(false);
+					}
+				}).start();
 				break;
 			case HELP:
 				appendInConsole(commandParser.getHelpString());
@@ -142,11 +162,11 @@ public class Controller {
 
 			@Override
 			public String readLine() {
-				while (true) {
-					String inputText = getInputText();
-					if (inputText != null && !inputText.equals("")) {
-						return inputText;
-					}
+				try {
+					return eventMessages.take();
+				} catch (InterruptedException e) {
+					println(e.getMessage());
+					return "";
 				}
 			}
 		};
