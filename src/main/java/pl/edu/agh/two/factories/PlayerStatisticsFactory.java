@@ -20,6 +20,8 @@ public class PlayerStatisticsFactory {
                 add(createPlayerStatistic(statistic,1d));
             }
             add(createAveragePlayerStatistic(ApplicationConstants.AVERAGE));
+            add(createPlayerStatistic(ApplicationConstants.ENERGY,5d));
+            add(createPlayerStatistic(ApplicationConstants.CREATIVITY,2d));
         }};
     }
 
