@@ -13,7 +13,7 @@ public class PickItemEvent  extends EventWithDescription{
 
     @Override
     public void executeLogic(IPlayer player) {
-        super.execute(player);
+        super.executeLogic(player);
         player.getBackpack().addItem(item);
     }
 

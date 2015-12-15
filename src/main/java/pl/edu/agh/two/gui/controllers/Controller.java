@@ -1,9 +1,13 @@
 package pl.edu.agh.two.gui.controllers;
 
 import java.util.Set;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.springframework.stereotype.Component;
 
+import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.players.Backpack;
 import pl.edu.agh.two.domain.players.IPlayer;
@@ -24,10 +28,11 @@ import pl.edu.agh.two.parser.factories.MapFactory;
 @Component
 public class Controller {
 
+	AtomicBoolean eventInProgress = new AtomicBoolean(false);
+	BlockingQueue<String> eventMessages = new ArrayBlockingQueue<String>(10);
 	private Map map;
 	private IPlayer player;
 	private RootFrame rootFrame;
-
 	private CommandParser commandParser;
 
 	public void init(String playerName) {
@@ -58,26 +63,41 @@ public class Controller {
 	}
 
 	private void initMap() {
-		map = MapFactory.getMap();
+		map = MapFactory.getMap(getGameConsole());
 	}
 
 	public void clickEnter() {
 		String input = getInputText();
 		clearInputField();
-
 		appendInConsole(">" + input);
 
+		if (eventInProgress.get()) {
+			eventMessages.add(input);
+			return;
+		}
 		try {
 			Command command = commandParser.parse(input);
 			switch (command.getAction()) {
 			case ANSWER:
 				break;
 			case GO:
-				Direction direction = commandParser.parseDirection(command.getRest());
-				map.go(direction, player);
-				displayMap(map);
-				appendInConsole("X: " + map.getCurrentRoom().getCoordinates().getX() + ", Y: "
-						+ map.getCurrentRoom().getCoordinates().getY());
+				eventInProgress.set(true);
+				new Thread(() -> {
+					try {
+						Direction direction = commandParser.parseDirection(command.getRest());
+						map.go(direction, player);
+
+						displayMap(map);
+
+						map.getCurrentRoom().
+
+								executeEvent(player);
+					} catch (Exception e) {
+						appendInConsole(e.getMessage());
+					} finally {
+						eventInProgress.set(false);
+					}
+				}).start();
 				break;
 			case HELP:
 				appendInConsole(commandParser.getHelpString());
@@ -131,5 +151,24 @@ public class Controller {
 
 	public void appendInConsole(String text) {
 		rootFrame.getConsolePanel().appendText(text + "\n");
+	}
+
+	public GameConsole getGameConsole() {
+		return new GameConsole() {
+			@Override
+			public void println(String string) {
+				appendInConsole(string);
+			}
+
+			@Override
+			public String readLine() {
+				try {
+					return eventMessages.take();
+				} catch (InterruptedException e) {
+					println(e.getMessage());
+					return "";
+				}
+			}
+		};
 	}
 }

@@ -41,10 +41,11 @@ public class Map {
             if (nextRoom.get().tryEnter(player)) {
                 setCurrentRoom(nextRoom.get());
                 return true;
+            } else {
+                throw new RoomDoesNotExistException("No room found there.");
             }
-            return false;
         }
-        throw new RoomDoesNotExistException();
+        return false;
     }
 
 }

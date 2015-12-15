@@ -1,5 +1,8 @@
 package pl.edu.agh.two.parser;
 
+import static org.mockito.Mockito.mock;
+
+import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.events.EventWithDescription;
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.rooms.EmptyRoom;
@@ -13,7 +16,7 @@ import pl.edu.agh.two.parser.factories.MapFactory;
 public class MapBuildingTest {
     public static void main(String[] args) {
 
-        Map map= MapFactory.getMap();
+        Map map = MapFactory.getMap(mock(GameConsole.class));
 
         printMap(map);
     }
