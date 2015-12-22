@@ -1,0 +1,94 @@
+{
+  "introduction": "Fourth quiz test.",
+  "questions": [
+    {
+      "question": "Ile bitow jest niezbednych do zapisania liczb calkowitych z zakresu 100..1000?",
+      "answers": [
+        {
+          "answer": "9",
+          "points": 0
+        },
+        {
+          "answer": "8",
+          "points": 0
+        },
+        {
+          "answer": "11",
+          "points": 0
+        },
+        {
+          "answer": "10",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "question": "Zmienna 'x' jest liczba calkowita, kiedy abs(x) zwroci poprawną wartosc?",
+      "answers": [
+        {
+          "answer": "dla kazdej liczby typu integer",
+          "points": 0
+        },
+        {
+          "answer": "tylko dla liczb nieujemnych",
+          "points": 0
+        },
+        {
+          "answer": "tylko dla liczb niedodatnich",
+          "points": 0
+        },
+        {
+          "answer": "zadne z powyzszych",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "question": "Jezyki imperatywne - uzycie niezadeklarowanej zmiennej:",
+      "answers": [
+        {
+          "answer": "nie kompiluje sie",
+          "points": 2
+        },
+        {
+          "answer": "dziala",
+          "points": 0
+        },
+        {
+          "answer": "rzuca wyjatek",
+          "points": 0
+        },
+        {
+          "answer": "powoduje blad",
+          "points": 0
+        }
+      ]
+    }
+  ],
+  "endTexts": [
+    {
+      "forNotes": [
+        2
+      ],
+      "textToDisplay": "Very bad.."
+    },
+    {
+      "forNotes": [
+        3,
+        4
+      ],
+      "textToDisplay": "Nice"
+    },
+    {
+      "forNotes": [
+        5
+      ],
+      "textToDisplay": "Very nice. ",
+      "awards": [
+        {
+          "itemName": "Piwo"
+        }
+      ]
+    }
+  ]
+}

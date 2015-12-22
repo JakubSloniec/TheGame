@@ -23,7 +23,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "quizLev1"
     },
     {
       "x": 2,
@@ -47,7 +47,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "getPassyDoWiki"
     },
     {
       "x": 1,
@@ -59,7 +59,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "quizLev2"
     },
     {
       "x": 0,
@@ -107,7 +107,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "quizLev3"
     },
     {
       "x": 0,
@@ -455,7 +455,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "quizLev4"
     },
     {
       "x": 6,
