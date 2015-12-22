@@ -1,6 +1,7 @@
 package pl.edu.agh.two.parser.factories;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,13 +12,17 @@ import pl.edu.agh.two.domain.rooms.Coordinates;
 import pl.edu.agh.two.domain.rooms.Direction;
 import pl.edu.agh.two.domain.rooms.IRoom;
 import pl.edu.agh.two.domain.rooms.Wall;
+import pl.edu.agh.two.domain.rooms.preconditions.AttributePrecondition;
 import pl.edu.agh.two.domain.rooms.preconditions.IPrecondition;
 import pl.edu.agh.two.factories.RoomsFactory;
 import pl.edu.agh.two.parser.ConfigReader;
 import pl.edu.agh.two.parser.exceptions.DuplicateEventNamesException;
 import pl.edu.agh.two.parser.exceptions.NoSuchEventException;
+import pl.edu.agh.two.parser.map.RawAttribute;
 import pl.edu.agh.two.parser.map.RawMap;
+import pl.edu.agh.two.parser.map.RawPrecondition;
 import pl.edu.agh.two.parser.map.RawRoom;
+import pl.edu.agh.two.repositories.AttributesRepository;
 
 /**
  * Created by oem on 2015-11-18.
@@ -66,7 +71,23 @@ public class MapBuilder {
                     throw new NoSuchEventException();
                 }
             }
-            IRoom room=RoomsFactory.createEventRoom(event, rawRoom.getX(), rawRoom.getY(), Optional.<List<IPrecondition>>empty(), Optional.<GameConsole>empty());
+
+            //Misleading method name getPreconditions()
+            RawPrecondition rawPrecondition=rawRoom.getPreconditions();
+            IPrecondition precondition;
+            List<RawAttribute> listOfAttributes=rawPrecondition.getAttributes();
+            Optional<List<IPrecondition>> listOfPreconditions=Optional.<List<IPrecondition>>empty();
+            if(listOfAttributes!=null) {
+                if(rawPrecondition.getAttributes().get(0).getEnergia()>0) {
+                    precondition=AttributePrecondition.createPrecondition(AttributesRepository.getAttribute("energia"), new Double(rawPrecondition.getAttributes().get(0).getEnergia()));
+                    List<IPrecondition> list=new LinkedList<IPrecondition>();
+                    list.add(0,precondition);
+                    listOfPreconditions=Optional.<List<IPrecondition>>of(list);
+
+                }
+
+            }
+            IRoom room=RoomsFactory.createEventRoom(event, rawRoom.getX(), rawRoom.getY(), listOfPreconditions, Optional.<GameConsole>empty());
             if(rawRoom.isStart())
                 product.setCurrentRoom(room);
             product.addRoom(rawRoom.getX(),rawRoom.getY(),room
