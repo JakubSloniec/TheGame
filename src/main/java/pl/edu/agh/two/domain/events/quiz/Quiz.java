@@ -14,7 +14,7 @@ import pl.edu.agh.two.exceptions.UnmatchableAnswer;
 public class Quiz extends EventWithDescription {
     private final List<Question> questions;
     private IAnswerFormatter answerFormtter = new BasicAnswerFormatter();
-    private Map<Set<Integer>, IEvent> pointsToEvents = new HashMap<>();
+    protected Map<Set<Integer>, IEvent> pointsToEvents = new HashMap<>();
 
     public Quiz(List<Question> questions) {
         this.questions = questions;
@@ -27,11 +27,7 @@ public class Quiz extends EventWithDescription {
 
     protected int executeQuiz(IPlayer player) {
         int points = questions.stream().mapToInt(this::ask).sum();
-        pointsToEvents.forEach((pointsSet, event) -> {
-            if (pointsSet.contains(points)) {
-                event.execute(player);
-            }
-        });
+        resultEvents(player,points);
         return points;
     }
 
@@ -40,7 +36,7 @@ public class Quiz extends EventWithDescription {
         Map<Integer, Answer> currentQuestionAnswers = new HashMap<>(question.getAnswers().size());
         int answerNumber = 0;
         for (Answer answer : question.getAnswers()) {
-            getGameConsole().println(answerFormtter.formatQuestion(answerNumber, answer.getText()));
+            getGameConsole().println(answerFormtter.formatQuestion(answerNumber, getAnswerText(answer)));
             currentQuestionAnswers.put(answerNumber, answer);
             answerNumber++;
         }
@@ -69,6 +65,19 @@ public class Quiz extends EventWithDescription {
 
     protected void onCorrectAnswer() {
         getGameConsole().println("Correct!");
+    }
+
+    protected String getAnswerText(Answer answer){
+        return answer.getText();
+    }
+
+    protected int resultEvents(IPlayer player, int points){
+        pointsToEvents.forEach((pointsSet, event) -> {
+            if (pointsSet.contains(points)) {
+                event.execute(player);
+            }
+        });
+        return points;
     }
 
     public void setAnswerFormtter(IAnswerFormatter answerFormtter) {

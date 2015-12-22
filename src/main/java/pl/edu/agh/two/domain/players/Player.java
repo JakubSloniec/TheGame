@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Set;
 
 import pl.edu.agh.two.domain.attributes.Attribute;
+import pl.edu.agh.two.domain.attributes.AttributeHelper;
 import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 
 public class Player implements IPlayer {
@@ -35,7 +36,7 @@ public class Player implements IPlayer {
 
     @Override
     public IPlayerStatistic getStatistic(Attribute attribute) {
-        return null;
+        return AttributeHelper.getStatisticForAttribute(statistics,attribute);
     }
 
 
