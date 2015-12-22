@@ -32,31 +32,39 @@ public class Quiz extends EventWithDescription {
     }
 
     private int ask(Question question) {
-        getGameConsole().println(question.getQuestionText());
-        Map<Integer, Answer> currentQuestionAnswers = new HashMap<>(question.getAnswers().size());
-        int answerNumber = 0;
-        for (Answer answer : question.getAnswers()) {
-            getGameConsole().println(answerFormtter.formatQuestion(answerNumber, getAnswerText(answer)));
-            currentQuestionAnswers.put(answerNumber, answer);
-            answerNumber++;
-        }
-        final List<Answer> userAnswers = answerFormtter.readAnswer(getGameConsole()).stream()
-                .map(currentQuestionAnswers::get)
-                .filter(answer -> answer != null)
-                .collect(Collectors.toList());
+        boolean answered = false;
+        while(!answered) {
+            getGameConsole().println(question.getQuestionText());
+            Map<Integer, Answer> currentQuestionAnswers = new HashMap<>(question.getAnswers().size());
+            int answerNumber = 0;
+            for (Answer answer : question.getAnswers()) {
+                getGameConsole().println(answerFormtter.formatQuestion(answerNumber, getAnswerText(answer)));
+                currentQuestionAnswers.put(answerNumber, answer);
+                answerNumber++;
+            }
+            final List<Answer> userAnswers = answerFormtter.readAnswer(getGameConsole()).stream()
+                    .map(currentQuestionAnswers::get)
+                    .filter(answer -> answer != null)
+                    .collect(Collectors.toList());
+            try {
+                if (userAnswers.isEmpty()) {
+                    throw new UnmatchableAnswer();
+                }
+                final boolean allUserAnswersCorrect = userAnswers.stream().map(Answer::getPoints).allMatch(points -> points > 0);
+                int points = userAnswers.stream().mapToInt(Answer::getPoints).sum();
 
-        if (userAnswers.isEmpty()) {
-            throw new UnmatchableAnswer();
+                if (allUserAnswersCorrect && points > 0) {
+                    onCorrectAnswer();
+                } else {
+                    onIncorrectAnswer();
+                }
+                answered = true;
+                return points;
+            } catch(Exception e) {
+                getGameConsole().println(e.getMessage());
+            }
         }
-        final boolean allUserAnswersCorrect = userAnswers.stream().map(Answer::getPoints).allMatch(points -> points > 0);
-        int points = userAnswers.stream().mapToInt(Answer::getPoints).sum();
-
-        if (allUserAnswersCorrect && points > 0) {
-            onCorrectAnswer();
-        } else {
-            onIncorrectAnswer();
-        }
-        return points;
+        return 0;
     }
 
     protected void onIncorrectAnswer() {
