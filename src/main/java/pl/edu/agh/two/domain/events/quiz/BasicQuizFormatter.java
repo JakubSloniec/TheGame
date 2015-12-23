@@ -6,13 +6,27 @@ import java.util.stream.Collectors;
 
 import pl.edu.agh.two.console.GameConsole;
 
-public class BasicAnswerFormatter implements IAnswerFormatter {
+public class BasicQuizFormatter implements IQuizFormatter {
 
     public static final char INITIAL_ANSWERS_ENUMERATION = 'a';
 
-    @Override
-    public String formatQuestion(int answerNumber, String text) {
+    public String formatAnswer(int answerNumber, String text) {
         return "\t" + Character.toString((char) ('a' + answerNumber)) + ") " + text;
+    }
+
+    @Override
+    public void printAnswer(int answerNumber, Answer answer, GameConsole gameConsole) {
+        printAnswer(answerNumber, answer.getText(), gameConsole);
+    }
+
+    @Override
+    public void printAnswer(int answerNumber, String answer, GameConsole gameConsole) {
+        gameConsole.println(formatAnswer(answerNumber, answer));
+    }
+
+    @Override
+    public void printQuestion(Question question, GameConsole gameConsole) {
+        gameConsole.println(question.getQuestionText());
     }
 
     @Override
@@ -28,6 +42,11 @@ public class BasicAnswerFormatter implements IAnswerFormatter {
                 .filter(answer -> !answer.equals(""))
                 .map(this::inputTextToAnswerNumber)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void printUnmachableAnswer(GameConsole gameConsole) {
+        gameConsole.println("Unmatchable answer.");
     }
 
 }

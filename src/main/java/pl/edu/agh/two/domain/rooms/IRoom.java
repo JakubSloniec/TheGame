@@ -29,9 +29,6 @@ public interface IRoom {
      * @return true if enter success, false otherwise
      */
     default boolean tryEnter(IPlayer player) {
-        if(getPreconditions().isEmpty()) {
-            return true;
-        }
         return getPreconditions().stream().allMatch(precondition -> precondition.test(player));
     }
 

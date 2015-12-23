@@ -6,6 +6,7 @@ import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.domain.rooms.Direction;
 import pl.edu.agh.two.domain.rooms.IRoom;
 import pl.edu.agh.two.exceptions.RoomDoesNotExistException;
+import pl.edu.agh.two.exceptions.YouCannotEnterThisRoom;
 
 /**
  * Created by ps_krzysztof on 2015-11-16.
@@ -35,17 +36,17 @@ public class Map {
         map[x][y] = room;
     }
 
-    public boolean go(Direction direction, IPlayer player) throws RoomDoesNotExistException {
+    public void go(Direction direction, IPlayer player) throws RoomDoesNotExistException, YouCannotEnterThisRoom {
         Optional<IRoom> nextRoom = getCurrentRoom().getAdjacentRoom(direction);
-        if(nextRoom.isPresent()) {
+        if (nextRoom.isPresent()) {
             if (nextRoom.get().tryEnter(player)) {
                 setCurrentRoom(nextRoom.get());
-                return true;
             } else {
-                throw new RoomDoesNotExistException("No room found there.");
+                throw new YouCannotEnterThisRoom("You cannot enter this room");
             }
+        } else {
+            throw new RoomDoesNotExistException("No room found there.");
         }
-        return false;
     }
 
 }
