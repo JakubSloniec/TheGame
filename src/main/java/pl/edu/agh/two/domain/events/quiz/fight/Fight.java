@@ -21,7 +21,7 @@ public class Fight extends Quiz implements IUsageContext {
 
     IEnemy enemy;
     IPlayer player;
-    IContextFinishListener fightFinishListener;
+    List<IContextFinishListener> fightFinishListeners;
 
     public Fight(List<Question> questionList, IEnemy enemy) {
         super(questionList);
@@ -84,7 +84,7 @@ public class Fight extends Quiz implements IUsageContext {
     @Override
     protected void cleanUp() {
         super.cleanUp();
-        fightFinishListener.onFinish();
+        fightFinishListeners.forEach(IContextFinishListener::onFinish);
     }
 
     @Override
@@ -99,6 +99,6 @@ public class Fight extends Quiz implements IUsageContext {
 
     @Override
     public void registerOnFinishListener(IContextFinishListener contextFinishListener) {
-        fightFinishListener = contextFinishListener;
+        fightFinishListeners.add(contextFinishListener);
     }
 }
