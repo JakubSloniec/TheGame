@@ -17,6 +17,7 @@ public class MapFactory {
         config.setEventFactory("quiz", new QuizEventsFactory(gameConsole));
         config.setEventFactory("pickItem",new GetItemEventsFactory());
         config.setEventFactory("text",new EventsWithDescriptionFactory());
+        config.setEventFactory("fight",new FightEventsFactory());
 
         MapBuilder builder=new MapBuilder(config);
 
@@ -35,6 +36,11 @@ public class MapFactory {
         File textEventsFolder=new File(classLoader.getResource("plotConfig/events/text").getFile());
         for(String fileName:textEventsFolder.list()) {
             builder = builder.parseEventFile("text", "plotConfig/events/text/" + fileName, gameConsole);
+        }
+
+        File fightEventsFolder=new File(classLoader.getResource("plotConfig/events/fights").getFile());
+        for(String fileName:fightEventsFolder.list()) {
+            builder = builder.parseEventFile("fight","plotConfig/events/fights/"+ fileName, gameConsole);
         }
 
         //place for adding new files
