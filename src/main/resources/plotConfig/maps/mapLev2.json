@@ -374,8 +374,8 @@
       "event": "emptyEvent"
     },
     {
-      "x": 6,
-      "y": 7,
+      "x": 7,
+      "y": 8,
       "preconditions": {
         "attributes": [
           {
@@ -383,11 +383,11 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "piwkoprzedegz"
     },
     {
-      "x": 6,
-      "y": 8,
+      "x": 7,
+      "y": 7,
       "preconditions": {
         "attributes": [
           {
@@ -398,55 +398,7 @@
       "event": "quizLev4"
     },
     {
-      "x": 6,
-      "y": 9,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
-      "x": 7,
-      "y": 9,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
       "x": 8,
-      "y": 9,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
-      "x": 9,
-      "y": 9,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
-      "x": 9,
       "y": 8,
       "preconditions": {
         "attributes": [
@@ -455,7 +407,7 @@
           }
         ]
       },
-      "event": "emptyEvent",
+      "event": "egz",
       "end": true
     }
   ]

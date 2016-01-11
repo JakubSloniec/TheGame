@@ -1,0 +1,216 @@
+{
+  "introduction": "Czas na pierwszy egzamin w tym roku. Powodzenia!",
+  "questions": [
+    {
+      "question": "Ile cykli Hamiltona posiada graf pelny o N wierzcholkach?",
+      "answers": [
+        {
+          "answer": "N",
+          "points": 0
+        },
+        {
+          "answer": "1",
+          "points": 0
+        },
+        {
+          "answer": "N^2",
+          "points": 0
+        },
+        {
+          "answer": "N!",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "question": "Semantyka jezyka programowania opisuje:",
+      "answers": [
+        {
+          "answer": "Znaczenie instrukcji w języku",
+          "points": 2
+        },
+        {
+          "answer": "Formalnie poprawne programy",
+          "points": 0
+        },
+        {
+          "answer": "Budowe instrukcji w języku",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "question": "Pascal to jezyk: ",
+      "answers": [
+        {
+          "answer": "aplikatywny",
+          "points": 0
+        },
+        {
+          "answer": "deklaratywny",
+          "points": 0
+        },
+        {
+          "answer": "imperatywny",
+          "points": 2
+        },
+        {
+          "answer": "zadna z powyzszych",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "question": "Ile wartosci mozna zakodować na N bitach?",
+      "answers": [
+        {
+          "answer": "N!",
+          "points": 0
+        },
+        {
+          "answer": "2^(N-1)",
+          "points": 0
+        },
+        {
+          "answer": "N^2",
+          "points": 0
+        },
+        {
+          "answer": "2^N",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "question": "Co decyduje o zakresie liczb zmiennoprzecinkowych?",
+      "answers": [
+        {
+          "answer": "tylko cecha",
+          "points": 1
+        },
+        {
+          "answer": "tylko mantysa",
+          "points": 0
+        },
+        {
+          "answer": "mantysa i cecha",
+          "points": 0
+        },
+        {
+          "answer": "zadne z powyzszych",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "question": "Ktora z nastepujacych metod parsingu może przetworzyc najszersza klase gramatyk?",
+      "answers": [
+        {
+          "answer": "parser SLR",
+          "points": 0
+        },
+        {
+          "answer": "zstepujący parser rekurencyjny bez nawracania",
+          "points": 0
+        },
+        {
+          "answer": "parser LL(1)",
+          "points": 0
+        },
+        {
+          "answer": "parser CYK",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "question": "Ile bitow jest niezbednych do zapisania liczb calkowitych z zakresu 100..1000?",
+      "answers": [
+        {
+          "answer": "9",
+          "points": 0
+        },
+        {
+          "answer": "8",
+          "points": 0
+        },
+        {
+          "answer": "11",
+          "points": 0
+        },
+        {
+          "answer": "10",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "question": "Zmienna 'x' jest liczba calkowita, kiedy abs(x) zwroci poprawną wartosc?",
+      "answers": [
+        {
+          "answer": "dla kazdej liczby typu integer",
+          "points": 0
+        },
+        {
+          "answer": "tylko dla liczb nieujemnych",
+          "points": 0
+        },
+        {
+          "answer": "tylko dla liczb niedodatnich",
+          "points": 0
+        },
+        {
+          "answer": "zadne z powyzszych",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "question": "Jezyki imperatywne - uzycie niezadeklarowanej zmiennej:",
+      "answers": [
+        {
+          "answer": "nie kompiluje sie",
+          "points": 2
+        },
+        {
+          "answer": "dziala",
+          "points": 0
+        },
+        {
+          "answer": "rzuca wyjatek",
+          "points": 0
+        },
+        {
+          "answer": "powoduje blad",
+          "points": 0
+        }
+      ]
+    }
+  ],
+  "endTexts": [
+    {
+      "forNotes": [
+        2
+      ],
+      "textToDisplay": "Very bad.."
+    },
+    {
+      "forNotes": [
+        3,
+        4
+      ],
+      "textToDisplay": "Nice"
+    },
+    {
+      "forNotes": [
+        5
+      ],
+      "textToDisplay": "Very nice. ",
+      "awards": [
+        {
+          "itemName": "Passy Do Wiki"
+        }
+      ]
+    }
+  ]
+}
