@@ -23,7 +23,7 @@
           }
         ]
       },
-      "event": "quizLev1"
+      "event": "wykladWDI"
     },
     {
       "x": 2,
@@ -35,7 +35,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "getPassyDoWiki"
     },
     {
       "x": 2,
@@ -47,7 +47,7 @@
           }
         ]
       },
-      "event": "getPassyDoWiki"
+      "event": "kolosWDI1"
     },
     {
       "x": 1,
@@ -59,7 +59,7 @@
           }
         ]
       },
-      "event": "quizLev2"
+      "event": "wykladANAL"
     },
     {
       "x": 0,

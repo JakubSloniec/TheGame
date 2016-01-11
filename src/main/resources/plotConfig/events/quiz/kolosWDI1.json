@@ -1,0 +1,52 @@
+{
+  "introduction": "Nadeszla ta chwila. Czas odsiac ziarno od plew. Pierwsze kolokwium z WDI. Dzien sadu. Siadasz zestresowany/a w pierwszej lawce proszac w duchu zeby Lord Icon byl dzis laskawy. Slyszysz pierwsze zadanie...",
+  "questions": [
+    {
+      "question": "Kazdy informatyk musi znac potegi 2ki. Ile jest 2^74 ? ",
+      "answers": [
+        {
+          "answer": "18889465931478580854784",
+          "points": 10
+        },
+        {
+          "answer": "18889465931478580854782",
+          "points": 6
+        },
+        {
+          "answer": "18889465931478580854788",
+          "points": 6
+        },
+        {
+          "answer": "Eeeeeeeeeee. Nie wiem",
+          "points": 0
+        }
+      ]
+    }
+  ],
+  "endTexts": [
+    {
+      "forNotes": [
+        2
+      ],
+      "textToDisplay": "Spokojnie. Pozostale 3/4 roku tez nie dostal punktow."
+    },
+    {
+      "forNotes": [
+        3,
+        4
+      ],
+      "textToDisplay": "Bylo blisko. Przynajmniej nie zero punktow. "
+    },
+    {
+      "forNotes": [
+        5
+      ],
+      "textToDisplay": "Very nice. Jestes bogiem informatyki.  ",
+      "awards": [
+        {
+          "itemName": "Passy Do Wiki"
+        }
+          ]
+        }
+      ]
+    }
