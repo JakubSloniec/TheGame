@@ -39,7 +39,7 @@ public class MapFactory {
 
         //place for adding new files
         return builder
-                .getMapFromFile("plotConfig/maps/mapLev1.json")
+                .getMapFromFile("plotConfig/maps/mapLev2.json")
                 .build();
 
 

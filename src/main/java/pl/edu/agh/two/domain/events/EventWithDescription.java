@@ -40,8 +40,10 @@ public class EventWithDescription implements IEvent {
 
     @Override
     public void execute(IPlayer player) {
-        executeLogic(player);
-        cleanUp();
+        if(!finished) {
+            executeLogic(player);
+            cleanUp();
+        }
     }
 
     @Override

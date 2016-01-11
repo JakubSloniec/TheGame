@@ -16,8 +16,8 @@ public class ConfigReaderTest {
 
 
         ConfigReader<RawMap> mapConfigReader = new ConfigReader<>(RawMap.class);
-        System.out.println("mapLev1.json:");
-        RawMap mapLev1 = mapConfigReader.readConfig("plotConfig/maps/mapLev1.json");
+        System.out.println("mapLev2.json:");
+        RawMap mapLev1 = mapConfigReader.readConfig("plotConfig/maps/mapLev2.json");
         mapConfigReader.prettyPrint(mapLev1);
 
         System.out.println("quizLev1.json:");

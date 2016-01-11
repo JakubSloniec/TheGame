@@ -1,0 +1,94 @@
+{
+  "introduction": "Third quiz test.",
+  "questions": [
+    {
+      "question": "Usuniecie rekurencji z programu wymaga uzycia: ",
+      "answers": [
+        {
+          "answer": "stosu",
+          "points": 0
+        },
+        {
+          "answer": "petli + break'a (goto)",
+          "points": 0
+        },
+        {
+          "answer": "goto",
+          "points": 0
+        },
+        {
+          "answer": "petli + stosu",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "question": "Tablica w Pascalu jest struktura: ",
+      "answers": [
+        {
+          "answer": "mnogosciowa",
+          "points": 0
+        },
+        {
+          "answer": "drzewiasta",
+          "points": 0
+        },
+        {
+          "answer": "liniowa",
+          "points": 2
+        },
+        {
+          "answer": "grafowa",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "question": "Ile bitow potrzeba do zapisania liczb calkowitych z zakresu -10..1000?",
+      "answers": [
+        {
+          "answer": "9",
+          "points": 0
+        },
+        {
+          "answer": "8",
+          "points": 0
+        },
+        {
+          "answer": "11",
+          "points": 0
+        },
+        {
+          "answer": "10",
+          "points": 1
+        }
+      ]
+    }
+  ],
+  "endTexts": [
+    {
+      "forNotes": [
+        2
+      ],
+      "textToDisplay": "Very bad.."
+    },
+    {
+      "forNotes": [
+        3,
+        4
+      ],
+      "textToDisplay": "Nice"
+    },
+    {
+      "forNotes": [
+        5
+      ],
+      "textToDisplay": "Very nice. ",
+      "awards": [
+        {
+          "itemName": "Wodka"
+        }
+      ]
+    }
+  ]
+}
