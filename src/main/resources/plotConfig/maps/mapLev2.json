@@ -23,7 +23,7 @@
           }
         ]
       },
-      "event": "quizLev1"
+      "event": "wykladWDI"
     },
     {
       "x": 2,
@@ -35,7 +35,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "getPassyDoWiki"
     },
     {
       "x": 2,
@@ -47,7 +47,19 @@
           }
         ]
       },
-      "event": "getPassyDoWiki"
+      "event": "kolosWDI1"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "preconditions": {
+        "attributes": [
+          {
+            "energia": 2
+          }
+        ]
+      },
+      "event": "wykladANAL"
     },
     {
       "x": 1,
@@ -59,34 +71,10 @@
           }
         ]
       },
-      "event": "quizLev2"
+      "event": "zaspanie"
     },
     {
-      "x": 0,
-      "y": 3,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
-      "x": 0,
+      "x": 2,
       "y": 5,
       "preconditions": {
         "attributes": [
@@ -95,10 +83,10 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "wykladUNIX"
     },
     {
-      "x": 0,
+      "x": 2,
       "y": 6,
       "preconditions": {
         "attributes": [
@@ -110,18 +98,6 @@
       "event": "quizLev3"
     },
     {
-      "x": 0,
-      "y": 7,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
       "x": 1,
       "y": 7,
       "preconditions": {
@@ -131,7 +107,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "piwko1"
     },
     {
       "x": 2,
@@ -143,7 +119,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "wykladAPI"
     },
     {
       "x": 2,
@@ -158,42 +134,6 @@
       "event": "emptyEvent"
     },
     {
-      "x": 2,
-      "y": 6,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
-      "x": 2,
-      "y": 5,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
-      "x": 2,
-      "y": 4,
-      "preconditions": {
-        "attributes": [
-          {
-            "energia": 2
-          }
-        ]
-      },
-      "event": "emptyEvent"
-    },
-    {
       "x": 3,
       "y": 3,
       "preconditions": {
@@ -407,7 +347,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "spotkanieProwadzacegoKorytarzOregano"
     },
     {
       "x": 7,
