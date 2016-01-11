@@ -4,18 +4,24 @@ import pl.edu.agh.two.domain.attributes.Attribute;
 import pl.edu.agh.two.domain.events.quiz.Answer;
 import pl.edu.agh.two.domain.events.quiz.Question;
 import pl.edu.agh.two.domain.events.quiz.Quiz;
+import pl.edu.agh.two.domain.items.IContextFinishListener;
+import pl.edu.agh.two.domain.items.IItem;
+import pl.edu.agh.two.domain.items.IUsageContext;
 import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
+import pl.edu.agh.two.exceptions.ContextRequireException;
+import pl.edu.agh.two.exceptions.ItemNotInBackpackException;
 
 import java.util.List;
 
 /**
  * Created by Puszek_SE on 2015-12-22.
  */
-public class Fight extends Quiz {
+public class Fight extends Quiz implements IUsageContext {
 
     IEnemy enemy;
     IPlayer player;
+    List<IContextFinishListener> fightFinishListeners;
 
     public Fight(List<Question> questionList, IEnemy enemy) {
         super(questionList);
@@ -71,6 +77,16 @@ public class Fight extends Quiz {
         return finalEnemyPowerBalance;
     }
 
+    public void useItem(IItem item) throws ItemNotInBackpackException, ContextRequireException {
+        item.use(player,this);
+    }
+
+    @Override
+    protected void cleanUp() {
+        super.cleanUp();
+        fightFinishListeners.forEach(IContextFinishListener::onFinish);
+    }
+
     @Override
     protected void onIncorrectAnswer() {
         getGameConsole().println("Weak attack...");
@@ -79,5 +95,10 @@ public class Fight extends Quiz {
     @Override
     protected void onCorrectAnswer() {
         getGameConsole().println("Successful attack!");
+    }
+
+    @Override
+    public void registerOnFinishListener(IContextFinishListener contextFinishListener) {
+        fightFinishListeners.add(contextFinishListener);
     }
 }
