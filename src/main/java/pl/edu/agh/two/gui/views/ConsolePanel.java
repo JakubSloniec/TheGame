@@ -1,11 +1,8 @@
 package pl.edu.agh.two.gui.views;
 
-import java.awt.BorderLayout;
-import java.awt.Font;
+import java.awt.*;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
 /**
  * @author Jakub Sloniec

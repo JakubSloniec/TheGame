@@ -178,7 +178,12 @@ public class Controller {
 					return "";
 				}
 			}
-		};
+
+            @Override
+            public void winGame() {
+                displayWin();
+            }
+        };
 	}
 
 	public class GameLoop extends Thread {

@@ -17,7 +17,7 @@ public class GetItemEventsFactory implements IEventsFactory {
         ConfigReader<RawGetter> configReader=new ConfigReader<>(RawGetter.class);
         RawGetter rawEvent=configReader.readConfig(eventFileName);
         //fetching only first item, due to misfit with the model
-        PickItemEvent event=new PickItemEvent(ItemsRepository.getItem(rawEvent.getItems().get(0).getItem()),rawEvent.getTextToDisplay());
+        PickItemEvent event = new PickItemEvent(ItemsRepository.getItem(rawEvent.getItems().get(0).getItem()), rawEvent.getTextToDisplay());
         event.setGameConsole(gameConsole);
         return event;
     }

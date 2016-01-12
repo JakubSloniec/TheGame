@@ -115,8 +115,8 @@ public class Fight extends Quiz implements IUsageContext {
             }
 
             @Override
-            public void endGame() {
-                originalGameConsole.endGame();
+            public void winGame() {
+                originalGameConsole.winGame();
             }
 
             @Override

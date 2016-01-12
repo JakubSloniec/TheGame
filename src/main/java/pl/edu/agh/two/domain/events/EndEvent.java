@@ -15,7 +15,7 @@ public class EndEvent extends EventWithDescription {
     @Override
     public void executeLogic(IPlayer player) {
         super.executeLogic(player);
-        getGameConsole().endGame();
+        getGameConsole().winGame();
     }
 
     @Override

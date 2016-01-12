@@ -14,7 +14,7 @@ public class PickItemEvent  extends EventWithDescription{
         this.item = item;
     }
 
-    public PickItemEvent(IItem item,String eventDesc) {
+    public PickItemEvent(IItem item, String eventDesc) {
         super(eventDesc);
         if (item == null) {
             throw new IllegalArgumentException("Item cannot be null");

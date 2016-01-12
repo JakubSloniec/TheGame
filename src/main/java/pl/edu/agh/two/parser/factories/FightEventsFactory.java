@@ -1,7 +1,11 @@
 package pl.edu.agh.two.parser.factories;
 
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
 import pl.edu.agh.two.console.GameConsole;
-import pl.edu.agh.two.domain.attributes.Attribute;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.events.quiz.Answer;
 import pl.edu.agh.two.domain.events.quiz.Question;
@@ -17,11 +21,6 @@ import pl.edu.agh.two.parser.events.fights.RawEnemy;
 import pl.edu.agh.two.parser.events.fights.RawFight;
 import pl.edu.agh.two.parser.map.RawAttribute;
 import pl.edu.agh.two.repositories.AttributesRepository;
-
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Created by oem on 2016-01-10.

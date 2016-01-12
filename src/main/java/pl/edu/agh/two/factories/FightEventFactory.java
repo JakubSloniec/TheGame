@@ -1,14 +1,15 @@
 package pl.edu.agh.two.factories;
 
-import com.google.common.collect.BoundType;
-import com.google.common.collect.ImmutableRangeSet;
-import com.google.common.collect.Range;
-import com.google.common.collect.RangeSet;
+import java.util.AbstractMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import pl.edu.agh.two.configuration.ApplicationConstants;
 import pl.edu.agh.two.domain.attributes.Attribute;
-import pl.edu.agh.two.domain.events.EventWithDescription;
 import pl.edu.agh.two.domain.events.IEvent;
-import pl.edu.agh.two.domain.events.PickItemEvent;
 import pl.edu.agh.two.domain.events.quiz.Answer;
 import pl.edu.agh.two.domain.events.quiz.Question;
 import pl.edu.agh.two.domain.events.quiz.fight.Enemy;
@@ -17,8 +18,6 @@ import pl.edu.agh.two.domain.events.quiz.fight.FightAnswer;
 import pl.edu.agh.two.domain.events.quiz.fight.IEnemy;
 import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 import pl.edu.agh.two.repositories.AttributesRepository;
-
-import java.util.*;
 
 /**
  * Created by Puszek_SE on 2015-12-22.

@@ -10,5 +10,5 @@ public interface GameConsole {
 
     String readLine();
 
-    void endGame();
+    void winGame();
 }
