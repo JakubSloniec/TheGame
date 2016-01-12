@@ -38,7 +38,9 @@ public class FightEventsFactory implements IEventsFactory {
         for(RawAction rawAction:rawFight.getActions()) {
             List<Answer> answerList=new LinkedList<Answer>();
             for(RawAnswer rawAnswer:rawAction.getAnswers()) {
-                answerList.add(new FightAnswer(rawAnswer.getAnswer(),rawAnswer.getPoints()));
+                FightAnswer answer = new FightAnswer(rawAnswer.getAnswer(),rawAnswer.getPoints());
+                answer.setResponse(rawAnswer.getReaction());
+                answerList.add(answer);
 
             }
             questionList.add(new Question(rawAction.getQuestion(),answerList));

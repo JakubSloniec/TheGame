@@ -89,13 +89,25 @@ public class Fight extends Quiz implements IUsageContext {
     }
 
     @Override
-    protected void onIncorrectAnswer() {
-        getGameConsole().println("Weak attack...");
+    protected void onIncorrectAnswer(List<Answer> userAnswers) {
+        for(Answer answer : userAnswers){
+            if(answer instanceof FightAnswer){
+                getGameConsole().println(((FightAnswer) answer).getResponse());
+            }else{
+                getGameConsole().println("Weak attack...");
+            }
+        }
     }
 
     @Override
-    protected void onCorrectAnswer() {
-        getGameConsole().println("Successful attack!");
+    protected void onCorrectAnswer(List<Answer> userAnswers) {
+        for(Answer answer : userAnswers){
+            if(answer instanceof FightAnswer){
+                getGameConsole().println(((FightAnswer) answer).getResponse());
+            }else{
+                getGameConsole().println("Successful attack!");
+            }
+        }
     }
 
     @Override
