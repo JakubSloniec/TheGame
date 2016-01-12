@@ -3,18 +3,7 @@ package pl.edu.agh.two.domain.rooms;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.players.IPlayer;
 
-/**
- * Created by ps_krzysztof on 2015-11-16.
- */
 public class EventRoom extends AbstractRoom {
-
-    public static class Builder extends AbstractRoom.Builder<EventRoom> {
-
-        public Builder(IEvent event, Coordinates coordinates) {
-            super(new EventRoom(event, coordinates));
-        }
-
-    }
 
     private final IEvent event;
 
@@ -35,6 +24,14 @@ public class EventRoom extends AbstractRoom {
 
     public IEvent getEvent() {
         return event;
+    }
+
+    public static class Builder extends AbstractRoom.Builder<EventRoom> {
+
+        public Builder(IEvent event, Coordinates coordinates) {
+            super(new EventRoom(event, coordinates));
+        }
+
     }
 
 }

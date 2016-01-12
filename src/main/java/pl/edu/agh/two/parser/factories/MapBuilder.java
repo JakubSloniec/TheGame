@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import pl.edu.agh.two.console.GameConsole;
+import pl.edu.agh.two.domain.events.EndEvent;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.rooms.Coordinates;
@@ -87,12 +88,19 @@ public class MapBuilder {
                 }
 
             }
+
+            if (rawRoom.isEnd()) {
+                event = new EndEvent(event);
+            }
+
             IRoom room=RoomsFactory.createEventRoom(event, rawRoom.getX(), rawRoom.getY(), listOfPreconditions, Optional.<GameConsole>empty());
             if(rawRoom.isStart())
                 product.setCurrentRoom(room);
             product.addRoom(rawRoom.getX(),rawRoom.getY(),room
                     );
             checkingBoard[rawRoom.getX()][rawRoom.getY()]=true;
+
+
         }
         //if the room wasn't put, put a wall
         for(int i=0;i<10;i++) {

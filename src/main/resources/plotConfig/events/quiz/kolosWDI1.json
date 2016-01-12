@@ -1,5 +1,5 @@
 {
-  "introduction": "Nadeszla ta chwila. Czas odsiac ziarno od plew. Pierwsze kolokwium z WDI. Dzien sadu. Siadasz zestresowany/a w pierwszej lawce proszac w duchu zeby Lord Icon byl dzis laskawy. Slyszysz pierwsze zadanie...",
+  "introduction": "Nadeszla ta chwila. Czas odsiac ziarno od plew. Pierwsze kolokwium z WDI. \nDzien sadu.\nSiadasz zestresowany/a w pierwszej lawce proszac w duchu zeby Lord Icon byl dzis laskawy. \nSlyszysz pierwsze zadanie...",
   "questions": [
     {
       "question": "Kazdy informatyk musi znac potegi 2ki. Ile jest 2^74 ? ",
@@ -28,7 +28,7 @@
       "forNotes": [
         2
       ],
-      "textToDisplay": "Spokojnie. Pozostale 3/4 roku tez nie dostal punktow."
+      "textToDisplay": "Spokojnie. Pozostale 3/4 roku tez nie dostalo punktow."
     },
     {
       "forNotes": [

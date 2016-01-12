@@ -18,9 +18,15 @@ public class Quiz extends EventWithDescription {
     public Quiz(List<Question> questions) {
         this.questions = questions;
     }
+    
+    public Quiz(List<Question> question, String introduction) {
+        super(introduction);
+    	this.questions = question;
+    }
 
     @Override
     public void executeLogic(IPlayer player) {
+    	super.executeLogic(player);
         executeQuiz(player);
     }
 
