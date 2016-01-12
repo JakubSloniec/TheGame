@@ -50,8 +50,6 @@ public class Controller {
 		displayStats(player.getStatistics());
 		displayBag(player.getBackpack());
 		displatIntro();
-		displayWin();
-		displayFail();
 		new GameLoop().start();
 	}
 
