@@ -145,6 +145,10 @@ public class Controller {
 		appendInConsole("/_/\\____/\\____/     |__/|__/___/_/ |_(_)   ");
 	}
 
+	public void disableInputFields() {
+		rootFrame.getInputPanel().disableInput();
+	}
+
 	public void displayStats(Set<IPlayerStatistic> statistics) {
 		rootFrame.getCardPanel().getStatsPanel().paint(statistics);
 	}
