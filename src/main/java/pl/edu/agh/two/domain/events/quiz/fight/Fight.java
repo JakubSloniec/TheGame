@@ -12,6 +12,7 @@ import pl.edu.agh.two.domain.players.statistics.IPlayerStatistic;
 import pl.edu.agh.two.exceptions.ContextRequireException;
 import pl.edu.agh.two.exceptions.ItemNotInBackpackException;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class Fight extends Quiz implements IUsageContext {
 
     IEnemy enemy;
     IPlayer player;
-    List<IContextFinishListener> fightFinishListeners;
+    List<IContextFinishListener> fightFinishListeners = new LinkedList<>();
 
     public Fight(List<Question> questionList, IEnemy enemy) {
         super(questionList);
