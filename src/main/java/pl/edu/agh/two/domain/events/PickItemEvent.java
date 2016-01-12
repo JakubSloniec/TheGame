@@ -14,15 +14,18 @@ public class PickItemEvent  extends EventWithDescription{
         this.item = item;
     }
 
+    public PickItemEvent(IItem item,String eventDesc) {
+        super(eventDesc);
+        if (item == null) {
+            throw new IllegalArgumentException("Item cannot be null");
+        }
+        this.item = item;
+    }
+
     @Override
     public void executeLogic(IPlayer player) {
         super.executeLogic(player);
         player.getBackpack().addItem(item);
-    }
-
-    @Override
-    public String getEventDescription() {
-        return "You found new item: " + item.getName();
     }
 
 }
