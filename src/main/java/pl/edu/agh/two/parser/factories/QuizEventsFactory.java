@@ -79,6 +79,7 @@ public class QuizEventsFactory implements IEventsFactory {
                     throw new NoSuchItemTypeException();
                 }
                 PickItemEvent pickItemEvent = new PickItemEvent(item);
+                pickItemEvent.setEventDescription(endText.getTextToDisplay());
                 awardEvent = pickItemEvent;
                 pickItemEvent.setGameConsole(this.gameConsole);
             }
