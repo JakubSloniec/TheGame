@@ -18,4 +18,9 @@ public class Question {
     public String getQuestionText() {
         return questionText;
     }
+    
+    public int getMaxAnswerPoints() {
+    	return answers.stream().map(a -> a.getPoints()).max(Integer::compareTo).get();
+    }
+    
 }

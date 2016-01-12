@@ -26,9 +26,20 @@ public class Quiz extends EventWithDescription {
 
     @Override
     public void executeLogic(IPlayer player) {
-        super.executeLogic(player);
-        executeQuiz(player);
+    	super.executeLogic(player);
+        int result = executeQuiz(player);
+        int maxResult = questions.stream().map(question -> (Integer) question.getMaxAnswerPoints()).reduce((a,b) -> a+b).get();
+        int grade = getGrade(result, maxResult);
+        pointsToEvents.get(pointsToEvents.keySet().stream().filter(set -> set.contains(grade)).findFirst().get()).execute(player);
     }
+
+	private int getGrade(int result, int maxResult) {
+		int grade = result / maxResult * 5;
+        if (grade == 1 || grade == 0) {
+        	grade = 2;
+        }
+		return grade;
+	}
 
     protected int executeQuiz(IPlayer player) {
         int points = questions.stream().mapToInt(this::ask).sum();
