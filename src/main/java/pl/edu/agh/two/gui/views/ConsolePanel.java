@@ -1,6 +1,7 @@
 package pl.edu.agh.two.gui.views;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -25,6 +26,7 @@ public class ConsolePanel extends JPanel {
 
 		console.setEditable(false);
 		console.setLineWrap(true);
+		console.setFont(new Font("monospaced", Font.PLAIN, 12));
 		scrollPane.setViewportView(console);
 	}
 

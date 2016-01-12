@@ -55,7 +55,7 @@ public class QuizEventsFactory implements IEventsFactory {
         //list of questions created
 
         List<RawEndText> rawEndTexts= rawQuiz.getEndTexts();
-        Quiz quiz=new Quiz(questions);
+        Quiz quiz=new Quiz(questions, rawQuiz.getIntroduction());
         Map<Set<Integer>,IEvent> resultMap=new HashMap<>();
 
         for(RawEndText endText:rawEndTexts) {
