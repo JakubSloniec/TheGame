@@ -4,7 +4,6 @@ import com.google.common.collect.BoundType;
 import com.google.common.collect.ImmutableRangeSet;
 import com.google.common.collect.Range;
 import com.google.common.collect.RangeSet;
-import jdk.internal.util.xml.impl.Pair;
 import pl.edu.agh.two.configuration.ApplicationConstants;
 import pl.edu.agh.two.domain.attributes.Attribute;
 import pl.edu.agh.two.domain.events.EventWithDescription;

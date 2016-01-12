@@ -60,6 +60,8 @@ public class FightEventsFactory implements IEventsFactory {
         //event map
 
         Fight fight=new Fight(questionList,enemy);
+        fight.setGameConsole(gameConsole);
+        fight.setEventDescription(rawFight.getIntroduction());
 
 
         return fight;
