@@ -6,7 +6,7 @@ import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.players.IPlayer;
 import pl.edu.agh.two.exceptions.GameConsoleNotSet;
 
-public class EventWithDescription implements IEvent
+public class EventWithDescription implements IEvent {
     private boolean finished = false;
     private Optional<GameConsole> gameConsole = Optional.empty();
     private String eventDescription = "";
