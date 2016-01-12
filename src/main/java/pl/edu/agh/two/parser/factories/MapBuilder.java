@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import pl.edu.agh.two.console.GameConsole;
 import pl.edu.agh.two.domain.events.EndEvent;
+import pl.edu.agh.two.domain.events.EventWithDescription;
 import pl.edu.agh.two.domain.events.IEvent;
 import pl.edu.agh.two.domain.map.Map;
 import pl.edu.agh.two.domain.rooms.Coordinates;
@@ -83,14 +84,14 @@ public class MapBuilder {
                     precondition=AttributePrecondition.createPrecondition(AttributesRepository.getAttribute("energia"), new Double(rawPrecondition.getAttributes().get(0).getEnergia()));
                     List<IPrecondition> list=new LinkedList<IPrecondition>();
                     list.add(0,precondition);
-                    listOfPreconditions=Optional.<List<IPrecondition>>of(list);
+                    listOfPreconditions = Optional.of(list);
 
                 }
 
             }
 
             if (rawRoom.isEnd()) {
-                event = new EndEvent(event);
+                event = new EndEvent((EventWithDescription) event);//// TODO: 1/12/2016 replave without event
             }
 
             IRoom room=RoomsFactory.createEventRoom(event, rawRoom.getX(), rawRoom.getY(), listOfPreconditions, Optional.<GameConsole>empty());

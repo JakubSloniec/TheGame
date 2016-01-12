@@ -162,7 +162,7 @@ public class Controller {
                     // TODO: create basic exception from which other exceptions will
                     // extend
                 } catch (Exception e) {
-                    appendInConsole(e.getMessage());
+                    appendInConsole(e.toString());
                 } finally {
                     updateView();
                 }
