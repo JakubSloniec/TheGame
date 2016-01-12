@@ -1,10 +1,8 @@
 package pl.edu.agh.two.gui.views;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
 /**
  * @author Jakub Sloniec
@@ -25,6 +23,7 @@ public class ConsolePanel extends JPanel {
 
 		console.setEditable(false);
 		console.setLineWrap(true);
+		console.setFont(new Font("monospaced", Font.PLAIN, 12));
 		scrollPane.setViewportView(console);
 	}
 

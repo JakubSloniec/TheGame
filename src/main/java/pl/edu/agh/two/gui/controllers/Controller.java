@@ -28,145 +28,216 @@ import pl.edu.agh.two.parser.factories.MapFactory;
 @Component
 public class Controller {
 
-    AtomicBoolean eventInProgress = new AtomicBoolean(false);
-    BlockingQueue<String> inputs = new ArrayBlockingQueue<String>(10);
-    private Map map;
-    private IPlayer player;
-    private RootFrame rootFrame;
-    private CommandParser commandParser;
+	AtomicBoolean eventInProgress = new AtomicBoolean(false);
+	BlockingQueue<String> inputs = new ArrayBlockingQueue<String>(10);
+	private Map map;
+	private IPlayer player;
+	private RootFrame rootFrame;
+	private CommandParser commandParser;
 
-    public void init(String playerName) {
-        rootFrame = new RootFrame();
-        rootFrame.setVisible(true);
+	public void init(String playerName) {
+		rootFrame = new RootFrame();
+		rootFrame.setVisible(true);
 
-        rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
+		rootFrame.getInputPanel().getBtnEnter().addActionListener(a -> clickEnter());
 
-        commandParser = new CommandParser();
+		commandParser = new CommandParser();
 
-        initItems();
-        initMap();
-        displayMap(map);
-        initPlayer(playerName);
-        displayStats(player.getStatistics());
-        displayBag(player.getBackpack());
-        new GameLoop().start();
-    }
+		initItems();
+		initMap();
+		displayMap(map);
+		initPlayer(playerName);
+		displayStats(player.getStatistics());
+		displayBag(player.getBackpack());
+		displatIntro();
+		focusInputField();
+		new GameLoop().start();
+	}
 
-    private void updateView() {
-        displayStats(player.getStatistics());
-        displayBag(player.getBackpack());
-        displayMap(map);
-        rootFrame.validate();
-        rootFrame.repaint();
-    }
+	private void updateView() {
+		displayStats(player.getStatistics());
+		displayBag(player.getBackpack());
+		displayMap(map);
+		rootFrame.validate();
+		rootFrame.repaint();
+	}
 
-    private void initItems() {
-        ItemsInitializer.initializeItems();
-    }
+	private void initItems() {
+		ItemsInitializer.initializeItems();
+	}
 
-    private void initPlayer(String playerName) {
-        player = PlayersFactory.createDefaultPlayer(playerName);
-        appendInConsole("Your name is " + playerName + ". Hello!");
-        // TODO: room description required
-        appendInConsole(map.getCurrentRoom().toString());
-    }
+	private void initPlayer(String playerName) {
+		player = PlayersFactory.createDefaultPlayer(playerName);
+		appendInConsole("Your name is " + playerName + ". Hello!");
+		// TODO: room description required
+		appendInConsole(map.getCurrentRoom().toString());
+	}
 
-    private void initMap() {
-        map = MapFactory.getMap(getGameConsole());
-    }
+	private void initMap() {
+		map = MapFactory.getMap(getGameConsole());
+	}
 
-    public void clickEnter() {
-        String input = getInputText();
-        clearInputField();
-        appendInConsole(">" + input);
-        inputs.add(input);
-    }
+	public void clickEnter() {
+		String input = getInputText();
+		clearInputField();
+		appendInConsole(">" + input);
+		inputs.add(input);
+	}
 
-    public void displayMap(Map map) {
-        rootFrame.getMapPanel().paint(map);
-    }
+	public void displayMap(Map map) {
+		rootFrame.getMapPanel().paint(map);
+	}
 
-    public void displayBag(Backpack backpack) {
-        rootFrame.getCardPanel().getInventoryPanel().paint(backpack);
-    }
+	public void displayBag(Backpack backpack) {
+		rootFrame.getCardPanel().getInventoryPanel().paint(backpack);
+	}
 
-    public void displayStats(Set<IPlayerStatistic> statistics) {
-        rootFrame.getCardPanel().getStatsPanel().paint(statistics);
-    }
+	public void displatIntro() {
+		appendInConsole("           ++.#");
+		appendInConsole("            #+:#,");
+		appendInConsole("            # # # ");
+		appendInConsole("            #;#;#    ");
+		appendInConsole("            #+##+#     ");
+		appendInConsole("            +#+#+#   ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     + + +  +#+#+#  + + +    ");
+		appendInConsole("     +,+,+. ++++;+  + + +    ");
+		appendInConsole("     :+;++:        .+;+++    ");
+		appendInConsole("      +:+ +        ; + +     ");
+		appendInConsole("       ,+;         .;::      ");
+		appendInConsole("                             ");
+		appendInConsole(" ");
+		appendInConsole("      ##.    ,###   #+ .#.   ");
+		appendInConsole("      ###   :#:     ##  #    ");
+		appendInConsole("      #+#   ## ..   ##.,#    ");
+		appendInConsole("     +; #:  ##  #:  #####    ");
+		appendInConsole("     #####  ##  #,  ##  #    ");
+		appendInConsole("     #  +#   ##+#,  ##  #    ");
+		appendInConsole("                            ");
+	}
 
-    public void clearInputField() {
-        rootFrame.getInputPanel().clearInput();
-    }
+	public void displayWin() {
+		appendInConsole("__   _______ _   _  ______ ___  _____ _      ___________ _ ");
+		appendInConsole("\\ \\ / /  _  | | | | |  ___/ _ \\|_   _| |    |  ___|  _  \\ |");
+		appendInConsole(" \\ V /| | | | | | | | |_ / /_\\ \\ | | | |    | |__ | | | | |");
+		appendInConsole("  \\ / | | | | | | | |  _||  _  | | | | |    |  __|| | | | |");
+		appendInConsole("  | | \\ \\_/ / |_| | | |  | | | |_| |_| |____| |___| |/ /|_|");
+		appendInConsole("  \\_/  \\___/ \\___/  \\_|  \\_| |_/\\___/\\_____/\\____/|___/ (_)");
+	}
 
-    public String getInputText() {
-        return rootFrame.getInputPanel().getInput();
-    }
+	public void displayFail() {
+		appendInConsole("__  ______  __  __   _       _______   ____");
+		appendInConsole("\\ \\/ / __ \\/ / / /  | |     / /  _/ | / / /");
+		appendInConsole(" \\  / / / / / / /   | | /| / // //  |/ / / ");
+		appendInConsole(" / / /_/ / /_/ /    | |/ |/ // // /|  /_/  ");
+		appendInConsole("/_/\\____/\\____/     |__/|__/___/_/ |_(_)   ");
+	}
 
-    public void appendInConsole(String text) {
-        rootFrame.getConsolePanel().appendText(text + "\n");
-        rootFrame.getConsolePanel().scrollToBottom();
-    }
+	public void disableInputFields() {
+		rootFrame.getInputPanel().disableInput();
+	}
 
-    public GameConsole getGameConsole() {
-        return new GameConsole() {
+	public void focusInputField() {
+		rootFrame.getInputPanel().getTextFieldInput().requestFocus();
+	}
+
+	public void displayStats(Set<IPlayerStatistic> statistics) {
+		rootFrame.getCardPanel().getStatsPanel().paint(statistics);
+	}
+
+	public void clearInputField() {
+		rootFrame.getInputPanel().clearInput();
+	}
+
+	public String getInputText() {
+		return rootFrame.getInputPanel().getInput();
+	}
+
+	public void appendInConsole(String text) {
+		rootFrame.getConsolePanel().appendText(text + "\n");
+		rootFrame.getConsolePanel().scrollToBottom();
+	}
+
+	public GameConsole getGameConsole() {
+		return new GameConsole() {
+			@Override
+			public void println(String string) {
+				appendInConsole(string);
+			}
+
+			@Override
+			public String readLine() {
+				try {
+					return inputs.take();
+				} catch (InterruptedException e) {
+					println(e.getMessage());
+					return "";
+				}
+			}
+
             @Override
-            public void println(String string) {
-                appendInConsole(string);
-            }
-
-            @Override
-            public String readLine() {
-                try {
-                    return inputs.take();
-                } catch (InterruptedException e) {
-                    println(e.getMessage());
-                    return "";
-                }
+            public void winGame() {
+                displayWin();
             }
         };
-    }
+	}
 
-    public class GameLoop extends Thread {
-        @Override
-        public void run() {
-            while (true) {
-                try {
-                    Command command = commandParser.parse(inputs.take());
-                    switch (command.getAction()) {
-                    case ANSWER:
-                        break;
-                    case GO:
-                        Direction direction = commandParser.parseDirection(command.getRest());
-                        map.go(direction, player);
-                        updateView();
-                        map.getCurrentRoom().executeEvent(player);
-                        break;
-                    case HELP:
-                        appendInConsole(commandParser.getHelpString());
-                        break;
-                    case PICK:
-                        break;
-                    case REPEAT:
-                        // TODO: room description required
-                        appendInConsole(map.getCurrentRoom().toString());
-                        break;
-                    case USE:
-                        break;
-                    }
-                    // TODO: create basic exception from which other exceptions will
-                    // extend
-                } catch (Exception e) {
-                    appendInConsole(e.getMessage());
-                } finally {
-                    updateView();
-                }
+	public class GameLoop extends Thread {
+		@Override
+		public void run() {
+			while (true) {
+				try {
+					Command command = commandParser.parse(inputs.take());
+					switch (command.getAction()) {
+					case ANSWER:
+						break;
+					case GO:
+						Direction direction = commandParser.parseDirection(command.getRest());
+						map.go(direction, player);
+						updateView();
+						map.getCurrentRoom().executeEvent(player);
+						break;
+					case HELP:
+						appendInConsole(commandParser.getHelpString());
+						break;
+					case PICK:
+						break;
+					case REPEAT:
+						// TODO: room description required
+						appendInConsole(map.getCurrentRoom().toString());
+						break;
+					case USE:
+						break;
+					}
+					// TODO: create basic exception from which other exceptions
+					// will
+					// extend
+				} catch (Exception e) {
+					appendInConsole(e.getMessage());
+				} finally {
+					updateView();
+				}
 
-                // Some proccessing to be done here
-                // String output = "Response in console for input: " + input; // or
-                // here,
-                // it's mock
-                // BTW
-            }
-        }
-    }
+				// Some proccessing to be done here
+				// String output = "Response in console for input: " + input; //
+				// or
+				// here,
+				// it's mock
+				// BTW
+			}
+		}
+	}
 }

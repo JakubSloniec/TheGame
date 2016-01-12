@@ -10,6 +10,7 @@ public class FightAnswer extends Answer {
 
     private Attribute attribute = null;
     private int modifier = 0;
+    private String response;
 
     public FightAnswer(String text, int points){
         super(text,points);
@@ -31,5 +32,13 @@ public class FightAnswer extends Answer {
     @Override
     public int getPoints() {
         return Integer.max(super.getPoints()+modifier,0);
+    }
+
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
     }
 }
