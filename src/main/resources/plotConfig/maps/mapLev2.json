@@ -155,7 +155,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "wykladFIZYKA"
     },
     {
       "x": 5,
@@ -167,7 +167,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "quizLev1"
     },
     {
       "x": 5,
@@ -179,7 +179,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "juwenalia1"
     },
     {
       "x": 5,
@@ -191,7 +191,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "juwenalia2"
     },
     {
       "x": 6,
@@ -215,7 +215,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "juwenalia3"
     },
     {
       "x": 7,
@@ -239,7 +239,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "quizLev3"
     },
     {
       "x": 6,
@@ -275,7 +275,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "quizLev2"
     },
     {
       "x": 6,
@@ -299,7 +299,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "zaspanie"
     },
     {
       "x": 4,
@@ -323,7 +323,7 @@
           }
         ]
       },
-      "event": "emptyEvent"
+      "event": "piwko1"
     },
     {
       "x": 4,
