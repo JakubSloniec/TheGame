@@ -31,6 +31,13 @@ public class InputPanel extends JPanel {
 		add(textFieldInput, BorderLayout.CENTER);
 	}
 
+	public void disableInput() {
+		this.btnEnter.setEnabled(false);
+		this.textFieldInput.setEnabled(false);
+		this.textFieldInput.setEditable(false);
+
+	}
+
 	public String getInput() {
 		return textFieldInput.getText();
 	}

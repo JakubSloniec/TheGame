@@ -57,9 +57,9 @@ public class Quiz extends EventWithDescription {
                 int points = userAnswers.stream().mapToInt(Answer::getPoints).sum();
 
                 if (allUserAnswersCorrect && points > 0) {
-                    onCorrectAnswer();
+                    onCorrectAnswer(userAnswers);
                 } else {
-                    onIncorrectAnswer();
+                    onIncorrectAnswer(userAnswers);
                 }
                 return points;
             } else {
@@ -68,11 +68,11 @@ public class Quiz extends EventWithDescription {
         }
     }
 
-    protected void onIncorrectAnswer() {
+    protected void onIncorrectAnswer(List<Answer> userAnswers) {
         getGameConsole().println("Wrong!");
     }
 
-    protected void onCorrectAnswer() {
+    protected void onCorrectAnswer(List<Answer> userAnswers) {
         getGameConsole().println("Correct!");
     }
 

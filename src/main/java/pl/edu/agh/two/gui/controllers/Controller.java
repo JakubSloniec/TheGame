@@ -50,6 +50,7 @@ public class Controller {
 		displayStats(player.getStatistics());
 		displayBag(player.getBackpack());
 		displatIntro();
+		focusInputField();
 		new GameLoop().start();
 	}
 
@@ -143,6 +144,14 @@ public class Controller {
 		appendInConsole(" \\  / / / / / / /   | | /| / // //  |/ / / ");
 		appendInConsole(" / / /_/ / /_/ /    | |/ |/ // // /|  /_/  ");
 		appendInConsole("/_/\\____/\\____/     |__/|__/___/_/ |_(_)   ");
+	}
+
+	public void disableInputFields() {
+		rootFrame.getInputPanel().disableInput();
+	}
+
+	public void focusInputField() {
+		rootFrame.getInputPanel().getTextFieldInput().requestFocus();
 	}
 
 	public void displayStats(Set<IPlayerStatistic> statistics) {
