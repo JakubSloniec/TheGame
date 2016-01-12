@@ -123,6 +123,12 @@ public class Controller {
                     return "";
                 }
             }
+
+            @Override
+            public void endGame() {
+                appendInConsole("Game end");
+            }
+
         };
     }
 
